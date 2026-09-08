@@ -1,0 +1,11 @@
+stage.output_dir: data/privilege
+stage.splits:
+  train:
+    count: 256
+    game_list: data/game_lists/alfworld_train_256.txt
+  valid_seen:
+    count: 128
+    game_list: data/game_lists/alfworld_valid_seen_128.txt
+  valid_unseen:
+    count: 128
+    game_list: data/game_lists/alfworld_valid_unseen_128.txt

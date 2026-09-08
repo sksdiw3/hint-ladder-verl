@@ -1,0 +1,9 @@
+# Reward and GRPO are deferred by the 2026-09-07 scope decision.
+# Supply an explicit external argv using {request}, {response}, {output}.
+stage.output_dir: runs/hinter_update
+stage.round: 0
+stage.hinter_checkpoint: models/hinter
+stage.student_checkpoint: models/student
+stage.privilege_banks:
+- data/privilege/alfworld_train.jsonl
+stage.command: null

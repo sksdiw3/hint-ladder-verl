@@ -1,0 +1,11 @@
+extends:
+- ../hint_gen.yaml
+stage.output_dir: data/smoke/glm53flash_hint_bank
+stage.privilege_banks:
+- data/smoke/privilege/alfworld_train.jsonl
+- data/smoke/privilege/alfworld_valid_seen.jsonl
+- data/smoke/privilege/alfworld_valid_unseen.jsonl
+stage.game_lists:
+- data/smoke/train_games.txt
+- data/smoke/valid_seen_games.txt
+- data/smoke/valid_unseen_games.txt

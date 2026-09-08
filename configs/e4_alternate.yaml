@@ -1,0 +1,18 @@
+stage.e2_evidence: runs/e2_sweep_seed0/phenomenon.json
+stage.student_config: configs/arms/e2_L2.yaml
+stage.hint_config: configs/hint_gen.yaml
+stage.hinter_config: configs/e4_hinter_grpo.yaml
+stage.student_checkpoint: models/student
+stage.hinter_checkpoint: models/hinter
+stage.hinter_policy:
+  base_url: http://127.0.0.1:18086/v1
+  model: hintladder-hinter
+  launch: true
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.6
+  max_model_len: 8192
+  startup_timeout: 300
+  timeout: 120
+stage.rounds: 3
+stage.student_steps: 100
+stage.acceptance_tolerance: 0.0

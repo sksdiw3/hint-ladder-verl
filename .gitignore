@@ -1,0 +1,53 @@
+# Credentials and machine configuration
+.secrets/
+secrets/
+.codex/
+auth.json
+.env
+.env.*
+*.pem
+*.key
+configs/local/
+
+# Python, environments and build outputs
+__pycache__/
+*.py[cod]
+*.so
+.venv*/
+venv/
+.runtime*/
+.pytest_cache/
+.cache/
+.coverage*
+htmlcov/
+build/
+dist/
+*.egg-info/
+.idea/
+.vscode/
+.DS_Store
+
+# Models and run artifacts
+/models/
+/checkpoints/
+/runs/
+/outputs/
+/logs/
+/wandb/
+*.log
+*.out
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.parquet
+*.tar.gz
+*.zip
+
+# Only fixed natural-key panels are versioned under root data/.
+/data/*
+!/data/game_lists/
+!/data/smoke/
+/data/smoke/*
+!/data/smoke/*_games.txt
+!/data/smoke/*_source.txt

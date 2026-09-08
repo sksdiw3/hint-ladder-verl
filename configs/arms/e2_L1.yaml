@@ -1,0 +1,5 @@
+extends:
+- ../base_alfworld_qwen3_4b.yaml
+- ../presets/sd_only.yaml
+algorithm.hint_ladder.level: L1
+actor_rollout_ref.actor.use_sdl_loss: true

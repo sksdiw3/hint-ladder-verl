@@ -1,0 +1,14 @@
+stage.output_dir: data/smoke/privilege
+stage.splits:
+  train:
+    count: 4
+    source_list: data/smoke/train_source.txt
+    game_list: data/smoke/train_games.txt
+  valid_seen:
+    count: 2
+    source_list: data/smoke/valid_seen_source.txt
+    game_list: data/smoke/valid_seen_games.txt
+  valid_unseen:
+    count: 2
+    source_list: data/smoke/valid_unseen_source.txt
+    game_list: data/smoke/valid_unseen_games.txt

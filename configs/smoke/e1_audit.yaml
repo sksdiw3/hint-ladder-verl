@@ -1,0 +1,23 @@
+extends:
+- ../base_alfworld_qwen3_4b.yaml
+actor_rollout_ref.model.path: /models/Qwen3-4B
+algorithm.hint_ladder.bank_dir: data/smoke/glm53flash_hint_bank_v2
+stage.games: data/smoke/probe_games.txt
+stage.privilege_banks:
+- data/smoke/privilege/alfworld_train.jsonl
+stage.reference_banks:
+- data/smoke/privilege/alfworld_train_walkthrough_states.jsonl
+stage.levels: [L0, L1, L2, L3]
+stage.k: 1
+stage.smoke: true
+stage.output_dir: runs/smoke/e1_audit_seed0
+env.max_steps: 3
+stage.policy:
+  base_url: http://127.0.0.1:18086/v1
+  model: hintladder-policy
+  launch: true
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.3
+  max_model_len: 8192
+  startup_timeout: 300
+  timeout: 120

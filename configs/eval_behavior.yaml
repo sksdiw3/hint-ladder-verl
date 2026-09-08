@@ -1,0 +1,5 @@
+stage.validation_dir: runs/e2_L3_seed0/validation
+stage.output_dir: runs/e2_L3_seed0/behavior
+stage.privilege_banks:
+- data/privilege/alfworld_valid_seen.jsonl
+- data/privilege/alfworld_valid_unseen.jsonl

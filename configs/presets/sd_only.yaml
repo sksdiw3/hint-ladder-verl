@@ -1,0 +1,2 @@
+actor_rollout_ref.actor.pg_loss_coef: 0.0
+actor_rollout_ref.actor.sdl_loss_coef: 1.0

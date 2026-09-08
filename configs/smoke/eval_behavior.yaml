@@ -1,0 +1,5 @@
+stage.validation_dir: runs/train_seed0/validation
+stage.output_dir: runs/train_seed0/behavior
+stage.privilege_banks:
+- data/smoke/privilege/alfworld_valid_seen.jsonl
+- data/smoke/privilege/alfworld_valid_unseen.jsonl

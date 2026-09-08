@@ -1,0 +1,20 @@
+extends:
+- base_alfworld_qwen3_4b.yaml
+stage.games: data/game_lists/alfworld_train_256.txt
+stage.privilege_banks:
+- data/privilege/alfworld_train.jsonl
+stage.levels:
+- L0
+- L1
+- L2
+- L3
+stage.k: 8
+stage.policy:
+  base_url: http://127.0.0.1:18086/v1
+  model: hintladder-policy
+  launch: true
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.6
+  max_model_len: 8192
+  startup_timeout: 300
+  timeout: 120

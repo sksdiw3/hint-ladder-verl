@@ -1,0 +1,10 @@
+extends:
+- ../base_alfworld_qwen3_4b.yaml
+- ../presets/sd_only.yaml
+algorithm.hint_ladder.level_map_path: runs/e3_probe_seed0/random_level_map.json
+stage.train_games: runs/e3_probe_seed0/train_games.txt
+stage.probe_config: configs/e3_probe.yaml
+stage.map_name: random_level_map.json
+stage.matched_hstar_run: runs/e3_hstar_seed{seed}
+stage.refresh_every: 100
+stage.curriculum_rounds: 3

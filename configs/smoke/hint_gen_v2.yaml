@@ -1,0 +1,22 @@
+extends:
+- ../hint_gen.yaml
+stage.output_dir: data/smoke/glm53flash_hint_bank_v2
+stage.privilege_banks:
+- data/smoke/privilege/alfworld_train.jsonl
+- data/smoke/privilege/alfworld_valid_seen.jsonl
+- data/smoke/privilege/alfworld_valid_unseen.jsonl
+stage.game_lists:
+- data/smoke/train_games.txt
+- data/smoke/valid_seen_games.txt
+- data/smoke/valid_unseen_games.txt
+stage.generator:
+  base_url: https://your-glm-gateway.example/v1
+  model: glm-5.3-flash
+  api_key_file: .secrets/glm_hint_key
+  reasoning_effort: low
+  temperature: 0.7
+  max_tokens: 4096
+  attempts: 3
+  concurrency: 2
+  prompt_version: v2_blind_procedure
+  timeout: 180

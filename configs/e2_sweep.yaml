@@ -1,0 +1,8 @@
+stage.sweep: true
+stage.arm_dir: configs/arms
+stage.e1_summary: runs/e1_audit_seed0/summary.json
+stage.seeds:
+- 0
+- 1
+- 2
+stage.max_budget_steps: 1000
