@@ -16,14 +16,16 @@ def launch_native(stage, config, config_path, output, inputs):
     config["algorithm.hint_ladder.stage_config_path"] = str(resolved)
     write_json(resolved, config)
     manifest(output, stage, config_path, config, inputs)
-    argv = [sys.executable, "-m", "verl.trainer.main_hint_ladder", *hydra_overrides(config)]
+    # The CLI's -u flag is not inherited by a fresh interpreter. Flush the
+    # native driver's Ray log relay even when stdout is redirected to a file.
+    argv = [sys.executable, "-u", "-m", "verl.trainer.main_hint_ladder", *hydra_overrides(config)]
     (output / "launch_command.txt").write_text(shlex.join(argv) + "\n")
     subprocess.run(argv, cwd=ROOT, check=True)
     return output
 
 
 def launch_stage(stage, path, *, seed, checkpoint=None):
-    argv = [sys.executable, "-m", "hintladder.cli", stage, "--config", str(path), "--seed", str(seed)]
+    argv = [sys.executable, "-u", "-m", "hintladder.cli", stage, "--config", str(path), "--seed", str(seed)]
     if checkpoint is not None:
         argv += ["--checkpoint", str(checkpoint)]
     subprocess.run(argv, cwd=ROOT, check=True)

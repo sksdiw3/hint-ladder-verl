@@ -4,13 +4,24 @@
 
 这是 `sksdiw3/hint-ladder-verl` 的独立源码仓库。包含 Hint Ladder E1–E4 编排、所需原生 verl 代码和 agent 环境代码。当前 Hint Ladder 实现和验证范围是 **ALFWorld / Qwen3-4B**。保留了上游 WebShop 环境源码，但尚未实现或验证 WebShop 的 Hint Ladder privilege bank 与实验适配。
 
+## 当前实验与审查入口
+
+**[Claude / 人工审查指南](docs/hintladder/review_guide.md)** 汇总了研究契约、代码入口、运行证据和待核查问题。
+
+- [1,500 题 L3 实验：完整参数、运行方法与结果边界](docs/hintladder/experiments/l3_train1500_20260908/README.md)：Qwen3-4B、8 张 A100、250 次更新、纯 SDL。2026-09-08 23:59 +08:00 的归档快照记录到第 15 次更新；不是已完成训练或能力提升的声明。
+- [六类任务的 12 条真实 L3 hint](docs/hintladder/experiments/l3_train1500_20260908/hint_examples.md)，以及 [GLM 实际输入消息与生成结果](docs/hintladder/experiments/l3_train1500_20260908/hint_examples.jsonl)。样例来自完整训练 bank，按固定规则选取，没有按效果筛选。
+- [近期 Qwen3-4B / ALFWorld 论文对照](docs/hintladder/literature_qwen3_4b.md)：ATOD、D2Skill、SAPO、MASA、T²PO、From History to State；区分原始模型、SFT/RFT、RL 与推理时 skill 增强。
+- [实验配置](configs/experiments/l3_train1500/train.yaml) 与 [实际运行解析配置快照](docs/hintladder/experiments/l3_train1500_20260908/actual_config.json)。公开生成配置使用占位 API 地址，运行前需要自行配置。
+
+本次基座在固定 seen/unseen 各 128 题、每题 4 次采样下，成功率为 **7.62% / 2.93%**。这是 30 步、action-only、历史长度 2 的特定设置；与论文的交互预算、模型版本、提示词和任务集尚未对齐。训练损失下降不等于验证能力提升。
+
 ## 当前范围
 
 | 阶段 | 实现内容 | 验证边界 |
 | --- | --- | --- |
-| 数据与 hint | 官方 walkthrough 回放、固定 game lists、L1/L2/L3/FULLPATH 离线 bank、泄露检查 | 原工作区做过真实 ALFWorld 回放与 GLM hint 生成 |
+| 数据与 hint | 官方 walkthrough 回放、固定 game lists、L1/L2/L3/FULLPATH 离线 bank、泄露检查 | 本次 1,500 个训练游戏 walkthrough 与 L3 程序检查通过；程序检查不保证所有提示语义正确 |
 | E1 | 冻结模型 rollout、行为审计、参考动作的 clean/hinted/hint-only 三视图评分 | 原工作区完成单任务 GPU smoke；没有完成正式统计实验 |
-| E2 | 各 hint 等级与 seed 的 Student 训练编排、SDL token 预算、恢复训练 | 原生 GPU 单步更新和恢复已验证；完整 E2 sweep 未运行 |
+| E2 | 各 hint 等级与 seed 的 Student 训练编排、SDL token 预算、恢复训练 | 8 卡 L3 单臂真实更新已有记录；完整 250 步结果与多臂、多 seed sweep 尚未在本快照完成 |
 | E3 | h-star 探针、匹配游戏池的 h-star/random 课程、周期刷新 | CPU 合同与编排测试；完整 GPU 实验未运行 |
 | E4 | 离线 bank → Student 更新 → seen/unseen 验收 → 回滚或外部 Hinter 更新 | CPU 编排测试；**Hinter reward 与 Hinter GRPO 暂未实现** |
 
@@ -39,7 +50,7 @@ python -m hintladder.cli --help
 python -m pytest tests/hintladder -q
 ```
 
-准备 ALFWorld 数据，令 `ALFWORLD_DATA` 指向包含 `json_2.1.1/` 与 `logic/` 的目录。每个游戏需要 `game.tw-pddl` 和 `traj_data.json`。数据、模型、生成的 hint bank、checkpoint 和运行日志均需在本地准备，不随源码上传。
+准备 ALFWorld 数据，令 `ALFWORLD_DATA` 指向包含 `json_2.1.1/` 与 `logic/` 的目录。每个游戏需要 `game.tw-pddl` 和 `traj_data.json`。完整数据、模型、hint bank、checkpoint 和运行日志均需在本地准备；仓库只包含明确标记的 hint 样例和指标快照。
 
 生成 hint 前，在 `configs/smoke/hint_gen_v2.yaml` 中配置自己的 OpenAI-compatible `/v1` 服务地址和 `api_key_file` 路径。`glm-5.3-flash` 是此前实际使用的模型 ID；`.secrets/` 中的凭据文件仅供本地使用。
 

@@ -1,0 +1,33 @@
+{
+  "snapshot_at": "2026-09-08T23:59:37.032319+08:00",
+  "source_commit_before_publication": "e396c6a",
+  "train_games": 1500,
+  "task_type_counts": {
+    "pick_clean_then_place_in_recep": 265,
+    "pick_and_place_simple": 341,
+    "pick_two_obj_and_place": 359,
+    "pick_heat_then_place_in_recep": 191,
+    "pick_cool_then_place_in_recep": 225,
+    "look_at_obj_in_light": 119
+  },
+  "valid_L3_hints": 1500,
+  "sample_count": 12,
+  "sample_selection": "first two games per task_type in fixed training-panel order; no outcome filtering",
+  "full_hint_bank_sha256": "e4f61818178ec09dd415766d5af84af7218c73d9faeaf989591afa4526a20728",
+  "train_panel_sha256": "67796cab8be178cd31cbf6d5ebe588591534ac060f1e54e9a1a1fa95e803e7d0",
+  "completed_updates": 15,
+  "training_complete": false,
+  "post_training_validation_steps": [],
+  "wandb_project": "alfworld-l3-train1500-20260908",
+  "wandb_url": "https://wandb.ai/2606478269-ustc/alfworld-l3-train1500-20260908/runs/l3-train1500-seed0-20260908",
+  "generator_settings": {
+    "model": "glm-5.3-flash",
+    "temperature": 0.7,
+    "max_tokens": 4096,
+    "attempts": 3,
+    "concurrency": 8,
+    "prompt_version": "v1",
+    "reasoning_effort": "low",
+    "timeout": 180
+  }
+}

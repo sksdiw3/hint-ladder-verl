@@ -1,4 +1,4 @@
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import time
 from urllib.error import HTTPError, URLError
@@ -85,9 +85,40 @@ def run(config, config_path, seed, checkpoint, inputs):
                     raise ValueError("invalid existing hint bank natural keys")
                 if row["validation"]["ok"]:
                     existing[row["gamefile"]] = row
-        with ThreadPoolExecutor(max_workers=int(generator["concurrency"])) as pool:
-            rows = list(pool.map(lambda pair: existing[pair[1]["gamefile"]] if pair[1]["gamefile"] in existing else
-                                 generate_row(pair[1], level, generator, client, seed + pair[0] * generator["attempts"]), enumerate(selected)))
+        completed = {game: row for game, row in existing.items() if game in set(games)}
+        started = time.monotonic()
+        resumed = len(completed)
+
+        def checkpoint_progress():
+            rows = [completed[game] for game in games if game in completed]
+            write_bank(existing_path, rows)
+            elapsed = time.monotonic() - started
+            generated = len(rows) - resumed
+            rate = generated / elapsed if elapsed > 0 else 0
+            write_json(out / "progress.json", {
+                "level": level, "total": len(games), "completed": len(rows),
+                "valid": sum(row["validation"]["ok"] for row in rows),
+                "resumed": resumed, "elapsed_seconds": elapsed,
+                "rows_per_minute": rate * 60,
+                "estimated_remaining_seconds": (len(games) - len(rows)) / rate if rate else None,
+            })
+
+        checkpoint_progress()
+        try:
+            with ThreadPoolExecutor(max_workers=int(generator["concurrency"])) as pool:
+                futures = {pool.submit(generate_row, row, level, generator, client,
+                                       seed + index * generator["attempts"]): row["gamefile"]
+                           for index, row in enumerate(selected) if row["gamefile"] not in completed}
+                for future in as_completed(futures):
+                    completed[futures[future]] = future.result()
+                    if (len(completed) - resumed) % 8 == 0 or len(completed) == len(games):
+                        checkpoint_progress()
+                        print(f"{level}: completed {len(completed)}/{len(games)}", flush=True)
+        finally:
+            # Preserve complete results even if another request fails. Resuming
+            # reuses validated rows with their original task-index-based seeds.
+            checkpoint_progress()
+        rows = [completed[game] for game in games]
         write_bank(out / f"{level}.jsonl", rows)
         print(f"{level}: generated {len(rows)} hints; {sum(not row['validation']['ok'] for row in rows)} failures", flush=True)
         failures.extend({"gamefile": row["gamefile"], "level": level, "errors": row["validation"]["errors"]}

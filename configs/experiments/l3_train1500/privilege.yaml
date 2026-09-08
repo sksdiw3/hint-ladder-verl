@@ -1,0 +1,7 @@
+stage.output_dir: data/privilege/train1500_seed0
+stage.splits:
+  train:
+    count: 1500
+    source_list: data/game_lists/alfworld_train_1500_seed0.txt
+    game_list: data/game_lists/alfworld_train_1500_seed0.txt
+stage.workers: 16

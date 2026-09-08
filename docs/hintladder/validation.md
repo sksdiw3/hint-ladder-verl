@@ -2,6 +2,12 @@
 
 本文件区分原工作区的 GPU smoke 与此次独立源码导出的验证。短 smoke 只证明相应执行链路，不用于宣称能力提升或正式 E1–E4 实验完成。
 
+## 1,500 题 L3 运行与本次发布
+
+2026-09-08 新增 [8 卡 L3 单臂实验快照](experiments/l3_train1500_20260908/README.md)。1,500 条训练 hint 的生成/程序检查已完成；正式运行从原始 Qwen3-4B 开始，快照记录到 step 15。step 0 是基座验证，seen/unseen 为 7.62% / 2.93%；完整训练与训练后能力改善尚未在该快照验证。
+
+本次还同步了 CPU 并行 walkthrough 回放、hint 生成进度保存/恢复和 native 子进程无缓冲输出。运行 `python -m pytest tests/hintladder -q`：**65 passed**，包括新增的真实 spawned-process 顺序检查与注入失败后的生成恢复检查。详细参数、提示词输入和原始指标摘录可从 [审查指南](review_guide.md) 进入。
+
 ## 原工作区验证（2026-09-08）
 
 - ALFWorld 官方 walkthrough CPU 回放：固定 train 256、seen 128、unseen 128 个游戏均通过；路径列表随源码保留。

@@ -1,0 +1,19 @@
+# Set your own OpenAI-compatible endpoint before generation.
+stage.output_dir: data/hint_bank/glm53flash_L3_train1500_seed0
+stage.privilege_banks:
+- data/privilege/train1500_seed0/alfworld_train.jsonl
+stage.game_lists:
+- data/game_lists/alfworld_train_1500_seed0.txt
+stage.levels:
+- L3
+stage.generator:
+  base_url: https://example.invalid/v1
+  api_key_file: .secrets/glm_hint_key
+  model: glm-5.3-flash
+  temperature: 0.7
+  max_tokens: 4096
+  attempts: 3
+  concurrency: 8
+  prompt_version: v1
+  timeout: 180
+  reasoning_effort: low
