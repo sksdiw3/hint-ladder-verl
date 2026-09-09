@@ -1,0 +1,62 @@
+{
+  "trainer.rollout_data_dir": {
+    "old": "/workspace/hintladder/runs/l3_train1500_20260908/train/rollouts",
+    "new": "/workspace/hintladder/runs/l3_train1500_20260908/resume100_20260909_1041/train/rollouts"
+  },
+  "data.val_files": {
+    "old": "runs/l3_train1500_20260908/processed/train_seed0/validation.parquet",
+    "new": "runs/l3_train1500_20260908/resume100_20260909_1041/processed/train_resume100_20260909_1041_seed0/validation.parquet"
+  },
+  "ray_init.runtime_env.env_vars.WANDB_RUN_ID": {
+    "old": "l3-train1500-seed0-20260908",
+    "new": "l3-train1500-resume100-20260909-1041"
+  },
+  "algorithm.hint_ladder.stage_config_path": {
+    "old": "/workspace/hintladder/runs/l3_train1500_20260908/train/resolved_config.json",
+    "new": "/workspace/hintladder/runs/l3_train1500_20260908/resume100_20260909_1041/train/resolved_config.json"
+  },
+  "stage.processed_dir": {
+    "old": "runs/l3_train1500_20260908/processed",
+    "new": "runs/l3_train1500_20260908/resume100_20260909_1041/processed"
+  },
+  "ray_init.runtime_env.env_vars.WANDB_DIR": {
+    "old": "/workspace/hintladder/runs/l3_train1500_20260908/wandb",
+    "new": "/workspace/hintladder/runs/l3_train1500_20260908/resume100_20260909_1041/wandb"
+  },
+  "trainer.experiment_name": {
+    "old": "train_seed0",
+    "new": "train_resume100_20260909_1041_seed0"
+  },
+  "trainer.validation_data_dir": {
+    "old": "/workspace/hintladder/runs/l3_train1500_20260908/train/validation",
+    "new": "/workspace/hintladder/runs/l3_train1500_20260908/resume100_20260909_1041/train/validation"
+  },
+  "stage.output_dir": {
+    "old": "runs/l3_train1500_20260908/train",
+    "new": "runs/l3_train1500_20260908/resume100_20260909_1041/train"
+  },
+  "trainer.resume_from_path": {
+    "old": null,
+    "new": "/workspace/hintladder/runs/l3_train1500_20260908/train/global_step_100"
+  },
+  "trainer.default_local_dir": {
+    "old": "/workspace/hintladder/runs/l3_train1500_20260908/train",
+    "new": "/workspace/hintladder/runs/l3_train1500_20260908/resume100_20260909_1041/train"
+  },
+  "trainer.resume_mode": {
+    "old": "disable",
+    "new": "resume_path"
+  },
+  "ray_init._temp_dir": {
+    "old": "/tmp/ray_l3train1500",
+    "new": "/tmp/ray_l3_resume100_20260909_1041"
+  },
+  "trainer.val_before_train": {
+    "old": true,
+    "new": false
+  },
+  "data.train_files": {
+    "old": "runs/l3_train1500_20260908/processed/train_seed0/train.parquet",
+    "new": "runs/l3_train1500_20260908/resume100_20260909_1041/processed/train_resume100_20260909_1041_seed0/train.parquet"
+  }
+}

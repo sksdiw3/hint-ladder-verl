@@ -5,8 +5,8 @@
 ## 建议阅读顺序
 
 1. [研究与实施契约](../../HINT_LADDER.md) 和 [原始设计](design.md)：E1–E4 范围；Hinter reward/GRPO 尚未实现。
-2. [当前 1,500 题 L3 实验](experiments/l3_train1500_20260908/README.md)：方法、超参数、启动命令、数据与证据边界。
-3. [实际解析配置](experiments/l3_train1500_20260908/actual_config.json)、[指标快照](experiments/l3_train1500_20260908/metrics_snapshot.jsonl)、[来源与时间](experiments/l3_train1500_20260908/snapshot.json)。这些是固定快照，不是实时监控。
+2. [2026-09-09 结果报告](experiments/l3_train1500_20260908/report_20260909/REPORT.md)：全部验证结果、两次运行与退出原因；恢复分支完成151步，checkpoint150验证退步。方法、超参数和启动命令另见[初始实验说明](experiments/l3_train1500_20260908/README.md)。
+3. [四组同题中英文轨迹](experiments/l3_train1500_20260908/report_20260909/trajectories_zh_en.md)、[完整指标与控制台日志](experiments/l3_train1500_20260908/report_20260909/logs)、[验证重算](experiments/l3_train1500_20260908/report_20260909/validation_summary.jsonl)、[实际解析配置](experiments/l3_train1500_20260908/actual_config.json)。旧的[step15指标](experiments/l3_train1500_20260908/metrics_snapshot.jsonl)和[初始时间快照](experiments/l3_train1500_20260908/snapshot.json)仅是历史记录。
 4. [12 条真实任务与 hint](experiments/l3_train1500_20260908/hint_examples.md)，以及包含完整 GLM 输入消息的 [JSONL](experiments/l3_train1500_20260908/hint_examples.jsonl)。
 5. [近期论文对照](literature_qwen3_4b.md)：原始、SFT/RFT、RL、推理时 skill 的结果应分别比较。
 
@@ -36,4 +36,4 @@
 
 ## 可直接交给审查者的任务
 
-> 请对本仓库做静态代码与研究协议审查。先阅读本指南及其链接，以 actual_config.json 和带时间戳的 metrics_snapshot.jsonl 区分设计与实际证据。请检查 Teacher/Student 信息边界、token 对齐、SDL 损失和多 GPU 聚合、hint 事实准确性、验证指标以及与论文的可比性。逐条给出严重度、文件/行号、证据、影响和建议；把确认的 bug、合理风险和需要额外实验的问题分开。不要启动 GPU 训练、调用 hint API、修改正在运行的实验或读取凭据。没有完成完整训练的快照不能作为方法已有效的证据。
+> 请对本仓库做静态代码与研究协议审查。先阅读本指南、2026-09-09结果报告、actual_config.json和分运行的完整指标；不要把旧step15快照当作当前结果，也不要混合原运行与恢复运行重叠的101–116步。请检查 Teacher/Student 信息边界、token 对齐、SDL 损失和多 GPU 聚合、hint 事实准确性、验证指标以及与论文的可比性。结合总体退步与中英文同题轨迹，区分已观察行为和因果假设；核查152步 thinking 标签检查为什么直接终止训练。逐条给出严重度、文件/行号、证据、影响和建议；把确认的 bug、合理风险和需要额外实验的问题分开。不要启动 GPU 训练、调用 hint API、修改实验或读取凭据。

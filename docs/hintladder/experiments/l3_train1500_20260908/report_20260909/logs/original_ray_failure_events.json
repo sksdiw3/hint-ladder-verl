@@ -1,0 +1,22 @@
+[
+  {
+    "source": "runs/l3_train1500_20260908/runtime_tmp/ray_l3train1500/session_2026-09-08_22-54-11_381787_105/logs/raylet.out",
+    "source_line": 193876,
+    "text": "[2026-09-09 07:11:09,639 I 351 351] (raylet) node_manager.cc:1413: Disconnecting worker, graceful=false, disconnect_type=0, has_creation_task_exception=false worker_id=ac9c5406e55317b800526317089bfc02196d7835572a6c7e39b144ef job_id=01000000"
+  },
+  {
+    "source": "runs/l3_train1500_20260908/runtime_tmp/ray_l3train1500/session_2026-09-08_22-54-11_381787_105/logs/gcs_server.out",
+    "source_line": 125843,
+    "text": "[2026-09-09 07:11:09,639 W 111 111] (gcs_server) gcs_worker_manager.cc:58: Reporting worker exit, worker id = ac9c5406e55317b800526317089bfc02196d7835572a6c7e39b144ef, node id = dd884aafbdc51ed1ea4ae764d17718a41a71c3dad034939d14683cf3, address = 172.31.48.5, exit_type = SYSTEM_ERROR, exit_detail = Worker unexpectedly exits with a connection error code 2. End of file. Some common causes include: (1) the process was killed by the OOM killer due to high memory usage, (2) ray stop --force was called, or (3) the worker crashed unexpectedly due to SIGSEGV or another unexpected error.. Unintentional worker failures have been reported. If there are lots of this logs, that might indicate there are unexpected failures in the cluster."
+  },
+  {
+    "source": "runs/l3_train1500_20260908/runtime_tmp/ray_l3train1500/session_2026-09-08_22-54-11_381787_105/logs/gcs_server.out",
+    "source_line": 125844,
+    "text": "[2026-09-09 07:11:09,640 W 111 111] (gcs_server) gcs_actor_manager.cc:1213: Worker ac9c5406e55317b800526317089bfc02196d7835572a6c7e39b144ef on node dd884aafbdc51ed1ea4ae764d17718a41a71c3dad034939d14683cf3 exits, type=SYSTEM_ERROR, has creation_task_exception = 0 worker_id=ac9c5406e55317b800526317089bfc02196d7835572a6c7e39b144ef"
+  },
+  {
+    "source": "runs/l3_train1500_20260908/runtime_tmp/ray_l3train1500/session_2026-09-08_22-54-11_381787_105/logs/gcs_server.out",
+    "source_line": 125845,
+    "text": "[2026-09-09 07:11:09,640 I 111 111] (gcs_server) gcs_actor_manager.cc:1493: Actor is failed on worker ac9c5406e55317b800526317089bfc02196d7835572a6c7e39b144ef at node dd884aafbdc51ed1ea4ae764d17718a41a71c3dad034939d14683cf3, need_reschedule = 1, death context type = ActorDiedErrorContext, remaining_restarts = 0, num_restarts = 0, num_restarts_due_to_node_preemption = 0, preempted = 0 job_id=01000000 actor_id=4b3ff875bd10d9bb19a162d101000000"
+  }
+]

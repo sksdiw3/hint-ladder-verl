@@ -1,0 +1,7 @@
+{
+  "phase": "failed",
+  "updated_at": "2026-09-09T06:15:31.678533+00:00",
+  "supervisor_pid": 29315,
+  "returncode": 1,
+  "last_completed_step": 151
+}

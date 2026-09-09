@@ -1,0 +1,232 @@
+{
+  "schema": "hintladder_experiment_archive_v1",
+  "generated_at_utc": "2026-09-09T06:59:21.787043+00:00",
+  "source_code_head_at_export": "8ae3bc5899cd2a6276bf6d50358c7d295472ed0d",
+  "attempts": {
+    "original": {
+      "completed_steps": [
+        1,
+        116
+      ]
+    },
+    "resume100": {
+      "restored_step": 100,
+      "completed_steps": [
+        101,
+        151
+      ]
+    }
+  },
+  "raw_validation_files_checked": 14,
+  "validation_episodes_checked": 7168,
+  "exported_pairs": 4,
+  "exported_episodes": 8,
+  "exported_turns": 161,
+  "selection": "Four named task/outcome strata; lexicographic gamefile then traj_uid among matching outcomes; not representative sampling.",
+  "log_exports": [
+    {
+      "source": "runs/l3_train1500_20260908/train/metrics.jsonl",
+      "output": "logs/original_metrics.jsonl",
+      "transformation": "none; exact UTF-8 source",
+      "credential_redactions": 0
+    },
+    {
+      "source": "runs/l3_train1500_20260908/resume100_20260909_1041/train/metrics.jsonl",
+      "output": "logs/resume100_metrics.jsonl",
+      "transformation": "none; exact UTF-8 source",
+      "credential_redactions": 0
+    },
+    {
+      "source": "runs/l3_train1500_20260908/training_live.log",
+      "output": "logs/original_trainer_stdout.log",
+      "transformation": "ANSI stripped; CR replaced by LF; credential patterns redacted",
+      "credential_redactions": 0
+    },
+    {
+      "source": "runs/l3_train1500_20260908/runtime_tmp/ray_l3train1500/session_2026-09-08_22-54-11_381787_105/logs/worker-ac9c5406e55317b800526317089bfc02196d7835572a6c7e39b144ef-01000000-27003.err",
+      "output": "logs/original_first_failed_worker.log",
+      "transformation": "ANSI stripped; CR replaced by LF; credential patterns redacted",
+      "credential_redactions": 0
+    },
+    {
+      "source": "runs/l3_train1500_20260908/resume100_20260909_1041/training.log",
+      "output": "logs/resume100_training.log",
+      "transformation": "ANSI stripped; CR replaced by LF; credential patterns redacted",
+      "credential_redactions": 0
+    },
+    {
+      "source": "runs/l3_train1500_20260908/resume100_20260909_1041/status.json",
+      "output": "logs/resume100_status.json",
+      "transformation": "none; exact UTF-8 source",
+      "credential_redactions": 0
+    },
+    {
+      "source": "runs/l3_train1500_20260908/resume100_20260909_1041/effective_config_diff.json",
+      "output": "logs/resume100_effective_config_diff.json",
+      "transformation": "none; exact UTF-8 source",
+      "credential_redactions": 0
+    },
+    {
+      "source": "runs/l3_train1500_20260908/resume100_20260909_1041/restart_verified.json",
+      "output": "logs/resume100_restart_verified.json",
+      "transformation": "none; exact UTF-8 source",
+      "credential_redactions": 0
+    }
+  ],
+  "sources": {
+    "runs/l3_train1500_20260908/train/metrics.jsonl": {
+      "bytes": 480659,
+      "sha256": "ef8e65742e92674f1433e7f0191757fb094ee95c070d3aab7f56d6dee53153c2"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/train/metrics.jsonl": {
+      "bytes": 210771,
+      "sha256": "e75138fd37ae287b23b23d1b011f36c1c9a79eef030d03d1c8a4670bb0ba197c"
+    },
+    "runs/l3_train1500_20260908/training_live.log": {
+      "bytes": 407742,
+      "sha256": "31c3323fa34a07bafe423323199bbb9f33788cac24031487602b8dabbf0dd6c1"
+    },
+    "runs/l3_train1500_20260908/runtime_tmp/ray_l3train1500/session_2026-09-08_22-54-11_381787_105/logs/worker-ac9c5406e55317b800526317089bfc02196d7835572a6c7e39b144ef-01000000-27003.err": {
+      "bytes": 16168,
+      "sha256": "a24d94da62fd4c9a9cb85aaa56f923a3c3acc65a4beb23e30e4bb71e4a7ab56d"
+    },
+    "runs/l3_train1500_20260908/runtime_tmp/ray_l3train1500/session_2026-09-08_22-54-11_381787_105/logs/raylet.out": {
+      "bytes": 28554442,
+      "sha256": "6d2d62b80173bc629c14fb55b5897e4af4d0cd6f5e9ee115babd047c6a5397e1"
+    },
+    "runs/l3_train1500_20260908/runtime_tmp/ray_l3train1500/session_2026-09-08_22-54-11_381787_105/logs/gcs_server.out": {
+      "bytes": 13741928,
+      "sha256": "ba133a55d69063366e6c32fdaf1c6c04c10871fa81393dd56abac81f2339cbbf"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/training.log": {
+      "bytes": 239233,
+      "sha256": "e4f18b39cdcb45cced2a0fa7cfd1dad3fee833ec17ddc90ee40c7a550a7f4f33"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/status.json": {
+      "bytes": 152,
+      "sha256": "6d7c6f7df3c95e01e945b413cf7e33fcf2f065e71e486b3c248e850001a31621"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/effective_config_diff.json": {
+      "bytes": 2541,
+      "sha256": "f4616c227e0b57f102088c4ee86ab2945cc083cf027bda0fa8a62ffa079bd78e"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/restart_verified.json": {
+      "bytes": 4649,
+      "sha256": "618c50f23507ea22c0f86295164fa85478d8456a160432574aa2619953a60712"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_seen/0.jsonl": {
+      "bytes": 33519996,
+      "sha256": "b39292ac4c203cfc5d4cc60246529df86a8b97bdbe61d1af71a33da1cb72ef20"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_unseen/0.jsonl": {
+      "bytes": 33298159,
+      "sha256": "5e157b18ba486e05a8e40373b84f05789bd8fefe2bc9f2253a4e31133206d76a"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_seen/25.jsonl": {
+      "bytes": 37511960,
+      "sha256": "bd156c60711d552cc7e5650e56edfc2898a2c5ba7d5ea2c2b831f672e9f05655"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_unseen/25.jsonl": {
+      "bytes": 35547431,
+      "sha256": "68bab51c8362d8d68d0c3111a8d5f2fc01d4dc7bc12bd0d24cdfa3915c564bff"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_seen/50.jsonl": {
+      "bytes": 37875666,
+      "sha256": "d853becdda0807d69cf31b8643b95a70b32d6a7ef7f512d413be1d359b80f49b"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_unseen/50.jsonl": {
+      "bytes": 36520502,
+      "sha256": "c287bcff243559dbf205dbb62261b23cdbdad3a62eecf6c26afa5e2357132509"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_seen/75.jsonl": {
+      "bytes": 36915710,
+      "sha256": "536a3372d5a52536df7e4bf676e4c905a4900299b39bfd5e04e6c228dd8275c9"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_unseen/75.jsonl": {
+      "bytes": 36050969,
+      "sha256": "1131b73b8a3edd5ae18341e71fdd0278ded0dd59ccb9fe64cefca65ed556bc68"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_seen/100.jsonl": {
+      "bytes": 36548727,
+      "sha256": "b1347698e9006dedf071f5317a6fd67fb2ed6272bb1e8be8c8472a9b07720ef1"
+    },
+    "runs/l3_train1500_20260908/train/validation/valid_unseen/100.jsonl": {
+      "bytes": 35700152,
+      "sha256": "a67ed271e693551bec4e9db9b1abea499e2b85be3d5265278b5a4b5b234bed6d"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/train/validation/valid_seen/125.jsonl": {
+      "bytes": 36664222,
+      "sha256": "7a7f9a5efc5bce80822294dc27402a97f9cadc074c9db9e615c947f637a9edbb"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/train/validation/valid_unseen/125.jsonl": {
+      "bytes": 35449031,
+      "sha256": "5a1afbda603cfeff00c2c10e39dae119f9a5dc984cd8ca291466f7dc68347279"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/train/validation/valid_seen/150.jsonl": {
+      "bytes": 36654497,
+      "sha256": "946898578df8c72c6278e9579fa2186093b5dd696db68dd08429fbabcfb45633"
+    },
+    "runs/l3_train1500_20260908/resume100_20260909_1041/train/validation/valid_unseen/150.jsonl": {
+      "bytes": 35233144,
+      "sha256": "c811b7a352bd2c7ef1e0d2a0ccdeb2ce3d52db029b3273d4d5330944ea054b05"
+    }
+  },
+  "outputs": {
+    "REPORT.md": {
+      "bytes": 15419,
+      "sha256": "6e3076c15ed26d4e1abf496f720e2dd85352f49d9ff6db837924c6f8f108b51e"
+    },
+    "build_archive.py": {
+      "bytes": 18325,
+      "sha256": "1cf495816354421d6c53eecb43bcd0afcdbdd8ddf96b2cc6fa3dc519f3cecdf9"
+    },
+    "logs/original_first_failed_worker.log": {
+      "bytes": 16168,
+      "sha256": "d1a808d15e54e07464e66ac5d280d7a8a7178cb0a44ce5624ee1fabb1eaeed3c"
+    },
+    "logs/original_metrics.jsonl": {
+      "bytes": 480659,
+      "sha256": "ef8e65742e92674f1433e7f0191757fb094ee95c070d3aab7f56d6dee53153c2"
+    },
+    "logs/original_ray_failure_events.json": {
+      "bytes": 2473,
+      "sha256": "2328f65ab0ce8420f18e39b3480630fe80cb02b11dccf40158bc8abccb0af140"
+    },
+    "logs/original_trainer_stdout.log": {
+      "bytes": 407742,
+      "sha256": "31c3323fa34a07bafe423323199bbb9f33788cac24031487602b8dabbf0dd6c1"
+    },
+    "logs/resume100_effective_config_diff.json": {
+      "bytes": 2541,
+      "sha256": "f4616c227e0b57f102088c4ee86ab2945cc083cf027bda0fa8a62ffa079bd78e"
+    },
+    "logs/resume100_metrics.jsonl": {
+      "bytes": 210771,
+      "sha256": "e75138fd37ae287b23b23d1b011f36c1c9a79eef030d03d1c8a4670bb0ba197c"
+    },
+    "logs/resume100_restart_verified.json": {
+      "bytes": 4649,
+      "sha256": "618c50f23507ea22c0f86295164fa85478d8456a160432574aa2619953a60712"
+    },
+    "logs/resume100_status.json": {
+      "bytes": 152,
+      "sha256": "6d7c6f7df3c95e01e945b413cf7e33fcf2f065e71e486b3c248e850001a31621"
+    },
+    "logs/resume100_training.log": {
+      "bytes": 235353,
+      "sha256": "e5acf2071127e00f2ac94de95c7e16146f1b50374120bdddd12ac1c6e1b79c7b"
+    },
+    "trajectories.jsonl": {
+      "bytes": 385442,
+      "sha256": "2bf8fa9fcc02d6a50f3ddface4e4f502760aa52098a8257dad5e56575a897159"
+    },
+    "trajectories_zh_en.md": {
+      "bytes": 46733,
+      "sha256": "df32b9f227717541945145a458701149115d7200f4f1b2f9ae78776201ae8552"
+    },
+    "validation_summary.jsonl": {
+      "bytes": 377445,
+      "sha256": "0224d2fd60f60e8f598aa7403c7da86485e9d612a0204407d62b75bc574cc35f"
+    }
+  }
+}
