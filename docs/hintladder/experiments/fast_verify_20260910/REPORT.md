@@ -37,4 +37,15 @@
 
 ## 实际结果
 
-启动前状态：CPU与API检查通过，尚无GPU更新结果。后续以这里的完成步数、metrics和退出状态为准；不能用GPU占用或CPU测试代替真实训练完成。
+当前完成 **2/5** 个真实 trainer step；容器状态 `running`，最近 checkpoint 为 step1。
+
+| step | 整步秒 | rollout秒 | hint等待秒 | Teacher前向秒 | 参数更新秒 | 失败状态 | 预取miss |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 506.3 | 248.2 | 0.171 | 52.7 | 141.1 | 0 | 0 |
+| 2 | 462.0 | 225.8 | 0.165 | 51.5 | 139.1 | 0 | 0 |
+
+每步128局。Teacher前向列已经包含hint等待，不能再相加。最后一步还包含完整评测和保存，必须单独扣除后比较训练耗时。
+
+原始 [metrics.jsonl](metrics.jsonl)、[timing.csv](timing.csv)、[状态](status.json)、[启动源码校验](launch_source_manifest.json)。
+
+[W&B run](https://wandb.ai/2606478269-ustc/alfworld-l1-fast-verify-20260910/runs/fast-5step-seed42-20260910)。
