@@ -19,6 +19,13 @@ def prepare_data(directory, train_games, validation_games, config_path, config, 
                  "reward_model": {"style": "rule", "ground_truth": ""}, "extra_info": {"split": split, "index": i},
                  "env_kwargs": {"gamefile": str(data_root() / game), "strict_gamefile": True}}
                 for i, game in enumerate(games)]
+        if split == 'train' and config.get('stage.pad_train_to_batch', False):
+            import copy
+            pad = (-len(rows)) % int(config['data.train_batch_size'])
+            for i in range(pad):
+                row = copy.deepcopy(rows[i])
+                row['extra_info']['alignment_repeat'] = True
+                rows.append(row)
         frame = pd.DataFrame(rows)
         if path.exists():
             # Exact natural-key equality; no digest-keyed dataset cache.
@@ -44,8 +51,8 @@ def run(config, config_path, seed, checkpoint, inputs):
     output = output_dir(config, name).resolve()
     train_games = read_game_list(config["stage.train_games"])
     validation = {split: read_game_list(path) for split, path in config["stage.validation_games"].items()}
-    if set(validation) != {"valid_seen", "valid_unseen"} or len({len(games) for games in validation.values()}) != 1:
-        raise ValueError("validation requires equally sized, fixed seen and unseen lists")
+    if set(validation) != {"valid_seen", "valid_unseen"}:
+        raise ValueError("validation requires fixed seen and unseen lists")
     if any(len(games) != len(set(games)) for games in validation.values()):
         raise ValueError("validation game lists must not repeat games")
     for game in set(train_games + sum(validation.values(), [])):
@@ -80,13 +87,16 @@ def run(config, config_path, seed, checkpoint, inputs):
     if (output / "metrics.jsonl").exists() and (output / "metrics.jsonl").stat().st_size and checkpoint is None:
         raise ValueError("run already has metrics; supply its native checkpoint or use a new output directory")
     validate_student_config(config, coverage=True)
-    provider = HintProvider(config["algorithm.hint_ladder.bank_dir"], level=config["algorithm.hint_ladder.level"],
+    online = config.get('algorithm.hint_ladder.online.enable', False)
+    provider = None if online else HintProvider(config["algorithm.hint_ladder.bank_dir"], level=config["algorithm.hint_ladder.level"],
                             level_map_path=config["algorithm.hint_ladder.level_map_path"])
-    levels = {provider.level_for(game) for game in train_games} - {"L0"}
+    levels = set() if online else {provider.level_for(game) for game in train_games} - {"L0"}
     inputs = [*inputs, config["stage.train_games"], *config["stage.validation_games"].values(),
               *[Path(config["algorithm.hint_ladder.bank_dir"]) / f"{level}.jsonl" for level in sorted(levels)]]
     if config["algorithm.hint_ladder.level_map_path"]:
         inputs.append(config["algorithm.hint_ladder.level_map_path"])
+    if online:
+        inputs.append(config['algorithm.hint_ladder.online.prompt_path'])
     # Arm/seed directories prevent refreshed list collisions. Subsequent launch
     # of the same run verifies and reuses the parquet rows.
     processed = Path(config.get("stage.processed_dir", "data/processed/hintladder")) / name

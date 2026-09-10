@@ -14,6 +14,13 @@ def insert_note(prompt_text: str, note: str) -> str:
         raise ValueError("nested private-note tags in hint")
     # Decoded chat templates may put role tokens and a blank line before the
     # first user-content line. Match the ALFWorld header, never a chat token.
+    # The evaluated reasoning template is one line; its task/history boundary
+    # is the same insertion point used by the online inference experiment.
+    boundary = " Prior to this step,"
+    if prompt_text.count(boundary) == 1 and ANCHOR in prompt_text:
+        if not note.strip():
+            return prompt_text
+        return prompt_text.replace(boundary, "\n" + OPEN + "\n" + note + "\n" + CLOSE + "\n" + ADVISORY + boundary.lstrip(), 1)
     anchors = list(re.finditer(r"(?m)^" + re.escape(ANCHOR) + r"[^\n]*\n", prompt_text))
     if len(anchors) != 1:
         raise ValueError("expected exactly one ALFWorld first-line anchor")
@@ -34,7 +41,10 @@ def remove_note(prompt_text: str) -> str:
     suffix = "\n" + ADVISORY
     if prompt_text[end:end + len(suffix)] != suffix:
         raise ValueError("private note advisory was changed")
-    return prompt_text[:start] + prompt_text[end + len(suffix):]
+    after = prompt_text[end + len(suffix):]
+    if after.startswith('Prior to this step,') and ' You are now at step ' in after:
+        return prompt_text[:start].removesuffix('\n') + ' ' + after
+    return prompt_text[:start] + after
 
 
 def build_teacher_batch(batch, provider, tokenizer, max_prompt_length):
@@ -58,13 +68,26 @@ def build_teacher_batch(batch, provider, tokenizer, max_prompt_length):
                                 dtype=prompts.dtype, device=prompts.device)
     teacher_mask = torch.zeros_like(teacher_prompts, dtype=mask.dtype)
     counts = {}
+    texts = []
+    for i in range(len(games)):
+        ids = prompts[i][mask[i, :prompts.shape[1]].bool()].tolist()
+        text = tokenizer.decode(ids, skip_special_tokens=False, clean_up_tokenization_spaces=False)
+        if tokenizer.encode(text, add_special_tokens=False) != ids:
+            raise ValueError("Student prompt decode/encode token alignment failed")
+        texts.append(text)
+    if hasattr(provider, "prepare_prompts"):
+        provider.prepare_prompts(texts)
+        import numpy as np
+        batch.non_tensor_batch['online_l1_hint'] = np.array([provider.get_for_prompt(g, p) for g, p in zip(games, texts)], dtype=object)
+        batch.non_tensor_batch['online_l1_request_sha256'] = np.array([provider.records[p]['request_sha256'] for p in texts], dtype=object)
     for i, game in enumerate(games):
         ids = prompts[i][mask[i, :prompts.shape[1]].bool()].tolist()
         text = tokenizer.decode(ids, skip_special_tokens=False, clean_up_tokenization_spaces=False)
         if tokenizer.encode(text, add_special_tokens=False) != ids:
             raise ValueError("Student prompt decode/encode token alignment failed")
         level = provider.level_for(game)
-        encoded = tokenizer.encode(insert_note(text, provider.get(game)), add_special_tokens=False)
+        note = provider.get_for_prompt(game, text) if hasattr(provider, "get_for_prompt") else provider.get(game)
+        encoded = tokenizer.encode(insert_note(text, note), add_special_tokens=False)
         if len(encoded) > max_prompt_length:
             raise ValueError(f"Teacher prompt for {game} exceeds max_prompt_length ({len(encoded)} > {max_prompt_length})")
         if not encoded:

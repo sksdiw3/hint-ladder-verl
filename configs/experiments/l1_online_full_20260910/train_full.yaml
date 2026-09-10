@@ -1,0 +1,69 @@
+# Recommended next launch; the measured 2026-09-10 run used scope=false.
+# This configuration has NOT yet been benchmarked with the scope enabled.
+# Set your endpoint/key file locally; outputs and W&B ID are separate from the live run.
+extends: [../l3_train1500/train.yaml]
+actor_rollout_ref.model.path: /models/Qwen3-4B
+actor_rollout_ref.actor.optim.lr: 1.0e-6
+actor_rollout_ref.actor.ppo_mini_batch_size: 256
+actor_rollout_ref.actor.ppo_max_token_len_per_gpu: 8192
+actor_rollout_ref.actor.use_invalid_action_penalty: false
+actor_rollout_ref.actor.pg_loss_coef: 0.0
+actor_rollout_ref.actor.sdl_loss_coef: 1.0
+actor_rollout_ref.rollout.temperature: 0.6
+actor_rollout_ref.rollout.top_p: 0.95
+actor_rollout_ref.rollout.top_k: 20
+actor_rollout_ref.rollout.val_kwargs.temperature: 0.6
+actor_rollout_ref.rollout.val_kwargs.top_p: 0.95
+actor_rollout_ref.rollout.val_kwargs.top_k: 20
+actor_rollout_ref.rollout.val_kwargs.n: 1
+actor_rollout_ref.rollout.max_model_len: 8192
+actor_rollout_ref.rollout.max_num_batched_tokens: 8192
+actor_rollout_ref.rollout.gpu_memory_utilization: 0.3
+actor_rollout_ref.rollout.keep_engine_awake_during_multiturn: true
+data.train_batch_size: 16
+data.val_batch_size: 140
+data.dataloader_num_workers: 0
+data.max_prompt_length: 4096
+data.max_response_length: 4096
+env.max_steps: 50
+env.history_length: 2
+env.rollout.n: 1
+env.alfworld.prompt_style: explicit_reasoning
+env.alfworld.require_think_tags: false
+env.alfworld.accumulate_chat_history: false
+env.alfworld.val_parallelism: 64
+env.alfworld.allow_partial_validation_wave: true
+algorithm.hint_ladder.level: L1
+algorithm.hint_ladder.bank_dir: null
+algorithm.hint_ladder.online.enable: true
+algorithm.hint_ladder.online.model: glm-5.3-flash
+algorithm.hint_ladder.online.base_url: https://YOUR_OPENAI_COMPATIBLE_ENDPOINT/v1
+algorithm.hint_ladder.online.api_key_file: .secrets/glm_hint_key
+algorithm.hint_ladder.online.prompt_path: configs/experiments/l1_online_full_20260910/l1_prompt.txt
+algorithm.hint_ladder.online.temperature: 0.7
+algorithm.hint_ladder.online.max_tokens: 4096
+algorithm.hint_ladder.online.timeout: 180
+algorithm.hint_ladder.online.retries: 12
+algorithm.hint_ladder.online.concurrency: 64
+algorithm.hint_ladder.online.seed: 42
+algorithm.hint_ladder.monitor_top1: true
+trainer.project_name: alfworld-l1-online-full-persistent
+trainer.total_epochs: 1
+trainer.total_training_steps: 223
+trainer.val_before_train: false
+trainer.test_freq: 25
+trainer.save_freq: 25
+trainer.save_first_step: true
+trainer.rollout_dump_freq: 1
+trainer.max_actor_ckpt_to_keep: 3
+stage.train_games: data/game_lists/alfworld_train_full.txt
+stage.validation_games:
+  valid_seen: data/game_lists/alfworld_valid_seen_full.txt
+  valid_unseen: data/game_lists/alfworld_valid_unseen_full.txt
+stage.pad_train_to_batch: true
+stage.output_dir: runs/l1_online_full_persistent/train
+stage.processed_dir: runs/l1_online_full_persistent/processed
+ray_init._temp_dir: /tmp/ray_l1_online_full_persistent
+ray_init.runtime_env.env_vars.WANDB_PROJECT: alfworld-l1-online-full-persistent
+ray_init.runtime_env.env_vars.WANDB_DIR: runs/l1_online_full_persistent/wandb
+ray_init.runtime_env.env_vars.WANDB_MODE: online

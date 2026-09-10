@@ -1,12 +1,14 @@
 # Hint Ladder on verl
 
-研究多轮 agent 自蒸馏时，Teacher 应该获得多少额外信息。Student 使用干净观察完成任务；同一份当前模型权重作为 Teacher，在前向评分时接收离线生成的 hint，监督 Student 实际生成的响应 token。
+研究多轮 agent 自蒸馏时，Teacher 应该获得多少额外信息。Student 使用干净观察完成任务；同一份当前模型权重作为 Teacher，在前向评分时接收 hint，监督 Student 实际生成的响应 token。支持原有任务级离线 bank，以及新增的逐 turn 在线 L1。
 
 这是 `sksdiw3/hint-ladder-verl` 的独立源码仓库。包含 Hint Ladder E1–E4 编排、所需原生 verl 代码和 agent 环境代码。当前 Hint Ladder 实现和验证范围是 **ALFWorld / Qwen3-4B**。保留了上游 WebShop 环境源码，但尚未实现或验证 WebShop 的 Hint Ladder privilege bank 与实验适配。
 
 ## 当前实验与审查入口
 
 **[Claude / 人工审查指南](docs/hintladder/review_guide.md)** 汇总了研究契约、代码入口、运行证据和待核查问题。
+
+- **[最新：全量在线 L1 训练、并发与耗时（2026-09-10 21:21 +08:00）](docs/hintladder/experiments/l1_online_full_20260910/README.md)**：3,553 道训练题，8 卡，Student 每批 16 局，GLM-5.3-Flash API 并发 64；快照完成 3/223 步，耗时 **557 / 548 / 837 秒**。附原始数值日志、配置快照和超时重试证据。新增 W&B 完整提交修复与整局推理复用配置；**当前运行未重启，提速尚未实测，首次 held-out 验证在 step25**。
 
 - **[最新实验结论、Prompt 与结果（2026-09-10）](实验结论.md)**：原始 Qwen3-4B 显式 reasoning 全量评测，Seen **41/140 = 29.29%**、Unseen **41/134 = 30.60%**；[274 题结果及配置归档](docs/hintladder/experiments/reasoning_eval_20260910/README.md)。每题一次、50步、4096-token 响应预算，不能与历史 action-only 协议直接归因比较。本轮 OPD checkpoint 已删除，日志与轨迹保留。
 
@@ -24,6 +26,7 @@
 | 阶段 | 实现内容 | 验证边界 |
 | --- | --- | --- |
 | 数据与 hint | 官方 walkthrough 回放、固定 game lists、L1/L2/L3/FULLPATH 离线 bank、泄露检查 | 本次 1,500 个训练游戏 walkthrough 与 L3 程序检查通过；程序检查不保证所有提示语义正确 |
+| 在线 L1 | GLM-5.3-Flash 按当前 Student turn 的公开状态生成 hint，仅用于 Teacher 评分；全量 train 与不等长 seen/unseen 面板 | 8 卡完成前 3 步、保存 step1；新日志/复用配置通过 CPU 检查，尚未重启做性能验证 |
 | E1 | 冻结模型 rollout、行为审计、参考动作的 clean/hinted/hint-only 三视图评分 | 原工作区完成单任务 GPU smoke；没有完成正式统计实验 |
 | E2 | 各 hint 等级与 seed 的 Student 训练编排、SDL token 预算、恢复训练 | 8 卡 L3 单臂恢复分支完成151步；checkpoint150验证退步。完整250步、多臂、多seed未完成 |
 | E3 | h-star 探针、匹配游戏池的 h-star/random 课程、周期刷新 | CPU 合同与编排测试；完整 GPU 实验未运行 |
@@ -36,6 +39,7 @@ E1 smoke 不构成进入 E2 的研究依据；`stage.smoke: true` 会强制 `acc
 ## 代码入口
 
 - `hintladder/`：自然键、hint bank、Teacher prompt、token 预算、审计与实验编排。
+- `hintladder/online_l1.py`：公开状态提取、64 并发请求、按 step 缓存和 hint 计时；[在线训练配置和启动说明](docs/hintladder/experiments/l1_online_full_20260910/README.md#启动与复现)。
 - `verl/trainer/main_hint_ladder.py`：原生 verl 入口。
 - `verl/trainer/ppo/hint_ladder_ray_trainer.py`：Teacher 桥接、冻结探针、训练与恢复。
 - `agent_system/`：环境管理、多轮 rollout 和 episode reward。

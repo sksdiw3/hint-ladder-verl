@@ -238,6 +238,13 @@ class AlfWorldEnvironmentManager(EnvironmentManagerBase):
                     action_key="action")
             
         for i in range(len(text_obs)):
+            if self.prompt_style == "explicit_reasoning":
+                postprocess_text_obs.append(ALFWORLD_TEMPLATE_REASONING.format(
+                    task_description=self.tasks[i], step_count=len(self.memory[i]),
+                    history_length=valid_lens[i], action_history=memory_contexts[i],
+                    current_step=len(self.memory[i]) + 1, current_observation=text_obs[i],
+                    admissible_actions="\n ".join(f"'{s}'" for s in admissible_actions[i])))
+                continue
             # exclude 'help' in admissible_actions[i]
             reformatted_admissible_actions = "\n ".join(f"'{s}'" for s in admissible_actions[i] if s != 'help')
 
@@ -733,7 +740,7 @@ def make_envs(config):
             raise ValueError(
                 f"env.alfworld.val_parallelism must be in [1, {logical_val_items}], got {val_parallelism}"
             )
-        if logical_val_items % val_parallelism != 0:
+        if logical_val_items % val_parallelism != 0 and not config.env.alfworld.get("allow_partial_validation_wave", False):
             raise ValueError(
                 "data.val_batch_size must be divisible by env.alfworld.val_parallelism "
                 f"for deterministic validation waves, got {logical_val_items} and {val_parallelism}"
@@ -754,7 +761,8 @@ def make_envs(config):
         require_think_tags = config.env.alfworld.get("require_think_tags", None)
         if require_think_tags is None:
             require_think_tags = enable_thinking is not False
-        projection_f = partial(alfworld_projection, require_think_tags=bool(require_think_tags))
+        projection_f = partial(alfworld_projection, require_think_tags=bool(require_think_tags),
+                               matched_reasoning=config.env.alfworld.get('prompt_style') == 'explicit_reasoning')
         envs = AlfWorldEnvironmentManager(_envs, projection_f, config)
         val_envs = AlfWorldEnvironmentManager(_val_envs, projection_f, config)
         return envs, val_envs

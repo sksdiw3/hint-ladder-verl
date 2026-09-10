@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "request_count": 472,
+    "retried_requests": 0,
+    "single_request_max_seconds": 13.096629563719034,
+    "single_request_median_seconds": 4.241970996372402,
+    "returned_models": [
+      "glm-5.3-flash"
+    ],
+    "retry_errors": []
+  },
+  {
+    "step": 2,
+    "request_count": 466,
+    "retried_requests": 0,
+    "single_request_max_seconds": 19.03395144082606,
+    "single_request_median_seconds": 4.16861795540899,
+    "returned_models": [
+      "glm-5.3-flash"
+    ],
+    "retry_errors": []
+  },
+  {
+    "step": 3,
+    "request_count": 439,
+    "retried_requests": 1,
+    "single_request_max_seconds": 193.1898919120431,
+    "single_request_median_seconds": 3.951118353754282,
+    "returned_models": [
+      "glm-5.3-flash"
+    ],
+    "retry_errors": [
+      {
+        "request_sha256": "6a132977108b2ac8c7c899077dfea68ee431e857cd2ad9a6c725fe97c7f8c7ee",
+        "errors": [
+          {
+            "attempt": 1,
+            "type": "TimeoutError",
+            "status": null
+          }
+        ]
+      }
+    ]
+  }
+]

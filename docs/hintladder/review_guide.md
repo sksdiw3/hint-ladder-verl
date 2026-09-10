@@ -2,6 +2,14 @@
 
 本仓库是 `sksdiw3/hint-ladder-verl`。请从以下材料审查本次实验，避免把 smoke、运行快照和研究结论混为一谈。
 
+## 最新：2026-09-10 在线 L1
+
+当前新增代码请先读 [全量在线 L1 方法、参数、计时及发布边界](experiments/l1_online_full_20260910/README.md)，配合 [实际启动配置](experiments/l1_online_full_20260910/actual_config_sanitized.json) 和 [前三步原始数值日志](experiments/l1_online_full_20260910/metrics_snapshot.jsonl)。后面的 L3 阅读顺序保留为历史实验入口。
+
+- [online_l1.py](../../hintladder/online_l1.py) 从已采集的 Student 轨迹提取公开状态，GLM-5.3-Flash 并发 64，仅向 Teacher 提供 L1。优先核查当前 observation / 历史动作边界、同 step 去重、API 失败处理，以及 Student response token 的对齐。
+- 新实验是 reasoning prompt、50 步、4,096 response tokens、每题 1 次；验证 seen 140 / unseen 134。下面历史 L3 的 action-only、30 步、Avg@4 不是这次的配置。
+- 本次增加 W&B 完整行提交修复，并在下一次启动配置启用已有的整局推理复用。当前训练没有重启，公布耗时来自旧开关设置；不要把代码/CPU 检查当作提速证据。训练后 held-out 结果尚未产生。
+
 ## 建议阅读顺序
 
 1. [研究与实施契约](../../HINT_LADDER.md) 和 [原始设计](design.md)：E1–E4 范围；Hinter reward/GRPO 尚未实现。

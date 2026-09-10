@@ -1,0 +1,2 @@
+# Preserve the original context-line whitespace in this archived source diff.
+launch_source_changes.patch -whitespace

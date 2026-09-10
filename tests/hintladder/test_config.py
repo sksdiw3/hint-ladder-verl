@@ -29,6 +29,19 @@ def test_reject_nested_extends(tmp_path):
         load_config(tmp_path / "child.yaml")
 
 
+def test_online_full_training_composes_with_persistent_scope():
+    config, _ = load_config(ROOT / "configs/experiments/l1_online_full_20260910/train_full.yaml")
+    validate_student_config(config)
+    with initialize_config_dir(config_dir=str(ROOT / "verl/trainer/config"), version_base=None):
+        result = compose(config_name="ppo_trainer", overrides=hydra_overrides(config))
+    assert result.actor_rollout_ref.rollout.keep_engine_awake_during_multiturn is True
+    assert result.actor_rollout_ref.rollout.tensor_model_parallel_size == 1
+    assert result.data.train_batch_size == 16 and result.env.rollout.n == 1
+    assert result.trainer.n_gpus_per_node == 8 and result.trainer.val_before_train is False
+    assert result.algorithm.hint_ladder.online.concurrency == 64
+    assert result.algorithm.hint_ladder.online.model == "glm-5.3-flash"
+
+
 def test_empty_objective_and_wrong_topk_fail():
     config, _ = load_config(ROOT / "configs/arms/e2_L0.yaml")
     with pytest.raises(ValueError, match="empty training"):

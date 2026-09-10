@@ -1,0 +1,8 @@
+{
+  "step": 1,
+  "sdl_loss": 0.7214084221050143,
+  "grad_norm": 48.3984375,
+  "active_tokens": 171350,
+  "checkpoint_data_exists": true,
+  "baseline_eval_skipped": true
+}

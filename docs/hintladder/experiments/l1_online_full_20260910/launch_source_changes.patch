@@ -1,0 +1,359 @@
+diff --git a/agent_system/environments/env_manager.py b/agent_system/environments/env_manager.py
+index 7ebdfb4..adf32d9 100644
+--- a/agent_system/environments/env_manager.py
++++ b/agent_system/environments/env_manager.py
+@@ -238,6 +238,13 @@ class AlfWorldEnvironmentManager(EnvironmentManagerBase):
+                     action_key="action")
+             
+         for i in range(len(text_obs)):
++            if self.prompt_style == "explicit_reasoning":
++                postprocess_text_obs.append(ALFWORLD_TEMPLATE_REASONING.format(
++                    task_description=self.tasks[i], step_count=len(self.memory[i]),
++                    history_length=valid_lens[i], action_history=memory_contexts[i],
++                    current_step=len(self.memory[i]) + 1, current_observation=text_obs[i],
++                    admissible_actions="\n ".join(f"'{s}'" for s in admissible_actions[i])))
++                continue
+             # exclude 'help' in admissible_actions[i]
+             reformatted_admissible_actions = "\n ".join(f"'{s}'" for s in admissible_actions[i] if s != 'help')
+ 
+@@ -733,7 +740,7 @@ def make_envs(config):
+             raise ValueError(
+                 f"env.alfworld.val_parallelism must be in [1, {logical_val_items}], got {val_parallelism}"
+             )
+-        if logical_val_items % val_parallelism != 0:
++        if logical_val_items % val_parallelism != 0 and not config.env.alfworld.get("allow_partial_validation_wave", False):
+             raise ValueError(
+                 "data.val_batch_size must be divisible by env.alfworld.val_parallelism "
+                 f"for deterministic validation waves, got {logical_val_items} and {val_parallelism}"
+@@ -754,7 +761,8 @@ def make_envs(config):
+         require_think_tags = config.env.alfworld.get("require_think_tags", None)
+         if require_think_tags is None:
+             require_think_tags = enable_thinking is not False
+-        projection_f = partial(alfworld_projection, require_think_tags=bool(require_think_tags))
++        projection_f = partial(alfworld_projection, require_think_tags=bool(require_think_tags),
++                               matched_reasoning=config.env.alfworld.get('prompt_style') == 'explicit_reasoning')
+         envs = AlfWorldEnvironmentManager(_envs, projection_f, config)
+         val_envs = AlfWorldEnvironmentManager(_val_envs, projection_f, config)
+         return envs, val_envs
+diff --git a/agent_system/environments/env_package/alfworld/projection.py b/agent_system/environments/env_package/alfworld/projection.py
+index b6a51fd..e806b05 100644
+--- a/agent_system/environments/env_package/alfworld/projection.py
++++ b/agent_system/environments/env_package/alfworld/projection.py
+@@ -16,7 +16,7 @@
+ from typing import List
+ import re
+ 
+-def alfworld_projection(actions: List[str], action_pools: List[List[str]], require_think_tags: bool = True):
++def alfworld_projection(actions: List[str], action_pools: List[List[str]], require_think_tags: bool = True, matched_reasoning: bool = False):
+     """
+     An function to process the actions
+     actions: the list of actions to be processeed, it is a list of strings.
+@@ -27,6 +27,20 @@ def alfworld_projection(actions: List[str], action_pools: List[List[str]], requi
+         generated response, so that mode should disable this check.
+     """
+ 
++    if matched_reasoning:
++        commands, valids = [], []
++        for response, pool in zip(actions, action_pools, strict=True):
++            if '</think>' in response:
++                answer = response.rsplit('</think>', 1)[1]
++            elif '<think>' in response:
++                answer = ''
++            else:
++                answer = response
++            matches = re.findall(r'<action>\s*(.*?)\s*</action>', answer, flags=re.S | re.I)
++            command = matches[0].strip() if len(matches) == 1 else 'invalid_action'
++            commands.append(command)
++            valids.append(int(command in pool))
++        return commands, valids
+     valids = [0] * len(actions)
+ 
+     for i in range(len(actions)):
+diff --git a/agent_system/environments/prompts/alfworld.py b/agent_system/environments/prompts/alfworld.py
+index 892169b..67b7955 100644
+--- a/agent_system/environments/prompts/alfworld.py
++++ b/agent_system/environments/prompts/alfworld.py
+@@ -14,6 +14,8 @@
+ # limitations under the License.
+ 
+ # --------------------- ALFWorld --------------------- #
++ALFWORLD_TEMPLATE_REASONING = "You are an expert agent operating in the ALFRED Embodied Environment. Your task is to: {task_description} Prior to this step, you have already taken {step_count} step(s). Below are the most recent {history_length} observations and the corresponding actions you took: {action_history} You are now at step {current_step} and your current observation is: {current_observation} Your admissible actions of the current situation are: [{admissible_actions}].  Now it's your turn to take an action. You should first reason step-by-step about the current situation. This reasoning process MUST be enclosed within <reasoning> </reasoning> tags. Once you've finished your reasoning, you should choose an admissible action for current step and present it within <action> </action> tags."
++
+ ALFWORLD_TEMPLATE_NO_HIS = """
+ You are an expert agent operating in the ALFRED Embodied Environment.
+ Your current observation is: {current_observation}
+diff --git a/hintladder/config.py b/hintladder/config.py
+index c5c1f77..e893556 100644
+--- a/hintladder/config.py
++++ b/hintladder/config.py
+@@ -59,8 +59,11 @@ def validate_student_config(flat, *, coverage=False):
+         raise ValueError("candidate CE and SDAR are outside the declared objective")
+     if flat.get(a + "sdl_loss_normalization") != "response_token_mean":
+         raise ValueError("SDL normalization must be response_token_mean")
+-    if flat.get("env.alfworld.prompt_style") != "action_tag_only" or flat.get("env.alfworld.require_think_tags") is not False or flat.get("data.apply_chat_template_kwargs.enable_thinking") is not False:
+-        raise ValueError("all three action-only/no-thinking settings must be explicit")
++    if flat.get("env.alfworld.prompt_style") not in ("action_tag_only", "explicit_reasoning") or flat.get("env.alfworld.require_think_tags") is not False or flat.get("data.apply_chat_template_kwargs.enable_thinking") is not False:
++        raise ValueError("explicit action/reasoning prompt and disabled native thinking are required")
++    online = flat.get(h + "online.enable", False)
++    if online and (flat.get(h + 'level') != 'L1' or flat.get('env.alfworld.prompt_style') != 'explicit_reasoning' or flat.get('env.history_length') != 2):
++        raise ValueError("Online public-only L1 requires the matched reasoning prompt and history length 2")
+     level, mapping = flat.get(h + "level"), flat.get(h + "level_map_path")
+     if (level is None) == (mapping is None):
+         raise ValueError("exactly one hint level selector is required")
+@@ -84,7 +87,7 @@ def validate_student_config(flat, *, coverage=False):
+         raise ValueError("unsupported SDL mode")
+     if flat.get("algorithm.path_opd.enable", False) or flat.get("algorithm.vmpr.enable", False):
+         raise ValueError("path routing and prefix buffers must remain disabled")
+-    if coverage:
++    if coverage and not online:
+         provider = HintProvider(flat[h + "bank_dir"], level=level, level_map_path=mapping)
+         provider.validate_coverage(read_game_list(flat["stage.train_games"]), training=not val_only)
+     return flat
+diff --git a/hintladder/stages/train_student.py b/hintladder/stages/train_student.py
+index 0e9ac9d..eb88fb5 100644
+--- a/hintladder/stages/train_student.py
++++ b/hintladder/stages/train_student.py
+@@ -19,6 +19,13 @@ def prepare_data(directory, train_games, validation_games, config_path, config,
+                  "reward_model": {"style": "rule", "ground_truth": ""}, "extra_info": {"split": split, "index": i},
+                  "env_kwargs": {"gamefile": str(data_root() / game), "strict_gamefile": True}}
+                 for i, game in enumerate(games)]
++        if split == 'train' and config.get('stage.pad_train_to_batch', False):
++            import copy
++            pad = (-len(rows)) % int(config['data.train_batch_size'])
++            for i in range(pad):
++                row = copy.deepcopy(rows[i])
++                row['extra_info']['alignment_repeat'] = True
++                rows.append(row)
+         frame = pd.DataFrame(rows)
+         if path.exists():
+             # Exact natural-key equality; no digest-keyed dataset cache.
+@@ -44,8 +51,8 @@ def run(config, config_path, seed, checkpoint, inputs):
+     output = output_dir(config, name).resolve()
+     train_games = read_game_list(config["stage.train_games"])
+     validation = {split: read_game_list(path) for split, path in config["stage.validation_games"].items()}
+-    if set(validation) != {"valid_seen", "valid_unseen"} or len({len(games) for games in validation.values()}) != 1:
+-        raise ValueError("validation requires equally sized, fixed seen and unseen lists")
++    if set(validation) != {"valid_seen", "valid_unseen"}:
++        raise ValueError("validation requires fixed seen and unseen lists")
+     if any(len(games) != len(set(games)) for games in validation.values()):
+         raise ValueError("validation game lists must not repeat games")
+     for game in set(train_games + sum(validation.values(), [])):
+@@ -80,13 +87,16 @@ def run(config, config_path, seed, checkpoint, inputs):
+     if (output / "metrics.jsonl").exists() and (output / "metrics.jsonl").stat().st_size and checkpoint is None:
+         raise ValueError("run already has metrics; supply its native checkpoint or use a new output directory")
+     validate_student_config(config, coverage=True)
+-    provider = HintProvider(config["algorithm.hint_ladder.bank_dir"], level=config["algorithm.hint_ladder.level"],
++    online = config.get('algorithm.hint_ladder.online.enable', False)
++    provider = None if online else HintProvider(config["algorithm.hint_ladder.bank_dir"], level=config["algorithm.hint_ladder.level"],
+                             level_map_path=config["algorithm.hint_ladder.level_map_path"])
+-    levels = {provider.level_for(game) for game in train_games} - {"L0"}
++    levels = set() if online else {provider.level_for(game) for game in train_games} - {"L0"}
+     inputs = [*inputs, config["stage.train_games"], *config["stage.validation_games"].values(),
+               *[Path(config["algorithm.hint_ladder.bank_dir"]) / f"{level}.jsonl" for level in sorted(levels)]]
+     if config["algorithm.hint_ladder.level_map_path"]:
+         inputs.append(config["algorithm.hint_ladder.level_map_path"])
++    if online:
++        inputs.append(config['algorithm.hint_ladder.online.prompt_path'])
+     # Arm/seed directories prevent refreshed list collisions. Subsequent launch
+     # of the same run verifies and reuses the parquet rows.
+     processed = Path(config.get("stage.processed_dir", "data/processed/hintladder")) / name
+diff --git a/hintladder/teacher_prompt.py b/hintladder/teacher_prompt.py
+index 6621a09..ab3d534 100644
+--- a/hintladder/teacher_prompt.py
++++ b/hintladder/teacher_prompt.py
+@@ -14,6 +14,13 @@ def insert_note(prompt_text: str, note: str) -> str:
+         raise ValueError("nested private-note tags in hint")
+     # Decoded chat templates may put role tokens and a blank line before the
+     # first user-content line. Match the ALFWorld header, never a chat token.
++    # The evaluated reasoning template is one line; its task/history boundary
++    # is the same insertion point used by the online inference experiment.
++    boundary = " Prior to this step,"
++    if prompt_text.count(boundary) == 1 and ANCHOR in prompt_text:
++        if not note.strip():
++            return prompt_text
++        return prompt_text.replace(boundary, "\n" + OPEN + "\n" + note + "\n" + CLOSE + "\n" + ADVISORY + boundary.lstrip(), 1)
+     anchors = list(re.finditer(r"(?m)^" + re.escape(ANCHOR) + r"[^\n]*\n", prompt_text))
+     if len(anchors) != 1:
+         raise ValueError("expected exactly one ALFWorld first-line anchor")
+@@ -34,7 +41,10 @@ def remove_note(prompt_text: str) -> str:
+     suffix = "\n" + ADVISORY
+     if prompt_text[end:end + len(suffix)] != suffix:
+         raise ValueError("private note advisory was changed")
+-    return prompt_text[:start] + prompt_text[end + len(suffix):]
++    after = prompt_text[end + len(suffix):]
++    if after.startswith('Prior to this step,') and ' You are now at step ' in after:
++        return prompt_text[:start].removesuffix('\n') + ' ' + after
++    return prompt_text[:start] + after
+ 
+ 
+ def build_teacher_batch(batch, provider, tokenizer, max_prompt_length):
+@@ -58,13 +68,26 @@ def build_teacher_batch(batch, provider, tokenizer, max_prompt_length):
+                                 dtype=prompts.dtype, device=prompts.device)
+     teacher_mask = torch.zeros_like(teacher_prompts, dtype=mask.dtype)
+     counts = {}
++    texts = []
++    for i in range(len(games)):
++        ids = prompts[i][mask[i, :prompts.shape[1]].bool()].tolist()
++        text = tokenizer.decode(ids, skip_special_tokens=False, clean_up_tokenization_spaces=False)
++        if tokenizer.encode(text, add_special_tokens=False) != ids:
++            raise ValueError("Student prompt decode/encode token alignment failed")
++        texts.append(text)
++    if hasattr(provider, "prepare_prompts"):
++        provider.prepare_prompts(texts)
++        import numpy as np
++        batch.non_tensor_batch['online_l1_hint'] = np.array([provider.get_for_prompt(g, p) for g, p in zip(games, texts)], dtype=object)
++        batch.non_tensor_batch['online_l1_request_sha256'] = np.array([provider.records[p]['request_sha256'] for p in texts], dtype=object)
+     for i, game in enumerate(games):
+         ids = prompts[i][mask[i, :prompts.shape[1]].bool()].tolist()
+         text = tokenizer.decode(ids, skip_special_tokens=False, clean_up_tokenization_spaces=False)
+         if tokenizer.encode(text, add_special_tokens=False) != ids:
+             raise ValueError("Student prompt decode/encode token alignment failed")
+         level = provider.level_for(game)
+-        encoded = tokenizer.encode(insert_note(text, provider.get(game)), add_special_tokens=False)
++        note = provider.get_for_prompt(game, text) if hasattr(provider, "get_for_prompt") else provider.get(game)
++        encoded = tokenizer.encode(insert_note(text, note), add_special_tokens=False)
+         if len(encoded) > max_prompt_length:
+             raise ValueError(f"Teacher prompt for {game} exceeds max_prompt_length ({len(encoded)} > {max_prompt_length})")
+         if not encoded:
+diff --git a/verl/trainer/ppo/hint_ladder_ray_trainer.py b/verl/trainer/ppo/hint_ladder_ray_trainer.py
+index 66f9121..1bc656a 100644
+--- a/verl/trainer/ppo/hint_ladder_ray_trainer.py
++++ b/verl/trainer/ppo/hint_ladder_ray_trainer.py
+@@ -31,6 +31,7 @@ from hintladder.hint_bank import HintProvider
+ from hintladder.io import read_json, write_json, read_jsonl
+ from hintladder.keys import data_root, normalize_gamefile, read_game_list
+ from hintladder.teacher_prompt import build_teacher_batch, OPEN
++from hintladder.online_l1 import make_provider
+ 
+ 
+ def save_budget(trainer):
+@@ -61,15 +62,23 @@ def log_metrics(trainer, logger, metrics):
+ def validate_clean(trainer):
+     """Call upstream's complete validation loop once per fixed split."""
+     original = trainer.config.trainer.validation_data_dir
++    original_loader = trainer.val_dataloader
++    from torch.utils.data import DataLoader, Subset
+     result = {}
+     try:
+         for split, games in trainer.validation_games.items():
++            if len(games) != len(trainer.val_dataset):
++                trainer.val_dataloader = DataLoader(Subset(trainer.val_dataset, range(len(games))),
++                    batch_size=len(games), collate_fn=original_loader.collate_fn, shuffle=False)
++            else:
++                trainer.val_dataloader = original_loader
+             trainer.val_envs.envs.fixed_game_files = [str(data_root() / game) for game in games]
+             trainer.config.trainer.validation_data_dir = str(Path(original) / split)
+             values = RayPPOTrainer._validate(trainer)
+             result.update({"val/" + split + "/" + key.removeprefix("val/"): value for key, value in values.items()})
+     finally:
+         trainer.config.trainer.validation_data_dir = original
++        trainer.val_dataloader = original_loader
+     return result
+ 
+ 
+@@ -83,7 +92,38 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
+         self.use_topk_sdl = self.config.actor_rollout_ref.actor.sdl_loss_mode == "topk_forward_kl"
+         self._last_teacher_skill_metrics = {}
+ 
++    def _run_validation_rollout(self, test_gen_batch):
++        if not self.config.env.alfworld.get('allow_partial_validation_wave', False):
++            return super()._run_validation_rollout(test_gen_batch)
++        from contextlib import contextmanager
++        @contextmanager
++        def active_workers(count):
++            pool = self.val_envs.envs
++            workers, size, commands = pool.workers, pool.num_processes, pool.prev_admissible_commands
++            try:
++                pool.workers, pool.num_processes = workers[:count], count
++                pool.prev_admissible_commands = [None] * count
++                yield
++            finally:
++                pool.workers, pool.num_processes, pool.prev_admissible_commands = workers, size, commands
++        capacity = self.val_envs.validation_capacity
++        outputs, success_totals = [], {}
++        for start in range(0, len(test_gen_batch), capacity):
++            chunk = test_gen_batch[start:start + capacity]
++            with active_workers(len(chunk)):
++                output = RayPPOTrainer._run_validation_rollout(self, chunk)
++            for key, values in output.non_tensor_batch.items():
++                if 'success_rate' in key and len(values):
++                    success_totals[key] = success_totals.get(key, 0.) + float(values[0]) * len(chunk)
++            outputs.append(output)
++        combined = DataProto.concat(outputs)
++        for key, total in success_totals.items():
++            combined.non_tensor_batch[key] = np.full(len(combined), total / len(test_gen_batch), dtype=np.float32)
++        return combined
++
+     def _compute_teacher_log_probs(self, batch):
++        if hasattr(self.hint_provider, 'prepare_prompts'):
++            self.hint_provider.step = self.global_steps
+         teacher = build_teacher_batch(batch, self.hint_provider, self.tokenizer, self.config.data.max_prompt_length)
+         teacher.meta_info["calculate_entropy"] = False
+         if self.use_topk_sdl:
+@@ -108,10 +148,18 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
+             raise ValueError("Student batch has no ordinary response tokens for SDL")
+         self._pending_active_tokens = active
+         self._last_teacher_skill_metrics = {"hint_ladder/active_tokens_step": active}
++        self._last_teacher_skill_metrics.update(getattr(self.hint_provider, 'metrics', {}))
+         self._last_teacher_skill_metrics.update({f"hint_ladder/level_counts/{key}": value
+                                                 for key, value in teacher.meta_info["hint_ladder_level_counts"].items()})
+         return log_probs
+ 
++    def _rollout_dump_extra_infos(self, batch, reward_extra_infos_dict):
++        result = super()._rollout_dump_extra_infos(batch, reward_extra_infos_dict)
++        for key in ('online_l1_hint', 'online_l1_request_sha256'):
++            if key in batch.non_tensor_batch:
++                result[key] = batch.non_tensor_batch[key]
++        return result
++
+     def fit(self):
+         from verl.utils.tracking import Tracking
+         logger = Tracking(project_name=self.config.trainer.project_name,
+@@ -145,7 +193,10 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
+                                                                    envs=self.envs, is_train=True, global_step=self.global_steps)
+                     # Validate native gamefile plumbing even for the GRPO L0 arm.
+                     for game in batch.non_tensor_batch["gamefile"]:
+-                        self.hint_provider.get(game)
++                        if hasattr(self.hint_provider, 'prepare_prompts'):
++                            self.hint_provider.level_for(game)
++                        else:
++                            self.hint_provider.get(game)
+                     for text in self.tokenizer.batch_decode(batch.batch["prompts"], skip_special_tokens=False):
+                         if OPEN in text:
+                             raise ValueError("private note leaked into Student rollout")
+@@ -160,8 +211,16 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
+                     with _timer("reward", timing_raw):
+                         reward_tensor, reward_extra = compute_reward(batch, self.reward_fn)
+                     with _timer("old_log_prob", timing_raw):
++                        if self.config.algorithm.hint_ladder.get('monitor_top1', False):
++                            batch.meta_info['return_topk'] = 1
+                         old = self.actor_rollout_wg.compute_log_prob(batch)
+                         metrics["actor/entropy_loss"] = masked_mean(old.batch.pop("entropys"), batch.batch["response_mask"]).item()
++                        if self.config.algorithm.hint_ladder.get('monitor_top1', False):
++                            probs = old.batch.pop('teacher_topk_log_probs').squeeze(-1).exp()
++                            old.batch.pop('teacher_topk_ids')
++                            metrics['distribution/top1_at_rollout_temperature'] = masked_mean(probs, batch.batch['response_mask']).item()
++                            metrics['distribution/entropy_at_rollout_temperature'] = metrics['actor/entropy_loss']
++                            batch.meta_info.pop('return_topk')
+                         batch = batch.union(old)
+                     if self.use_sdl:
+                         with _timer("teacher_forward", timing_raw):
+@@ -202,7 +261,7 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
+                     if is_last_step or (self.config.trainer.test_freq > 0 and self.global_steps % self.config.trainer.test_freq == 0):
+                         with _timer("testing", timing_raw):
+                             metrics.update(validate_clean(self))
+-                    if is_last_step or (self.config.trainer.save_freq > 0 and self.global_steps % self.config.trainer.save_freq == 0):
++                    if is_last_step or (self.global_steps == 1 and self.config.trainer.get('save_first_step', False)) or (self.config.trainer.save_freq > 0 and self.global_steps % self.config.trainer.save_freq == 0):
+                         with _timer("save_checkpoint", timing_raw):
+                             self._save_checkpoint()
+                             save_budget(self)
+@@ -246,8 +305,7 @@ def _training_task(config, stage):
+     tokenizer = hf_tokenizer(local, trust_remote_code=config.data.trust_remote_code)
+     processor = hf_processor(local, trust_remote_code=config.data.trust_remote_code, use_fast=True)
+     envs, val_envs = make_envs(config)
+-    provider = HintProvider(config.algorithm.hint_ladder.bank_dir, level=config.algorithm.hint_ladder.level,
+-                            level_map_path=config.algorithm.hint_ladder.level_map_path)
++    provider = make_provider(OmegaConf.to_container(config.algorithm.hint_ladder, resolve=True), config.trainer.default_local_dir)
+     splits = {split: read_game_list(path) for split, path in stage["stage.validation_games"].items()}
+     worker = AsyncActorRolloutRefWorker if config.actor_rollout_ref.rollout.mode == "async" else ActorRolloutRefWorker
+     pool = ResourcePoolManager({"global_pool": [config.trainer.n_gpus_per_node] * config.trainer.nnodes},

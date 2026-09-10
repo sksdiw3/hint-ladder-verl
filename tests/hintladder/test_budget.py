@@ -28,6 +28,8 @@ def test_native_numpy_metrics_are_serializable(tmp_path):
     from hintladder.io import read_jsonl
     from verl.trainer.ppo.hint_ladder_ray_trainer import log_metrics
     trainer = SimpleNamespace(global_steps=0, config=SimpleNamespace(trainer=SimpleNamespace(default_local_dir=str(tmp_path))))
-    logger = SimpleNamespace(log=lambda **kwargs: None)
+    calls = []
+    logger = SimpleNamespace(log=lambda **kwargs: calls.append(kwargs))
     log_metrics(trainer, logger, {"val/success_rate": np.float32(.5), "count": np.int64(2)})
     assert read_jsonl(tmp_path / "metrics.jsonl") == [{"step": 0, "val/success_rate": .5, "count": 2}]
+    assert calls == [{"data": {"val/success_rate": .5, "count": 2}, "step": 0, "commit": True}]

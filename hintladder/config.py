@@ -59,8 +59,11 @@ def validate_student_config(flat, *, coverage=False):
         raise ValueError("candidate CE and SDAR are outside the declared objective")
     if flat.get(a + "sdl_loss_normalization") != "response_token_mean":
         raise ValueError("SDL normalization must be response_token_mean")
-    if flat.get("env.alfworld.prompt_style") != "action_tag_only" or flat.get("env.alfworld.require_think_tags") is not False or flat.get("data.apply_chat_template_kwargs.enable_thinking") is not False:
-        raise ValueError("all three action-only/no-thinking settings must be explicit")
+    if flat.get("env.alfworld.prompt_style") not in ("action_tag_only", "explicit_reasoning") or flat.get("env.alfworld.require_think_tags") is not False or flat.get("data.apply_chat_template_kwargs.enable_thinking") is not False:
+        raise ValueError("explicit action/reasoning prompt and disabled native thinking are required")
+    online = flat.get(h + "online.enable", False)
+    if online and (flat.get(h + 'level') != 'L1' or flat.get('env.alfworld.prompt_style') != 'explicit_reasoning' or flat.get('env.history_length') != 2):
+        raise ValueError("Online public-only L1 requires the matched reasoning prompt and history length 2")
     level, mapping = flat.get(h + "level"), flat.get(h + "level_map_path")
     if (level is None) == (mapping is None):
         raise ValueError("exactly one hint level selector is required")
@@ -84,7 +87,7 @@ def validate_student_config(flat, *, coverage=False):
         raise ValueError("unsupported SDL mode")
     if flat.get("algorithm.path_opd.enable", False) or flat.get("algorithm.vmpr.enable", False):
         raise ValueError("path routing and prefix buffers must remain disabled")
-    if coverage:
+    if coverage and not online:
         provider = HintProvider(flat[h + "bank_dir"], level=level, level_map_path=mapping)
         provider.validate_coverage(read_game_list(flat["stage.train_games"]), training=not val_only)
     return flat

@@ -1,4 +1,4 @@
-"""Explicit YAML-configured HTTP access for offline generation/audits only."""
+"""Explicit YAML-configured HTTP access for hint generation and audits."""
 import json
 import math
 from pathlib import Path

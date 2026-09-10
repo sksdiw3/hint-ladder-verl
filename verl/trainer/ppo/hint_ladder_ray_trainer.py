@@ -31,6 +31,7 @@ from hintladder.hint_bank import HintProvider
 from hintladder.io import read_json, write_json, read_jsonl
 from hintladder.keys import data_root, normalize_gamefile, read_game_list
 from hintladder.teacher_prompt import build_teacher_batch, OPEN
+from hintladder.online_l1 import make_provider
 
 
 def save_budget(trainer):
@@ -50,7 +51,9 @@ def restore_budget(trainer):
 def log_metrics(trainer, logger, metrics):
     metrics = {key: value.item() if isinstance(value, (np.generic, torch.Tensor)) else value
                for key, value in metrics.items()}
-    logger.log(data=metrics, step=trainer.global_steps)
+    # This is the complete update (or initial validation) record. With an
+    # explicit step, W&B otherwise buffers it until the next update arrives.
+    logger.log(data=metrics, step=trainer.global_steps, commit=True)
     path = Path(trainer.config.trainer.default_local_dir) / "metrics.jsonl"
     import json
     line = json.dumps({"step": trainer.global_steps, **metrics}, allow_nan=False) + "\n"
@@ -61,15 +64,23 @@ def log_metrics(trainer, logger, metrics):
 def validate_clean(trainer):
     """Call upstream's complete validation loop once per fixed split."""
     original = trainer.config.trainer.validation_data_dir
+    original_loader = trainer.val_dataloader
+    from torch.utils.data import DataLoader, Subset
     result = {}
     try:
         for split, games in trainer.validation_games.items():
+            if len(games) != len(trainer.val_dataset):
+                trainer.val_dataloader = DataLoader(Subset(trainer.val_dataset, range(len(games))),
+                    batch_size=len(games), collate_fn=original_loader.collate_fn, shuffle=False)
+            else:
+                trainer.val_dataloader = original_loader
             trainer.val_envs.envs.fixed_game_files = [str(data_root() / game) for game in games]
             trainer.config.trainer.validation_data_dir = str(Path(original) / split)
             values = RayPPOTrainer._validate(trainer)
             result.update({"val/" + split + "/" + key.removeprefix("val/"): value for key, value in values.items()})
     finally:
         trainer.config.trainer.validation_data_dir = original
+        trainer.val_dataloader = original_loader
     return result
 
 
@@ -83,7 +94,38 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
         self.use_topk_sdl = self.config.actor_rollout_ref.actor.sdl_loss_mode == "topk_forward_kl"
         self._last_teacher_skill_metrics = {}
 
+    def _run_validation_rollout(self, test_gen_batch):
+        if not self.config.env.alfworld.get('allow_partial_validation_wave', False):
+            return super()._run_validation_rollout(test_gen_batch)
+        from contextlib import contextmanager
+        @contextmanager
+        def active_workers(count):
+            pool = self.val_envs.envs
+            workers, size, commands = pool.workers, pool.num_processes, pool.prev_admissible_commands
+            try:
+                pool.workers, pool.num_processes = workers[:count], count
+                pool.prev_admissible_commands = [None] * count
+                yield
+            finally:
+                pool.workers, pool.num_processes, pool.prev_admissible_commands = workers, size, commands
+        capacity = self.val_envs.validation_capacity
+        outputs, success_totals = [], {}
+        for start in range(0, len(test_gen_batch), capacity):
+            chunk = test_gen_batch[start:start + capacity]
+            with active_workers(len(chunk)):
+                output = RayPPOTrainer._run_validation_rollout(self, chunk)
+            for key, values in output.non_tensor_batch.items():
+                if 'success_rate' in key and len(values):
+                    success_totals[key] = success_totals.get(key, 0.) + float(values[0]) * len(chunk)
+            outputs.append(output)
+        combined = DataProto.concat(outputs)
+        for key, total in success_totals.items():
+            combined.non_tensor_batch[key] = np.full(len(combined), total / len(test_gen_batch), dtype=np.float32)
+        return combined
+
     def _compute_teacher_log_probs(self, batch):
+        if hasattr(self.hint_provider, 'prepare_prompts'):
+            self.hint_provider.step = self.global_steps
         teacher = build_teacher_batch(batch, self.hint_provider, self.tokenizer, self.config.data.max_prompt_length)
         teacher.meta_info["calculate_entropy"] = False
         if self.use_topk_sdl:
@@ -108,9 +150,17 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
             raise ValueError("Student batch has no ordinary response tokens for SDL")
         self._pending_active_tokens = active
         self._last_teacher_skill_metrics = {"hint_ladder/active_tokens_step": active}
+        self._last_teacher_skill_metrics.update(getattr(self.hint_provider, 'metrics', {}))
         self._last_teacher_skill_metrics.update({f"hint_ladder/level_counts/{key}": value
                                                 for key, value in teacher.meta_info["hint_ladder_level_counts"].items()})
         return log_probs
+
+    def _rollout_dump_extra_infos(self, batch, reward_extra_infos_dict):
+        result = super()._rollout_dump_extra_infos(batch, reward_extra_infos_dict)
+        for key in ('online_l1_hint', 'online_l1_request_sha256'):
+            if key in batch.non_tensor_batch:
+                result[key] = batch.non_tensor_batch[key]
+        return result
 
     def fit(self):
         from verl.utils.tracking import Tracking
@@ -145,7 +195,10 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
                                                                    envs=self.envs, is_train=True, global_step=self.global_steps)
                     # Validate native gamefile plumbing even for the GRPO L0 arm.
                     for game in batch.non_tensor_batch["gamefile"]:
-                        self.hint_provider.get(game)
+                        if hasattr(self.hint_provider, 'prepare_prompts'):
+                            self.hint_provider.level_for(game)
+                        else:
+                            self.hint_provider.get(game)
                     for text in self.tokenizer.batch_decode(batch.batch["prompts"], skip_special_tokens=False):
                         if OPEN in text:
                             raise ValueError("private note leaked into Student rollout")
@@ -160,8 +213,16 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
                     with _timer("reward", timing_raw):
                         reward_tensor, reward_extra = compute_reward(batch, self.reward_fn)
                     with _timer("old_log_prob", timing_raw):
+                        if self.config.algorithm.hint_ladder.get('monitor_top1', False):
+                            batch.meta_info['return_topk'] = 1
                         old = self.actor_rollout_wg.compute_log_prob(batch)
                         metrics["actor/entropy_loss"] = masked_mean(old.batch.pop("entropys"), batch.batch["response_mask"]).item()
+                        if self.config.algorithm.hint_ladder.get('monitor_top1', False):
+                            probs = old.batch.pop('teacher_topk_log_probs').squeeze(-1).exp()
+                            old.batch.pop('teacher_topk_ids')
+                            metrics['distribution/top1_at_rollout_temperature'] = masked_mean(probs, batch.batch['response_mask']).item()
+                            metrics['distribution/entropy_at_rollout_temperature'] = metrics['actor/entropy_loss']
+                            batch.meta_info.pop('return_topk')
                         batch = batch.union(old)
                     if self.use_sdl:
                         with _timer("teacher_forward", timing_raw):
@@ -202,7 +263,7 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
                     if is_last_step or (self.config.trainer.test_freq > 0 and self.global_steps % self.config.trainer.test_freq == 0):
                         with _timer("testing", timing_raw):
                             metrics.update(validate_clean(self))
-                    if is_last_step or (self.config.trainer.save_freq > 0 and self.global_steps % self.config.trainer.save_freq == 0):
+                    if is_last_step or (self.global_steps == 1 and self.config.trainer.get('save_first_step', False)) or (self.config.trainer.save_freq > 0 and self.global_steps % self.config.trainer.save_freq == 0):
                         with _timer("save_checkpoint", timing_raw):
                             self._save_checkpoint()
                             save_budget(self)
@@ -246,8 +307,7 @@ def _training_task(config, stage):
     tokenizer = hf_tokenizer(local, trust_remote_code=config.data.trust_remote_code)
     processor = hf_processor(local, trust_remote_code=config.data.trust_remote_code, use_fast=True)
     envs, val_envs = make_envs(config)
-    provider = HintProvider(config.algorithm.hint_ladder.bank_dir, level=config.algorithm.hint_ladder.level,
-                            level_map_path=config.algorithm.hint_ladder.level_map_path)
+    provider = make_provider(OmegaConf.to_container(config.algorithm.hint_ladder, resolve=True), config.trainer.default_local_dir)
     splits = {split: read_game_list(path) for split, path in stage["stage.validation_games"].items()}
     worker = AsyncActorRolloutRefWorker if config.actor_rollout_ref.rollout.mode == "async" else ActorRolloutRefWorker
     pool = ResourcePoolManager({"global_pool": [config.trainer.n_gpus_per_node] * config.trainer.nnodes},

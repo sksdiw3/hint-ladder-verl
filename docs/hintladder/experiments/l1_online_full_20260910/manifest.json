@@ -1,0 +1,76 @@
+{
+  "snapshot_at": "2026-09-10T21:21:09+08:00",
+  "run_root_relative": "runs/l1_online_full_20260910",
+  "container_status_and_start": "running 2026-09-10T12:40:17.033942155Z",
+  "completed_training_steps": 3,
+  "planned_training_steps": 223,
+  "latest_checkpoint": 1,
+  "first_heldout_eval_step": 25,
+  "code_base_commit": "aa7cfe7500900e67ef8bbf0f48442fc90c86e8ab",
+  "running_source": "code_base_commit + launch_source_changes.patch + new files identified by launch_source_manifest.json",
+  "observed_effective_defaults": {
+    "actor_rollout_ref.rollout.keep_engine_awake_during_multiturn": false,
+    "wandb_commit_when_logging_explicit_step": false
+  },
+  "publication_fixes_applied_to_current_process": false,
+  "gpu_speedup_after_publication_fixes_measured": false,
+  "actual_config_redacted_fields": [
+    "algorithm.hint_ladder.online.base_url",
+    "algorithm.hint_ladder.online.api_key_file"
+  ],
+  "verification": {
+    "cpu_tests_passed": 73,
+    "warnings": 2,
+    "test_seconds": 4.13,
+    "gpu_test_of_new_persistent_config": false
+  },
+  "files": {
+    ".gitattributes": {
+      "sha256": "5eae4da91c3a9700abc69d473cd7d2a903373323220ea797ee403c36a56512e9",
+      "bytes": 118
+    },
+    "README.md": {
+      "sha256": "dab8e87896aec3ac322336418c182bc26417754c0674ffca28d3b9fb8cefdb17",
+      "bytes": 14491
+    },
+    "actual_config_sanitized.json": {
+      "sha256": "548d21c7d894b85b329bee42959c6912cfc613bcdf419b0a01ce934a5efa3623",
+      "bytes": 7627
+    },
+    "first_update_verified.json": {
+      "sha256": "553c1d33ed30fec269d486bdf3420e1c6dfdcbfaba06729b2035bad1dea229c0",
+      "bytes": 170
+    },
+    "hint_request_timing.json": {
+      "sha256": "57900539a1e339f183fe9e7947fcd64670388db71198b745c95200eca356dee5",
+      "bytes": 1050
+    },
+    "launch_source_changes.patch": {
+      "sha256": "831158bf5109bc86707395c0b132f0aede7f8c2336e7f9780df6c1d47dd474af",
+      "bytes": 23889
+    },
+    "launch_source_manifest.json": {
+      "sha256": "00d05dcf05df2e2e00bbdfd1cd62689e8a03a6183ad2d2725d9bcd5006dcbafd",
+      "bytes": 1259
+    },
+    "metrics_snapshot.jsonl": {
+      "sha256": "d36b5392b5f7629a74acc41a4d9cb2d9789aeb3f16b63c8cdafbdec1bd86256d",
+      "bytes": 11855
+    },
+    "setup_validation.json": {
+      "sha256": "650412d59baf6451ea8ff428d9ec2f5a4a4050de956cfb3acce95d35fbd782a2",
+      "bytes": 302
+    },
+    "timing.csv": {
+      "sha256": "1d2395bfb28de24c61f158f6fe1a8f98baa6e66ec023116d3ea8ceb7c770733a",
+      "bytes": 937
+    }
+  },
+  "wandb_observation": {
+    "state": "running",
+    "history_step": 2,
+    "summary_training_step": 2,
+    "local_completed_step": 3,
+    "observed_before_snapshot": true
+  }
+}

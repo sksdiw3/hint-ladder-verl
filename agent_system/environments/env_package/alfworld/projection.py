@@ -16,7 +16,7 @@
 from typing import List
 import re
 
-def alfworld_projection(actions: List[str], action_pools: List[List[str]], require_think_tags: bool = True):
+def alfworld_projection(actions: List[str], action_pools: List[List[str]], require_think_tags: bool = True, matched_reasoning: bool = False):
     """
     An function to process the actions
     actions: the list of actions to be processeed, it is a list of strings.
@@ -27,6 +27,20 @@ def alfworld_projection(actions: List[str], action_pools: List[List[str]], requi
         generated response, so that mode should disable this check.
     """
 
+    if matched_reasoning:
+        commands, valids = [], []
+        for response, pool in zip(actions, action_pools, strict=True):
+            if '</think>' in response:
+                answer = response.rsplit('</think>', 1)[1]
+            elif '<think>' in response:
+                answer = ''
+            else:
+                answer = response
+            matches = re.findall(r'<action>\s*(.*?)\s*</action>', answer, flags=re.S | re.I)
+            command = matches[0].strip() if len(matches) == 1 else 'invalid_action'
+            commands.append(command)
+            valids.append(int(command in pool))
+        return commands, valids
     valids = [0] * len(actions)
 
     for i in range(len(actions)):

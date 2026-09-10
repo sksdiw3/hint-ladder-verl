@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "train_unique": 3553,
+  "train_rows": 3568,
+  "alignment_repeats": 15,
+  "full_epoch_updates": 223,
+  "seen": 140,
+  "unseen": 134,
+  "val_before_train": false,
+  "matched_saved_base_turns": 4131,
+  "matched_chat_template_token_sequences": 200,
+  "public_only_hint_inputs": true
+}
