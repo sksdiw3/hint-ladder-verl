@@ -61,10 +61,34 @@ def log_metrics(trainer, logger, metrics):
         stream.write(line)
 
 
+class PrefetchingRolloutProxy:
+    """Wraps the rollout worker group for one training rollout.
+
+    A turn's Student prompts are known before generation starts, so hint requests
+    for those public states are submitted here and complete while the GPUs keep
+    generating. Every other attribute is delegated unchanged. Validation never
+    goes through this proxy.
+    """
+
+    def __init__(self, worker_group, provider, tokenizer):
+        self._group, self._provider, self._tokenizer = worker_group, provider, tokenizer
+
+    def generate_sequences(self, prompts):
+        ids, mask = prompts.batch["input_ids"], prompts.batch["attention_mask"]
+        # Same decode settings as build_teacher_batch, so the dedup keys match.
+        self._provider.prefetch([self._tokenizer.decode(ids[i][mask[i].bool()].tolist(), skip_special_tokens=False,
+                                                        clean_up_tokenization_spaces=False) for i in range(len(ids))])
+        return self._group.generate_sequences(prompts)
+
+    def __getattr__(self, name):
+        return getattr(self._group, name)
+
+
 def validate_clean(trainer):
     """Call upstream's complete validation loop once per fixed split."""
     original = trainer.config.trainer.validation_data_dir
     original_loader = trainer.val_dataloader
+    pending = getattr(trainer.hint_provider, "pending_requests", None)
     from torch.utils.data import DataLoader, Subset
     result = {}
     try:
@@ -81,6 +105,8 @@ def validate_clean(trainer):
     finally:
         trainer.config.trainer.validation_data_dir = original
         trainer.val_dataloader = original_loader
+    if pending is not None and trainer.hint_provider.pending_requests != pending:
+        raise RuntimeError("hint requests were submitted during clean validation")
     return result
 
 
@@ -124,8 +150,6 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
         return combined
 
     def _compute_teacher_log_probs(self, batch):
-        if hasattr(self.hint_provider, 'prepare_prompts'):
-            self.hint_provider.step = self.global_steps
         teacher = build_teacher_batch(batch, self.hint_provider, self.tokenizer, self.config.data.max_prompt_length)
         teacher.meta_info["calculate_entropy"] = False
         if self.use_topk_sdl:
@@ -157,7 +181,7 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
 
     def _rollout_dump_extra_infos(self, batch, reward_extra_infos_dict):
         result = super()._rollout_dump_extra_infos(batch, reward_extra_infos_dict)
-        for key in ('online_l1_hint', 'online_l1_request_sha256'):
+        for key in ('online_l1_hint', 'online_l1_level', 'online_l1_request_sha256'):
             if key in batch.non_tensor_batch:
                 result[key] = batch.non_tensor_batch[key]
         return result
@@ -189,13 +213,18 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
                             if key in batch.non_tensor_batch]
                 gen_batch = batch.pop(batch_keys=["input_ids", "attention_mask", "position_ids"], non_tensor_batch_keys=pop_keys)
                 is_last_step = self.global_steps >= self.total_training_steps
+                online = hasattr(self.hint_provider, "prefetch")
+                rollout_group = self.actor_rollout_wg
+                if online:
+                    self.hint_provider.begin_step(self.global_steps)
+                    rollout_group = PrefetchingRolloutProxy(self.actor_rollout_wg, self.hint_provider, self.tokenizer)
                 with _timer("step", timing_raw):
                     with _timer("gen", timing_raw):
-                        batch = self.traj_collector.multi_turn_loop(gen_batch=gen_batch, actor_rollout_wg=self.actor_rollout_wg,
+                        batch = self.traj_collector.multi_turn_loop(gen_batch=gen_batch, actor_rollout_wg=rollout_group,
                                                                    envs=self.envs, is_train=True, global_step=self.global_steps)
                     # Validate native gamefile plumbing even for the GRPO L0 arm.
                     for game in batch.non_tensor_batch["gamefile"]:
-                        if hasattr(self.hint_provider, 'prepare_prompts'):
+                        if online:
                             self.hint_provider.level_for(game)
                         else:
                             self.hint_provider.get(game)
@@ -230,7 +259,10 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
                         metrics.update(self._last_teacher_skill_metrics)
                         delta = batch.batch["teacher_log_probs"] - batch.batch["old_log_probs"]
                         metrics["skillsd/teacher_student_gap_mean"] = masked_mean(delta, batch.batch["response_mask"]).item()
-                        levels = [self.hint_provider.level_for(game) for game in batch.non_tensor_batch["gamefile"]]
+                        if "online_l1_level" in batch.non_tensor_batch:
+                            levels = list(batch.non_tensor_batch["online_l1_level"])
+                        else:
+                            levels = [self.hint_provider.level_for(game) for game in batch.non_tensor_batch["gamefile"]]
                         active_mask = batch.batch["response_mask"] * batch.batch["sdl_special_token_keep_mask"]
                         for level in sorted(set(levels)):
                             selected = torch.tensor([value == level for value in levels], device=delta.device)

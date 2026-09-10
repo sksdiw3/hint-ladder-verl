@@ -42,6 +42,30 @@ def test_online_full_training_composes_with_persistent_scope():
     assert result.algorithm.hint_ladder.online.model == "glm-5.3-flash"
 
 
+def test_online_fast_config_composes_with_speed_settings():
+    config, _ = load_config(ROOT / "configs/experiments/l1_online_full_20260910/train_full_fast.yaml")
+    validate_student_config(config)
+    with initialize_config_dir(config_dir=str(ROOT / "verl/trainer/config"), version_base=None):
+        result = compose(config_name="ppo_trainer", overrides=hydra_overrides(config))
+    rollout = result.actor_rollout_ref.rollout
+    assert result.env.rollout.n == 8 and result.data.train_batch_size == 16
+    assert rollout.keep_engine_awake_during_multiturn is True
+    assert rollout.enforce_eager is False and rollout.free_cache_engine is False
+    assert result.data.max_response_length == 1024
+    assert rollout.log_prob_max_token_len_per_gpu == 16384
+    assert result.env.alfworld.val_parallelism == 140
+    online = result.algorithm.hint_ladder.online
+    assert online.timeout == 25 and online.retries == 4 and online.max_tokens == 768
+    assert online.thinking is True and online.persist_requests is False
+
+
+def test_online_api_bounds_are_enforced():
+    config, _ = load_config(ROOT / "configs/experiments/l1_online_full_20260910/train_full_fast.yaml")
+    config["algorithm.hint_ladder.online.timeout"] = 180
+    with pytest.raises(ValueError, match="online.timeout"):
+        validate_student_config(config)
+
+
 def test_empty_objective_and_wrong_topk_fail():
     config, _ = load_config(ROOT / "configs/arms/e2_L0.yaml")
     with pytest.raises(ValueError, match="empty training"):

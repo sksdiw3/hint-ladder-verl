@@ -67,7 +67,6 @@ def build_teacher_batch(batch, provider, tokenizer, max_prompt_length):
     teacher_prompts = torch.full((len(responses), max_prompt_length), pad_id,
                                 dtype=prompts.dtype, device=prompts.device)
     teacher_mask = torch.zeros_like(teacher_prompts, dtype=mask.dtype)
-    counts = {}
     texts = []
     for i in range(len(games)):
         ids = prompts[i][mask[i, :prompts.shape[1]].bool()].tolist()
@@ -75,18 +74,23 @@ def build_teacher_batch(batch, provider, tokenizer, max_prompt_length):
         if tokenizer.encode(text, add_special_tokens=False) != ids:
             raise ValueError("Student prompt decode/encode token alignment failed")
         texts.append(text)
-    if hasattr(provider, "prepare_prompts"):
+    online = hasattr(provider, "prepare_prompts")
+    if online:
+        # Requests were prefetched during the rollout; this only waits for stragglers.
         provider.prepare_prompts(texts)
+        notes = [provider.get_for_prompt(game, text) for game, text in zip(games, texts)]
+        levels = [provider.level_for_prompt(game, text) for game, text in zip(games, texts)]
         import numpy as np
-        batch.non_tensor_batch['online_l1_hint'] = np.array([provider.get_for_prompt(g, p) for g, p in zip(games, texts)], dtype=object)
-        batch.non_tensor_batch['online_l1_request_sha256'] = np.array([provider.records[p]['request_sha256'] for p in texts], dtype=object)
-    for i, game in enumerate(games):
-        ids = prompts[i][mask[i, :prompts.shape[1]].bool()].tolist()
-        text = tokenizer.decode(ids, skip_special_tokens=False, clean_up_tokenization_spaces=False)
-        if tokenizer.encode(text, add_special_tokens=False) != ids:
-            raise ValueError("Student prompt decode/encode token alignment failed")
-        level = provider.level_for(game)
-        note = provider.get_for_prompt(game, text) if hasattr(provider, "get_for_prompt") else provider.get(game)
+        batch.non_tensor_batch["online_l1_hint"] = np.array(notes, dtype=object)
+        batch.non_tensor_batch["online_l1_level"] = np.array(levels, dtype=object)
+        batch.non_tensor_batch["online_l1_request_sha256"] = np.array(
+            [provider.records[text]["request_sha256"] for text in texts], dtype=object)
+    else:
+        notes = [provider.get(game) for game in games]
+        levels = [provider.level_for(game) for game in games]
+    counts = {}
+    for i, (game, text, note, level) in enumerate(zip(games, texts, notes, levels)):
+        # An empty note leaves the prompt untouched: Teacher == Student, zero distillation signal.
         encoded = tokenizer.encode(insert_note(text, note), add_special_tokens=False)
         if len(encoded) > max_prompt_length:
             raise ValueError(f"Teacher prompt for {game} exceeds max_prompt_length ({len(encoded)} > {max_prompt_length})")

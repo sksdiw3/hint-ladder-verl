@@ -41,9 +41,11 @@ algorithm.hint_ladder.online.base_url: https://YOUR_OPENAI_COMPATIBLE_ENDPOINT/v
 algorithm.hint_ladder.online.api_key_file: .secrets/glm_hint_key
 algorithm.hint_ladder.online.prompt_path: configs/experiments/l1_online_full_20260910/l1_prompt.txt
 algorithm.hint_ladder.online.temperature: 0.7
-algorithm.hint_ladder.online.max_tokens: 4096
-algorithm.hint_ladder.online.timeout: 180
-algorithm.hint_ladder.online.retries: 12
+# The gateway returns hidden reasoning tokens (median 205, max 872 observed),
+# so 160 is too small; 180 s / 12 retries let one request stall a step by minutes.
+algorithm.hint_ladder.online.max_tokens: 768
+algorithm.hint_ladder.online.timeout: 25
+algorithm.hint_ladder.online.retries: 4
 algorithm.hint_ladder.online.concurrency: 64
 algorithm.hint_ladder.online.seed: 42
 algorithm.hint_ladder.monitor_top1: true

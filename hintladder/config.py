@@ -64,6 +64,14 @@ def validate_student_config(flat, *, coverage=False):
     online = flat.get(h + "online.enable", False)
     if online and (flat.get(h + 'level') != 'L1' or flat.get('env.alfworld.prompt_style') != 'explicit_reasoning' or flat.get('env.history_length') != 2):
         raise ValueError("Online public-only L1 requires the matched reasoning prompt and history length 2")
+    if online:
+        # One slow request must not stall a step: the median hint takes ~4 s.
+        bounds = {"concurrency": (1, 512), "timeout": (1, 60), "retries": (1, 6), "max_tokens": (64, 1024),
+                  "failure_budget_ratio": (0.0, 0.05), "failure_budget_max": (0, 100)}
+        for name, (low, high) in bounds.items():
+            value = flat.get(h + "online." + name)
+            if value is not None and not low <= float(value) <= high:
+                raise ValueError(f"{h}online.{name}={value} is outside [{low}, {high}]")
     level, mapping = flat.get(h + "level"), flat.get(h + "level_map_path")
     if (level is None) == (mapping is None):
         raise ValueError("exactly one hint level selector is required")
