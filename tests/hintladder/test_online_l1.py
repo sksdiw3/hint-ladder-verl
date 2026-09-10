@@ -104,6 +104,62 @@ def test_thinking_can_be_disabled_explicitly(tmp_path, monkeypatch):
     assert seen['thinking'] == {'type': 'disabled'}
 
 
+def test_thinking_enabled_is_sent_explicitly(tmp_path, monkeypatch):
+    provider = make_provider(tmp_path, thinking=True)
+    seen = {}
+    monkeypatch.setattr('hintladder.online_l1.ModelClient.request', lambda self, route, payload: seen.update(payload) or ok_response())
+    provider.begin_step(1)
+    provider.prepare_prompts([prompt()])
+    assert seen['thinking'] == {'type': 'enabled'} and seen['reasoning_effort'] == 'low'
+    provider.close()
+
+
+def test_unneeded_prefetch_cannot_cross_steps(tmp_path, monkeypatch):
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    provider = make_provider(tmp_path, persist_requests=False)
+    entered, release, collecting = threading.Event(), threading.Event(), threading.Event()
+    calls = []
+    def request(self, route, payload):
+        calls.append(payload['seed'])
+        if 'nothing here' in payload['messages'][1]['content']:
+            entered.set()
+            assert release.wait(5)
+        return ok_response()
+    monkeypatch.setattr('hintladder.online_l1.ModelClient.request', request)
+    provider.begin_step(1)
+    provider.prefetch([prompt(), other_prompt()])
+    assert entered.wait(5)
+    with pytest.raises(RuntimeError, match='pending requests'):
+        provider.begin_step(2)
+    try:
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            def collect():
+                collecting.set()
+                provider.prepare_prompts([prompt()])
+            result = pool.submit(collect)
+            assert collecting.wait(5)
+            assert not result.done()
+            release.set()
+            result.result(timeout=5)
+        assert all(future.done() for future in provider._futures.values())
+        provider.begin_step(2)
+        provider.prepare_prompts([prompt()])
+        assert calls[0] != calls[-1]
+    finally:
+        release.set()
+        provider.close()
+
+
+def test_model_mismatch_is_not_an_l0_fallback(tmp_path, monkeypatch):
+    provider = make_provider(tmp_path)
+    monkeypatch.setattr('hintladder.online_l1.ModelClient.request', lambda *a: dict(model='unexpected-model'))
+    provider.begin_step(1)
+    with pytest.raises(RuntimeError, match='different model'):
+        provider.prepare_prompts([prompt()])
+    provider.close()
+
+
 def test_failed_state_within_budget_becomes_l0_row(tmp_path, monkeypatch):
     provider = make_provider(tmp_path, failure_budget_ratio=0.5, failure_budget_max=10)
     monkeypatch.setattr('hintladder.online_l1.time.sleep', lambda seconds: None)

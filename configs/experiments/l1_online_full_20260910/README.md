@@ -1,6 +1,8 @@
 # 在线 L1 训练：提速版
 
-基线 `592c9ee` 的在线 L1 运行一步要 9 分钟，只跑 16 局。本目录的 `train_full_fast.yaml` 和配套的少量代码改动把一步的局数提到 128、把 GLM 请求移出关键路径，实验语义不变。
+基线 `592c9ee` 的在线 L1 运行一步约 9 分钟，只跑 16 局。本目录的 `train_full_fast.yaml` 和配套代码把一步的局数提到 128，并将 GLM 请求与 rollout 重叠。目标函数和 prompt 保持一致，但轨迹量和最大响应预算改变，不能当作完全相同预算的实验。
+
+最新验收：[8 卡五步报告](../../../docs/hintladder/experiments/fast_verify_20260910/REPORT.md)。失败行已补充原生 SDL mask，预取请求必须在下一步前完成；85 项 CPU 测试、10 条真实 API 探针通过。下文速度数字仍为预期，实际吞吐以报告为准。
 
 ## 慢在哪里
 
@@ -53,7 +55,7 @@
 
 任何一条外部 API 的尾部事件都不该杀掉一个几十小时的运行。某个公开状态在 `retries` 次后仍拿不到合格 hint：
 
-- 它的所有行按 **L0** 处理：不插便签，教师分布等于学生分布，forward KL 为 0，零梯度。不是占位文本，是明确记录的"该行无监督"。
+- 它的所有行按 **L0** 处理：不插便签，并将原生 SDL token mask 置零。即使前面的 optimizer minibatch 已改变学生权重，这些行的损失贡献和梯度仍为零。
 - 每步预算 `min(failure_budget_max, max(1, 状态数 × failure_budget_ratio))`，超出才 raise。`failure_budget_max: 0` 恢复严格模式。
 - 失败逐状态写进 `online_hints/step_XXXXXX/<key>.errors.json`，逐行计入 `hint_ladder/hint_failed_rows`，等级标为 `L0_FAILED`。
 - 401 这类非重试 HTTP 错误立即抛出，那是配置错误不是尾部事件。

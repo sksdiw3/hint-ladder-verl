@@ -101,9 +101,16 @@ class OnlineL1Provider:
 
     def begin_step(self, step):
         """Reset per-step state. Call once before the Student rollout of that step."""
+        if any(not future.done() for future in self._futures.values()):
+            raise RuntimeError("Previous hint step still has pending requests")
+        for future in self._futures.values():
+            future.result()
         self.step = int(step)
         self._futures, self._prefetched = {}, 0
         self.records, self.metrics = {}, {}
+
+    def close(self):
+        self.pool.shutdown(wait=True, cancel_futures=True)
 
     @property
     def pending_requests(self):
@@ -121,6 +128,10 @@ class OnlineL1Provider:
         started = time.monotonic()
         keys = [state_key(prompt) for prompt in prompts]
         misses = sum(self._submit(prompt) for prompt in prompts)
+        # Finished/padded environments can have extra prefetched states. Drain
+        # them before the next step changes the request seed and output path.
+        for future in self._futures.values():
+            future.result()
         results = {key: self._futures[key].result() for key in dict.fromkeys(keys)}
         failed = [key for key, record in results.items() if record["level"] == FAILED_LEVEL]
         budget = self._failure_budget(len(results))
@@ -185,6 +196,8 @@ class OnlineL1Provider:
         payload["reasoning_effort"] = self.config.get("reasoning_effort", "low")
         if self.config.get("thinking") is False:
             payload["thinking"] = {"type": "disabled"}
+        elif self.config.get("thinking") is True:
+            payload["thinking"] = {"type": "enabled"}
         return payload
 
     def _request(self, prompt):
@@ -223,7 +236,7 @@ class OnlineL1Provider:
     def _complete(self, payload, key, attempt, started):
         response = self.client.request("/chat/completions", payload)
         if response.get("model") != self.config["model"]:
-            raise ValueError("Hint endpoint returned a different model")
+            raise RuntimeError("Hint endpoint returned a different model")
         choices = response.get("choices") or []
         if not choices:
             raise ValueError("hint response has no choices")

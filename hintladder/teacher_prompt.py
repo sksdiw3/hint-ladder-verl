@@ -90,7 +90,8 @@ def build_teacher_batch(batch, provider, tokenizer, max_prompt_length):
         levels = [provider.level_for(game) for game in games]
     counts = {}
     for i, (game, text, note, level) in enumerate(zip(games, texts, notes, levels)):
-        # An empty note leaves the prompt untouched: Teacher == Student, zero distillation signal.
+        # L0 keeps the prompt untouched; the trainer additionally masks its SDL
+        # tokens so later optimizer minibatches cannot introduce supervision.
         encoded = tokenizer.encode(insert_note(text, note), add_special_tokens=False)
         if len(encoded) > max_prompt_length:
             raise ValueError(f"Teacher prompt for {game} exceeds max_prompt_length ({len(encoded)} > {max_prompt_length})")

@@ -168,6 +168,13 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
             batch.batch["teacher_topk_ids"], batch.batch["teacher_topk_log_probs"] = ids, probs
         special = torch.tensor(self.tokenizer.all_special_ids, dtype=responses.dtype, device=responses.device)
         keep = ~torch.isin(responses, special)
+        if "online_l1_level" in batch.non_tensor_batch:
+            failed = torch.tensor([level == "L0_FAILED" for level in batch.non_tensor_batch["online_l1_level"]],
+                                  dtype=torch.bool, device=responses.device)
+            # A clean frozen Teacher is only equal before optimizer updates.
+            # Native SDL masking keeps failed rows at zero loss/gradient after
+            # earlier minibatches have already changed Student weights.
+            keep = keep & ~failed[:, None]
         batch.batch["sdl_special_token_keep_mask"] = keep.to(batch.batch["response_mask"].dtype)
         active = int((batch.batch["response_mask"] * keep).sum().item())
         if not active:
@@ -187,6 +194,13 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
         return result
 
     def fit(self):
+        try:
+            return self._fit()
+        finally:
+            if hasattr(self.hint_provider, "close"):
+                self.hint_provider.close()
+
+    def _fit(self):
         from verl.utils.tracking import Tracking
         logger = Tracking(project_name=self.config.trainer.project_name,
                           experiment_name=self.config.trainer.experiment_name,

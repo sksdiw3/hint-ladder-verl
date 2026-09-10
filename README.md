@@ -8,6 +8,8 @@
 
 **[Claude / 人工审查指南](docs/hintladder/review_guide.md)** 汇总了研究契约、代码入口、运行证据和待核查问题。
 
+- **[新 fast 版本：8 卡五步验收](docs/hintladder/experiments/fast_verify_20260910/REPORT.md)**：采用用户提供的 `hint-ladder-verl-fast` / `1decc33`，修复失败行的零监督 mask 和预取跨 step 生命周期。85 项 CPU 测试、10 个历史失败状态的真实 GLM API 检查已通过；GPU 结果在报告中持续更新。每步 128 局，GLM-5.3-flash thinking=enabled / effort=low / 768 tokens / 并发128。
+
 - **[最新：全量在线 L1 训练、并发与耗时（2026-09-10 21:21 +08:00）](docs/hintladder/experiments/l1_online_full_20260910/README.md)**：3,553 道训练题，8 卡，Student 每批 16 局，GLM-5.3-Flash API 并发 64；快照完成 3/223 步，耗时 **557 / 548 / 837 秒**。附原始数值日志、配置快照和超时重试证据。新增 W&B 完整提交修复与整局推理复用配置；**当前运行未重启，提速尚未实测，首次 held-out 验证在 step25**。
 
 - **[最新实验结论、Prompt 与结果（2026-09-10）](实验结论.md)**：原始 Qwen3-4B 显式 reasoning 全量评测，Seen **41/140 = 29.29%**、Unseen **41/134 = 30.60%**；[274 题结果及配置归档](docs/hintladder/experiments/reasoning_eval_20260910/README.md)。每题一次、50步、4096-token 响应预算，不能与历史 action-only 协议直接归因比较。本轮 OPD checkpoint 已删除，日志与轨迹保留。
