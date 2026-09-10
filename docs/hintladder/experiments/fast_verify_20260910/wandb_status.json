@@ -1,0 +1,11 @@
+{
+  "state": "finished",
+  "url": "https://wandb.ai/2606478269-ustc/alfworld-l1-fast-verify-20260910/runs/fast-5step-seed42-20260910",
+  "summary": {
+    "training/global_step": 5,
+    "_step": 5,
+    "timing_s/step": 773.402752738446,
+    "val/valid_seen/text/success/mean@1": 0.37142857142857144,
+    "val/valid_unseen/text/success/mean@1": 0.4253731343283582
+  }
+}

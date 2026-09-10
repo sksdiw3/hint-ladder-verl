@@ -1,0 +1,81 @@
+{
+  "source_step": 5,
+  "validation": {
+    "valid_seen": {
+      "episodes": 140,
+      "unique_games": 140,
+      "turn_rows": 5288,
+      "successful_episodes": 52,
+      "success_rate": 0.37142857142857144,
+      "private_hint_in_student_input": false,
+      "local_trace": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/adopt_fast_20260910/train/validation/valid_seen/5.jsonl"
+    },
+    "valid_unseen": {
+      "episodes": 134,
+      "unique_games": 134,
+      "turn_rows": 5013,
+      "successful_episodes": 57,
+      "success_rate": 0.4253731343283582,
+      "private_hint_in_student_input": false,
+      "local_trace": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/adopt_fast_20260910/train/validation/valid_unseen/5.jsonl"
+    }
+  },
+  "training_trace": {
+    "episodes": 128,
+    "unique_games": 16,
+    "turn_rows": 4456,
+    "levels": {
+      "L1": 4455,
+      "L0_FAILED": 1
+    },
+    "unique_required_hint_states": 1591,
+    "failed_rows": [
+      {
+        "traj_uid": "b94de0a1-0c63-46a8-814e-cbe23c551f80",
+        "turn_step": 40,
+        "gamefile": "/workspace/hintladder/data/raw/alfworld/json_2.1.1/train/pick_heat_then_place_in_recep-Cup-None-Fridge-22/trial_T20190908_072831_071145/game.tw-pddl",
+        "online_l1_request_sha256": "7d53ffbf488c392ab31dfc2424bd17f5cca7b88df4cd8081a70b3b96f44b945d"
+      }
+    ],
+    "private_hint_in_student_input": false
+  },
+  "hint_totals": {
+    "hint_ladder/hint_requests": 8838,
+    "hint_ladder/hint_retries": 33,
+    "hint_ladder/hint_failed_states": 1,
+    "hint_ladder/hint_failed_rows": 1,
+    "hint_ladder/hint_prefetch_misses": 0
+  },
+  "terminal_errors": [
+    {
+      "hint": "",
+      "level": "L0_FAILED",
+      "request_sha256": "7d53ffbf488c392ab31dfc2424bd17f5cca7b88df4cd8081a70b3b96f44b945d",
+      "errors": [
+        {
+          "attempt": 1,
+          "type": "ValueError",
+          "status": null
+        },
+        {
+          "attempt": 2,
+          "type": "ValueError",
+          "status": null
+        },
+        {
+          "attempt": 3,
+          "type": "ValueError",
+          "status": null
+        },
+        {
+          "attempt": 4,
+          "type": "ValueError",
+          "status": null
+        }
+      ],
+      "training_step": 5,
+      "elapsed_seconds": 52.22184371575713,
+      "attempt": 4
+    }
+  ]
+}
