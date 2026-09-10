@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "episodes": 10,
+  "turns": 278,
+  "checks": [
+    "unique train games",
+    "flat/episode records identical",
+    "observation and admissible-action continuity",
+    "terminal observations retained",
+    "success from native won",
+    "token counts",
+    "no explicit thinking instruction",
+    "native assistant prefill"
+  ]
+}

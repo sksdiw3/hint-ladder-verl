@@ -1,0 +1,11 @@
+{
+  "torch": "2.10.0+cu128",
+  "transformers": "5.5.3",
+  "vllm": "0.19.1",
+  "model": "/model",
+  "tensor_parallel_size": 1,
+  "dtype": "bfloat16",
+  "max_model_len": 8192,
+  "generation_config": "vllm",
+  "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+}

@@ -1,0 +1,197 @@
+[
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_native_think10_20260909/config.json",
+    "archive": "native10/config.json",
+    "sha256": "fb88e5740d34327786d37f779825ae54eb6b92d387a0452403827576b07e6398"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_native_think10_20260909/selection.json",
+    "archive": "native10/selection.json",
+    "sha256": "8afc2c0fcf42a3013e2a1b580a332394efbf6802c722f74eaa52ad85720c71d7"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_native_think10_20260909/summary.json",
+    "archive": "native10/summary.json",
+    "sha256": "ececba16fd86152f3aeb8c434724bd306b9cda7d8128337f2c0f2ece6a1a23e0"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_native_think10_20260909/validation.json",
+    "archive": "native10/validation.json",
+    "sha256": "ec9aa33698ce645d2b81c941f68f60b2a216a11a2af132f3fd27bf4ec863c097"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_native_think10_20260909/runtime.json",
+    "archive": "native10/runtime.json",
+    "sha256": "34eb5ac8c651e517e842eea8f652d1d40cfdbad0a2f421723969ac68473f921b"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_native_think10_20260909/run.py",
+    "archive": "native10/run.py",
+    "sha256": "5e998a5da5c162487ecf288e0534ac76f2520afc880862e7cb2d44067d4e5029"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/config.json",
+    "archive": "think10/config.json",
+    "sha256": "bc0a200e6fc02396b279404c74aa11e26c4a30ab340de9a33c711bc53ce05e17"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/selection.json",
+    "archive": "think10/selection.json",
+    "sha256": "8afc2c0fcf42a3013e2a1b580a332394efbf6802c722f74eaa52ad85720c71d7"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/summary.json",
+    "archive": "think10/summary.json",
+    "sha256": "908c38ed1decd51c7b4f44e0c70c0ad426d7817b8e920862da8990a88a5d2dd8"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/validation.json",
+    "archive": "think10/validation.json",
+    "sha256": "e0f5b32e21eac19f67f56ecdadac64376e08b7b1ffa5e8d548a4c5a750d7f336"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/runtime.json",
+    "archive": "think10/runtime.json",
+    "sha256": "34eb5ac8c651e517e842eea8f652d1d40cfdbad0a2f421723969ac68473f921b"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/prompt_template.txt",
+    "archive": "think10/prompt_template.txt",
+    "sha256": "1de2eeb2d437ad82c9faf3fa81853a3e8f8399e058d34825adbd0a5f5f5e2a36"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/comparison.json",
+    "archive": "think10/comparison.json",
+    "sha256": "b015cdeb180b23fbe41396a306cc8fe8bf27b6749ec1e3c15eea921c72cfe25a"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/FORMAT_EXAMPLES.md",
+    "archive": "think10/FORMAT_EXAMPLES.md",
+    "sha256": "697afd367dd4e13dfa1f7d755b053294641fe4783948bea9cacb32fa85e69483"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/matched_setup_validation.json",
+    "archive": "think10/matched_setup_validation.json",
+    "sha256": "53f22cef55275e0dce941678d9f94c1bd09cf7113443ed35b46ccb06cd8b89e9"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910/run.py",
+    "archive": "think10/run.py",
+    "sha256": "5d9a7ba3134421d6cf5e20137e8d16ed54defc822cd0278188799a2dc7ce060a"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/config.json",
+    "archive": "reasoning10/config.json",
+    "sha256": "53f6a4a57dccef042b6e95d262eb765037d5d14d64a6dd109e344ff772880596"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/selection.json",
+    "archive": "reasoning10/selection.json",
+    "sha256": "8afc2c0fcf42a3013e2a1b580a332394efbf6802c722f74eaa52ad85720c71d7"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/summary.json",
+    "archive": "reasoning10/summary.json",
+    "sha256": "6abc27d2fb530a40edf58d8c5007cd9a36209fa86822db32a6289ba8e5b3146e"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/validation.json",
+    "archive": "reasoning10/validation.json",
+    "sha256": "045d89ed513ff05c9bc7d0c7a94698d807ec08f97cdfb4168c723d09ee18fd78"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/runtime.json",
+    "archive": "reasoning10/runtime.json",
+    "sha256": "d9725bb82e1af6761defd3d04ff03abc4af0d5aac5891332e6d155950e97e2f7"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/prompt_template.txt",
+    "archive": "reasoning10/prompt_template.txt",
+    "sha256": "4d35b898c874b388b7833f2c96447ffd36fa9d885c22ec935636690b0d763460"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/comparison.json",
+    "archive": "reasoning10/comparison.json",
+    "sha256": "3d2bece77e65643962b28a1c2c4d0ae716c0456ee2c361ec7594dbd600e98458"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/FORMAT_EXAMPLES.md",
+    "archive": "reasoning10/FORMAT_EXAMPLES.md",
+    "sha256": "ac0e1908c143d2646684b5bae22fdd9a12c1c5c73f4dfed26b1b6124caa99ff2"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/matched_setup_validation.json",
+    "archive": "reasoning10/matched_setup_validation.json",
+    "sha256": "5c8fe7f0e6456528cd20383744534ddb13ebaee8b78302047ed46f86db97de0e"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_reasoning10_8gpu_20260910/run.py",
+    "archive": "reasoning10/run.py",
+    "sha256": "fd42934db8d3f6745892d7d6336c312d1c8cf69fb27214edf9d1200a8166a0cc"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/config.json",
+    "archive": "full_eval/config.json",
+    "sha256": "a10898b568b264d66d072e2a1d72c4298404120172796b14f5ff29f03e9608e5"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/selection.json",
+    "archive": "full_eval/selection.json",
+    "sha256": "71838832c6a5cc921e9ca3a455b3f34f625907b82b0323a0b134c874ecc34b45"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/summary.json",
+    "archive": "full_eval/summary.json",
+    "sha256": "85d7856ce2e0d26df29375b7e3fbf7ca6974ac5960a8596fa8ca27157cda2e59"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/validation.json",
+    "archive": "full_eval/validation.json",
+    "sha256": "58a5e712dd7768bfe65318dd27db4f440244b91af6193cf520c0c2a2bb7425da"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/runtime.json",
+    "archive": "full_eval/runtime.json",
+    "sha256": "c6cedf6e9b3bfc5ec30150618b461646cb7ecc4469b69d2e13ef4e858a3ce395"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/prompt_template.txt",
+    "archive": "full_eval/prompt_template.txt",
+    "sha256": "4d35b898c874b388b7833f2c96447ffd36fa9d885c22ec935636690b0d763460"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/export_validation.json",
+    "archive": "full_eval/export_validation.json",
+    "sha256": "ef9d3cd8e57bbf6145694c89b2ad222306c4a6ca1a7dd39db88a94b774bb75d8"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/setup_validation.json",
+    "archive": "full_eval/setup_validation.json",
+    "sha256": "fef379876599fb24b2adfb9aafababb2b2e23d0749157cd4270407ffdc0dd1cb"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/run.py",
+    "archive": "full_eval/run.py",
+    "sha256": "6ddc25531411f1d2841b428ce8672edb01a875a902c1f804c8b7b4ed8cc95120"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/valid_seen/summary.json",
+    "archive": "full_eval/valid_seen/summary.json",
+    "sha256": "3b06cb79a505d3a05523aeb2d1367d4ca7441ab9db48189aa782cf45380f0e5b"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/valid_seen/results.csv",
+    "archive": "full_eval/valid_seen/results.csv",
+    "sha256": "54039b132095da0e2e72a575cebabdd326cc22b1483d240904c1d8dcbd66ee84"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/valid_unseen/summary.json",
+    "archive": "full_eval/valid_unseen/summary.json",
+    "sha256": "a51de1577c2822d238c0562ba50e208ce8267bcc4b380a6bbeb476d5615cd16e"
+  },
+  {
+    "source": "/mnt/disk4/zhangboyao/alfworld_base_reasoning_full_eval_20260910/valid_unseen/results.csv",
+    "archive": "full_eval/valid_unseen/results.csv",
+    "sha256": "3f15efdf818f3d09ef0aced8a25154c3ac47dc61250c950d7522c900011f3a94"
+  }
+]

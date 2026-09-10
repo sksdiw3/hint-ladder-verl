@@ -1,0 +1,77 @@
+{
+  "seed": 42,
+  "total_train_games": 3553,
+  "selection": "uniform random sample without replacement from sorted train game paths",
+  "episodes": [
+    {
+      "episode_id": 1,
+      "split": "train",
+      "gamefile": "train/pick_heat_then_place_in_recep-Plate-None-Fridge-7/trial_T20190909_065023_650475/game.tw-pddl",
+      "game_sha256": "326f347bbe0edd611957ff152fee849dbda258608d9ecf492a3888918482975b",
+      "task_type": "pick_heat_then_place_in_recep"
+    },
+    {
+      "episode_id": 2,
+      "split": "train",
+      "gamefile": "train/pick_and_place_simple-Candle-None-CounterTop-417/trial_T20190909_142343_223524/game.tw-pddl",
+      "game_sha256": "1426603162015bd83bb3380f070c1c7efcef71ab99a0483cc9517a5f8dd1152c",
+      "task_type": "pick_and_place_simple"
+    },
+    {
+      "episode_id": 3,
+      "split": "train",
+      "gamefile": "train/look_at_obj_in_light-CD-None-DeskLamp-305/trial_T20190909_132423_909909/game.tw-pddl",
+      "game_sha256": "8e7e2ba6dd57fb42935f9cafa14471f9df17d7bc425d446ac81fb77c056cf272",
+      "task_type": "look_at_obj_in_light"
+    },
+    {
+      "episode_id": 4,
+      "split": "train",
+      "gamefile": "train/pick_two_obj_and_place-KeyChain-None-ArmChair-217/trial_T20190906_213211_993051/game.tw-pddl",
+      "game_sha256": "1ee912d2038e38a359aac6d2670035c34d8c0c55585055fdd5b2c9373a1eadca",
+      "task_type": "pick_two_obj_and_place"
+    },
+    {
+      "episode_id": 5,
+      "split": "train",
+      "gamefile": "train/pick_clean_then_place_in_recep-Bowl-None-DiningTable-21/trial_T20190907_000031_668520/game.tw-pddl",
+      "game_sha256": "56e3c085272d659cb844c07efbc12f7eef2d00152a96d0d205f314a2f4cd9585",
+      "task_type": "pick_clean_then_place_in_recep"
+    },
+    {
+      "episode_id": 6,
+      "split": "train",
+      "gamefile": "train/pick_and_place_simple-TissueBox-None-Toilet-402/trial_T20190908_060020_023543/game.tw-pddl",
+      "game_sha256": "12635b2e322c984621f00687aaa3bf5ed734b6ff855c315c6b77772ab736c280",
+      "task_type": "pick_and_place_simple"
+    },
+    {
+      "episode_id": 7,
+      "split": "train",
+      "gamefile": "train/pick_and_place_simple-SoapBottle-None-Toilet-426/trial_T20190906_180946_873820/game.tw-pddl",
+      "game_sha256": "ec8030021ee0c5a1b7c980552c94940502ba6f6dc8b222da213949d302dbd2d9",
+      "task_type": "pick_and_place_simple"
+    },
+    {
+      "episode_id": 8,
+      "split": "train",
+      "gamefile": "train/pick_and_place_simple-CreditCard-None-Shelf-307/trial_T20190908_141017_721379/game.tw-pddl",
+      "game_sha256": "c052e0b67407ddc7b3b3c3bccb1d4be023a8a23d93a36a9a2e479091401ca983",
+      "task_type": "pick_and_place_simple"
+    },
+    {
+      "episode_id": 9,
+      "split": "train",
+      "gamefile": "train/pick_two_obj_and_place-HandTowel-None-CounterTop-409/trial_T20190909_065422_153174/game.tw-pddl",
+      "game_sha256": "4e426db997ed5d6419b6393f6e6bee1b18d5836ab220ab4b1737384fc303d35f",
+      "task_type": "pick_two_obj_and_place"
+    },
+    {
+      "episode_id": 10,
+      "split": "train",
+      "gamefile": "train/pick_and_place_simple-CD-None-Safe-317/trial_T20190906_180511_344768/game.tw-pddl",
+      "game_sha256": "28c151a0cdc174dabf93cafb33c9e793d936fbd4589e0fdb4199bf14e5bd89d8",
+      "task_type": "pick_and_place_simple"
+    }
+  ]
+}

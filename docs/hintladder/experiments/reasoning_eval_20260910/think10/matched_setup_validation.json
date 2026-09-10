@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "same selected games",
+    "same environment worker",
+    "same parser AST",
+    "same inference budgets and sampling",
+    "user template step/history substitutions at steps 1 2 3 4 24"
+  ]
+}

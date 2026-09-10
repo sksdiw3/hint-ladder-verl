@@ -1,0 +1,122 @@
+{
+  "baseline_directory": "/mnt/disk4/zhangboyao/alfworld_fullprompt_think10_20260910",
+  "baseline_successes": 6,
+  "current_successes": 5,
+  "matched_initial_states": true,
+  "format_diagnostics": {
+    "generated_open_think": 0,
+    "generated_close_think": 0,
+    "close_without_open": 0,
+    "neither_think_tag": 323,
+    "complete_reasoning_tag": 322,
+    "strict_reasoning_action_format": 322,
+    "direct_action_only": 0,
+    "leading_token_counts": {
+      "27": 323
+    },
+    "mutually_exclusive_categories": {
+      "reasoning_tag": 322,
+      "unclosed_reasoning": 1
+    }
+  },
+  "rows": [
+    {
+      "episode_id": 1,
+      "task": "heat some plate and put it in fridge.",
+      "baseline_success": false,
+      "current_success": false,
+      "baseline_steps": 50,
+      "current_steps": 50
+    },
+    {
+      "episode_id": 2,
+      "task": "put a candle in countertop.",
+      "baseline_success": false,
+      "current_success": false,
+      "baseline_steps": 50,
+      "current_steps": 50
+    },
+    {
+      "episode_id": 3,
+      "task": "examine the cd with the desklamp.",
+      "baseline_success": true,
+      "current_success": false,
+      "baseline_steps": 23,
+      "current_steps": 50
+    },
+    {
+      "episode_id": 4,
+      "task": "find two keychain and put them in armchair.",
+      "baseline_success": false,
+      "current_success": false,
+      "baseline_steps": 50,
+      "current_steps": 50
+    },
+    {
+      "episode_id": 5,
+      "task": "put a clean bowl in diningtable.",
+      "baseline_success": false,
+      "current_success": false,
+      "baseline_steps": 50,
+      "current_steps": 50
+    },
+    {
+      "episode_id": 6,
+      "task": "put some tissuebox on toilet.",
+      "baseline_success": true,
+      "current_success": true,
+      "baseline_steps": 17,
+      "current_steps": 7
+    },
+    {
+      "episode_id": 7,
+      "task": "put some soapbottle on toilet.",
+      "baseline_success": true,
+      "current_success": true,
+      "baseline_steps": 4,
+      "current_steps": 14
+    },
+    {
+      "episode_id": 8,
+      "task": "put a creditcard in shelf.",
+      "baseline_success": true,
+      "current_success": true,
+      "baseline_steps": 4,
+      "current_steps": 4
+    },
+    {
+      "episode_id": 9,
+      "task": "put two handtowel in countertop.",
+      "baseline_success": true,
+      "current_success": true,
+      "baseline_steps": 26,
+      "current_steps": 23
+    },
+    {
+      "episode_id": 10,
+      "task": "put some cd on safe.",
+      "baseline_success": true,
+      "current_success": true,
+      "baseline_steps": 30,
+      "current_steps": 25
+    }
+  ],
+  "baseline_format_diagnostics": {
+    "generated_open_think": 0,
+    "generated_close_think": 29,
+    "close_without_open": 29,
+    "neither_think_tag": 275,
+    "complete_reasoning_tag": 280,
+    "direct_action_only": 0,
+    "leading_token_counts": {
+      "27": 270,
+      "40": 5,
+      "151668": 29
+    },
+    "mutually_exclusive_categories": {
+      "other_text_and_or_action": 5,
+      "close_without_open": 29,
+      "reasoning_tag": 270
+    }
+  }
+}

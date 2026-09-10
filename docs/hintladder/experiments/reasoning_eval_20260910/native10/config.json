@@ -1,0 +1,17 @@
+{
+  "model": "/model",
+  "model_host_path": "/mnt/disk4/zhangboyao/models/modelscope/Qwen3-4B",
+  "enable_thinking": true,
+  "explicit_reasoning_instruction": false,
+  "history_length": 2,
+  "max_steps": 50,
+  "max_new_tokens": 4096,
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "top_k": 20,
+  "seed": 42,
+  "domain_randomization": false,
+  "hint": null,
+  "prompt_style": "native observation plus task, recent history, admissible commands and action format only",
+  "action_instruction": "Choose exactly one admissible action for the current step and present it within <action> </action> tags."
+}

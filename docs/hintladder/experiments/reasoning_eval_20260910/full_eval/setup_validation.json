@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "prompt_identical_to_reasoning10": true,
+  "parser_ast_identical": true,
+  "complete_splits": {
+    "valid_seen": 140,
+    "valid_unseen": 134
+  },
+  "disjoint_shards": 8
+}

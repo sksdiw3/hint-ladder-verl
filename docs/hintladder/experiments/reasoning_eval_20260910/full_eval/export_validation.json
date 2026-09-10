@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "seen_tasks": 140,
+  "unseen_tasks": 134,
+  "all_game_hashes_match": true,
+  "all_worker_exit_codes_zero": true,
+  "csv_and_episode_markdown_counts_match": true,
+  "report_links_valid": true
+}

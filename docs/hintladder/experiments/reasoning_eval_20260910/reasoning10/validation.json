@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "episodes": 10,
+  "turns": 323,
+  "checks": [
+    "unique train games",
+    "flat/episode records identical",
+    "observation and admissible-action continuity",
+    "terminal observations retained",
+    "success from native won",
+    "token counts",
+    "exact user template rendered every turn",
+    "explicit thinking instruction",
+    "disabled native thinking empty-think input prefill"
+  ]
+}

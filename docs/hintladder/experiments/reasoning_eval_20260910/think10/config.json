@@ -1,0 +1,19 @@
+{
+  "model": "/model",
+  "model_host_path": "/mnt/disk4/zhangboyao/models/modelscope/Qwen3-4B",
+  "enable_thinking": false,
+  "explicit_reasoning_instruction": true,
+  "history_length": 2,
+  "max_steps": 50,
+  "max_new_tokens": 4096,
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "top_k": 20,
+  "seed": 42,
+  "domain_randomization": false,
+  "hint": null,
+  "prompt_style": "exact user-provided full template at every step",
+  "action_instruction": "Once you've finished your reasoning, you should choose an admissible action for current step and present it within <action> </action> tags.",
+  "reasoning_instruction": "You should first reason step-by-step about the current situation. This reasoning process MUST be enclosed within <think> </think> tags.",
+  "prompt_template_file": "prompt_template.txt"
+}

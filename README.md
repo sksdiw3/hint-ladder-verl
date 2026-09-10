@@ -8,6 +8,8 @@
 
 **[Claude / 人工审查指南](docs/hintladder/review_guide.md)** 汇总了研究契约、代码入口、运行证据和待核查问题。
 
+- **[最新实验结论、Prompt 与结果（2026-09-10）](实验结论.md)**：原始 Qwen3-4B 显式 reasoning 全量评测，Seen **41/140 = 29.29%**、Unseen **41/134 = 30.60%**；[274 题结果及配置归档](docs/hintladder/experiments/reasoning_eval_20260910/README.md)。每题一次、50步、4096-token 响应预算，不能与历史 action-only 协议直接归因比较。本轮 OPD checkpoint 已删除，日志与轨迹保留。
+
 - [本轮实验报告与完整指标日志（2026-09-09）](docs/hintladder/experiments/l3_train1500_20260908/report_20260909/REPORT.md)：Qwen3-4B、8 张 A100、1,500 题 L3 纯 SDL；计划250步，恢复分支完成151步后在152步报错退出。最新已评测 checkpoint150 的 seen/unseen 为 **1.37% / 0.20%**，低于 base。
 - [四组 base / step150 完整中英文轨迹](docs/hintladder/experiments/l3_train1500_20260908/report_20260909/trajectories_zh_en.md)：同题验证对照，8条 episode、161个动作步，附原始 prompt、逐步动作空间及来源 JSONL；含进步和退步样例，属于按结果选择的定性展示。
 - [初始实验参数、启动方法与 step15 历史快照](docs/hintladder/experiments/l3_train1500_20260908/README.md)：保留2026-09-08 23:59 +08:00 的原始记录，当前结论以新报告为准。

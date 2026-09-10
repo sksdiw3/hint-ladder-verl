@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "episodes": 274,
+  "turns": 10934,
+  "checks": [
+    "complete split coverage without duplicates",
+    "episode/turn records identical",
+    "real split on every turn",
+    "native won success",
+    "observation/action continuity",
+    "full prompts reproduced",
+    "per-turn seeds",
+    "terminal observations retained"
+  ]
+}

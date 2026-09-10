@@ -1,0 +1,1578 @@
+{
+  "status": "deleted_and_verified",
+  "scope": "ALFWorld OPD-hintladder-verl saved checkpoints only",
+  "at": "2026-09-10T02:53:27.495492+00:00",
+  "targets": [
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/train_seed0/global_step_1",
+      "allocated_bytes": 33768067072,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 75,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_2_rank_1.pt",
+          "bytes": 4411656651,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_2_rank_0.pt",
+          "bytes": 4411656651,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_2_rank_0.pt",
+          "bytes": 8044970575,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_2_rank_1.pt",
+          "bytes": 8044970575,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_2_rank_0.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_2_rank_1.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00001-of-00002.safetensors",
+          "bytes": 4967215360,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00002-of-00002.safetensors",
+          "bytes": 3855679144,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model.safetensors.index.json",
+          "bytes": 32913,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        }
+      ]
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/train_resume_seed0/global_step_2",
+      "allocated_bytes": 33768067072,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 75,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_2_rank_1.pt",
+          "bytes": 4411656651,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_2_rank_0.pt",
+          "bytes": 4411656651,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_2_rank_1.pt",
+          "bytes": 8044970575,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_2_rank_0.pt",
+          "bytes": 8044970575,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_2_rank_1.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_2_rank_0.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00001-of-00002.safetensors",
+          "bytes": 4967215360,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00002-of-00002.safetensors",
+          "bytes": 3855679144,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model.safetensors.index.json",
+          "bytes": 32913,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        }
+      ]
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/gpu_preflight/global_step_1",
+      "allocated_bytes": 33769787392,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 77,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_1.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_2.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_3.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_7.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_6.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_5.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_0.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_4.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_1.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_2.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_3.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_5.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_6.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_7.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_0.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_4.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_1.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_2.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_7.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_6.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_0.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_4.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_3.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_5.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00001-of-00002.safetensors",
+          "bytes": 4967215360,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00002-of-00002.safetensors",
+          "bytes": 3855679144,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model.safetensors.index.json",
+          "bytes": 32913,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        }
+      ]
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/train/global_step_25",
+      "allocated_bytes": 8192,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 79,
+          "symlink": false
+        }
+      ]
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/train/global_step_50",
+      "allocated_bytes": 8192,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 79,
+          "symlink": false
+        }
+      ]
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/train/global_step_75",
+      "allocated_bytes": 33769787392,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 79,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_0.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_5.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_3.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_4.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_2.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_1.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_6.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_7.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_0.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_2.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_5.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_4.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_1.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_3.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_7.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_6.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_0.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_7.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_5.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_2.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_1.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_4.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_3.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_6.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00001-of-00002.safetensors",
+          "bytes": 4967215360,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00002-of-00002.safetensors",
+          "bytes": 3855679144,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model.safetensors.index.json",
+          "bytes": 32913,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        }
+      ]
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/train/global_step_100",
+      "allocated_bytes": 33769787392,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 79,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_0.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_3.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_6.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_7.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_4.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_1.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_2.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_5.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_0.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_6.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_3.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_4.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_2.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_5.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_1.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_7.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_0.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_3.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_4.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_1.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_6.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_7.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_2.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_5.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00001-of-00002.safetensors",
+          "bytes": 4967215360,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00002-of-00002.safetensors",
+          "bytes": 3855679144,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model.safetensors.index.json",
+          "bytes": 32913,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        }
+      ]
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/resume100_20260909_1041/train/global_step_125",
+      "allocated_bytes": 33769787392,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 79,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_3.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_5.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_1.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_7.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_0.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_6.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_2.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_4.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_5.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_7.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_3.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_1.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_6.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_0.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_2.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_4.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_5.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_3.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_0.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_7.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_1.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_6.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_2.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_4.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00001-of-00002.safetensors",
+          "bytes": 4967215360,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00002-of-00002.safetensors",
+          "bytes": 3855679144,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model.safetensors.index.json",
+          "bytes": 32913,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        }
+      ]
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/resume100_20260909_1041/train/global_step_150",
+      "allocated_bytes": 33769787392,
+      "files": [
+        {
+          "path": "data.pt",
+          "bytes": 1947,
+          "symlink": false
+        },
+        {
+          "path": "hint_ladder_budget.json",
+          "bytes": 79,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_1.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_3.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_5.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_7.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_4.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_6.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_2.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/model_world_size_8_rank_0.pt",
+          "bytes": 1103086059,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_3.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_1.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_5.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_7.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_4.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_6.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_0.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/optim_world_size_8_rank_2.pt",
+          "bytes": 2011267739,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_1.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_3.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_5.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_4.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_7.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_0.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_6.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/extra_state_world_size_8_rank_2.pt",
+          "bytes": 15077,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/config.json",
+          "bytes": 1536,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/generation_config.json",
+          "bytes": 214,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00001-of-00002.safetensors",
+          "bytes": 4967215360,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model-00002-of-00002.safetensors",
+          "bytes": 3855679144,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/model.safetensors.index.json",
+          "bytes": 32913,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/chat_template.jinja",
+          "bytes": 4168,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer_config.json",
+          "bytes": 5404,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/special_tokens_map.json",
+          "bytes": 613,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/added_tokens.json",
+          "bytes": 707,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/vocab.json",
+          "bytes": 2776833,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/merges.txt",
+          "bytes": 1671853,
+          "symlink": false
+        },
+        {
+          "path": "actor/huggingface/tokenizer.json",
+          "bytes": 11422654,
+          "symlink": false
+        }
+      ]
+    }
+  ],
+  "recovery_markers": [
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/gpu_preflight/latest_checkpointed_iteration.txt",
+      "content": "1"
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/resume100_20260909_1041/train/latest_checkpointed_iteration.txt",
+      "content": "150"
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/train/latest_checkpointed_iteration.txt",
+      "content": "100"
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/train_resume_seed0/latest_checkpointed_iteration.txt",
+      "content": "2"
+    },
+    {
+      "path": "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/train_seed0/latest_checkpointed_iteration.txt",
+      "content": "1"
+    }
+  ],
+  "allocated_bytes": 236385087488,
+  "disk_free_before": 1715233288192,
+  "preserved_hashes": {
+    "/mnt/disk4/zhangboyao/OPD-hintladder-verl/README.md": "8fbf9cbc0d5cb9d7109268bff9e21a095d7df35e26d84da1a1aed5d554b964e5",
+    "/mnt/disk4/zhangboyao/OPD-hintladder-verl/runs/l3_train1500_20260908/training_live.log": "31c3323fa34a07bafe423323199bbb9f33788cac24031487602b8dabbf0dd6c1",
+    "/mnt/disk4/zhangboyao/OPD-hintladder-verl/docs/hintladder/experiments/l3_train1500_20260908/report_20260909/REPORT.md": "6e3076c15ed26d4e1abf496f720e2dd85352f49d9ff6db837924c6f8f108b51e"
+  },
+  "disk_free_after": 1951618502656,
+  "all_targets_absent": true,
+  "preserved_hashes_verified": true
+}
