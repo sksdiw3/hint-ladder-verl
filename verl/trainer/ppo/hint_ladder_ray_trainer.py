@@ -32,6 +32,7 @@ from hintladder.io import read_json, write_json, read_jsonl
 from hintladder.keys import data_root, normalize_gamefile, read_game_list
 from hintladder.teacher_prompt import build_teacher_batch, OPEN
 from hintladder.online_l1 import make_provider
+from hintladder.response_format import annotate_response_format
 
 
 def save_budget(trainer):
@@ -175,10 +176,12 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
             # Native SDL masking keeps failed rows at zero loss/gradient after
             # earlier minibatches have already changed Student weights.
             keep = keep & ~failed[:, None]
+        if "sdl_format_valid" in batch.non_tensor_batch:
+            valid = torch.as_tensor(batch.non_tensor_batch['sdl_format_valid'],
+                                    dtype=torch.bool, device=responses.device)
+            keep = keep & valid[:, None]
         batch.batch["sdl_special_token_keep_mask"] = keep.to(batch.batch["response_mask"].dtype)
         active = int((batch.batch["response_mask"] * keep).sum().item())
-        if not active:
-            raise ValueError("Student batch has no ordinary response tokens for SDL")
         self._pending_active_tokens = active
         self._last_teacher_skill_metrics = {"hint_ladder/active_tokens_step": active}
         self._last_teacher_skill_metrics.update(getattr(self.hint_provider, 'metrics', {}))
@@ -188,10 +191,19 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
 
     def _rollout_dump_extra_infos(self, batch, reward_extra_infos_dict):
         result = super()._rollout_dump_extra_infos(batch, reward_extra_infos_dict)
-        for key in ('online_l1_hint', 'online_l1_level', 'online_l1_request_sha256'):
+        for key in ('online_l1_hint', 'online_l1_level', 'online_l1_request_sha256',
+                    'sdl_format_valid', 'sdl_format_error'):
             if key in batch.non_tensor_batch:
                 result[key] = batch.non_tensor_batch[key]
         return result
+
+    def _update_actor_if_supervised(self, batch):
+        # Do not run AdamW with all-zero supervision: momentum/weight decay and
+        # the LR scheduler could still change state despite zero new gradients.
+        if self.use_sdl and self._pending_active_tokens == 0 and self.config.actor_rollout_ref.actor.pg_loss_coef == 0:
+            return {'hint_ladder/update_skipped_no_supervision': 1}
+        output = self.actor_rollout_wg.update_actor(batch)
+        return {'hint_ladder/update_skipped_no_supervision': 0, **reduce_metrics(output.meta_info['metrics'])}
 
     def fit(self):
         try:
@@ -245,9 +257,9 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
                     for text in self.tokenizer.batch_decode(batch.batch["prompts"], skip_special_tokens=False):
                         if OPEN in text:
                             raise ValueError("private note leaked into Student rollout")
-                    for text in self.tokenizer.batch_decode(batch.batch["responses"], skip_special_tokens=True):
-                        if "<think>" in text or "</think>" in text:
-                            raise ValueError("Student emitted forbidden thinking tags")
+                    metrics.update(annotate_response_format(batch, self.tokenizer,
+                        self.config.env.alfworld.prompt_style, self.config.trainer.default_local_dir,
+                        self.global_steps))
                     batch = adjust_batch(self.config, batch)
                     batch.batch["response_mask"] = compute_response_mask(batch)
                     if self.config.trainer.balance_batch:
@@ -296,8 +308,7 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
                                                   use_pf_ppo=False)
                     with _timer("update_actor", timing_raw):
                         batch.meta_info["multi_turn"] = self.config.actor_rollout_ref.rollout.multi_turn.enable
-                        output = self.actor_rollout_wg.update_actor(batch)
-                        metrics.update(reduce_metrics(output.meta_info["metrics"]))
+                        metrics.update(self._update_actor_if_supervised(batch))
                     # Count only after a successful actor update. With one PPO
                     # epoch and no SDL filters this is precisely its active mask.
                     if self.use_sdl:
