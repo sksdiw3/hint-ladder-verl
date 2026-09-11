@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-09-11T11:37:32.995850+08:00",
+  "state": "running",
+  "url": "https://wandb.ai/2606478269-ustc/alfworld-l1-online-full-fast/runs/full-fast-formatfilter-resume20-20260911",
+  "metrics": {
+    "_step": 21,
+    "episode/success_rate": 0.1484375,
+    "actor/sdl_loss": 0.004174359292095608,
+    "actor/grad_norm": 0.28755519701086957,
+    "hint_ladder/format_invalid_rows": 5684,
+    "hint_ladder/format_total_rows": 5844,
+    "hint_ladder/format_invalid_ratio": 0.972621492128679,
+    "hint_ladder/update_skipped_no_supervision": 0
+  }
+}

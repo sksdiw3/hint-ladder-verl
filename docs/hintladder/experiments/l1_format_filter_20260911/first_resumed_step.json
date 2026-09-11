@@ -1,0 +1,38 @@
+{
+  "source_metrics": "runs/l1_format_filter_20260911/train/metrics.jsonl",
+  "source_commit": "964d2e358f0749fcfc6e0c931778d53df8be3d94",
+  "metrics": {
+    "step": 21,
+    "timing_s/step": 321.0244858749211,
+    "timing_s/gen": 127.64245560765266,
+    "timing_s/old_log_prob": 27.648086350411177,
+    "timing_s/teacher_forward": 45.034021731466055,
+    "timing_s/update_actor": 109.74034531973302,
+    "hint_ladder/hint_requests": 2234,
+    "hint_ladder/hint_wait_seconds": 0.17470861226320267,
+    "hint_ladder/format_invalid_rows": 5684,
+    "hint_ladder/format_total_rows": 5844,
+    "hint_ladder/format_invalid_ratio": 0.972621492128679,
+    "hint_ladder/update_skipped_no_supervision": 0,
+    "hint_ladder/active_tokens_step": 15028,
+    "hint_ladder/active_tokens_cumulative": 12313903,
+    "hint_ladder/hint_failed_states": 0,
+    "hint_ladder/hint_failed_rows": 0,
+    "actor/sdl_loss": 0.004174359292095608,
+    "actor/grad_norm": 0.28755519701086957,
+    "actor/lr": 1e-06,
+    "episode/success_rate": 0.1484375,
+    "perf/max_memory_allocated_gb": 76.52809524536133
+  },
+  "unmodified_rollout_rows": 5844,
+  "format_valid_rows": 160,
+  "training_episodes": 128,
+  "training_successes": 19,
+  "validation_status": "Not yet run; next scheduled step25",
+  "format_error_counts": {
+    "invalid_reasoning_action_format": 5684,
+    "missing_reasoning_close": 5684,
+    "missing_action_close": 166,
+    "forbidden_think_tag": 0
+  }
+}

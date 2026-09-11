@@ -1,0 +1,26 @@
+[
+  {
+    "source": "runs/l1_full_diskfix_20260911/train/rollouts/10.jsonl",
+    "rows": 5032,
+    "counts": {
+      "valid": 5006,
+      "invalid_reasoning_action_format": 26
+    }
+  },
+  {
+    "source": "runs/l1_full_diskfix_20260911/train/rollouts/15.jsonl",
+    "rows": 5056,
+    "counts": {
+      "invalid_reasoning_action_format": 4935,
+      "valid": 121
+    }
+  },
+  {
+    "source": "runs/l1_full_diskfix_20260911/train/rollouts/20.jsonl",
+    "rows": 4816,
+    "counts": {
+      "invalid_reasoning_action_format": 4680,
+      "valid": 136
+    }
+  }
+]
