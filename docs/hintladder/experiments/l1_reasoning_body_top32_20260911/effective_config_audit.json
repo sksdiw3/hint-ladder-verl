@@ -1,0 +1,16 @@
+{
+  "actor_rollout_ref.model.path": "/models/Qwen3-4B",
+  "actor_rollout_ref.actor.sdl_topk": 32,
+  "actor_rollout_ref.actor.sdl_topk_include_tail": true,
+  "actor_rollout_ref.actor.sdl_loss_token_scope": "reasoning_body",
+  "actor_rollout_ref.actor.sdl_loss_normalization": "response_token_mean",
+  "actor_rollout_ref.rollout.top_k": 20,
+  "trainer.resume_mode": "disable",
+  "trainer.total_training_steps": 223,
+  "trainer.n_gpus_per_node": 8,
+  "trainer.val_before_train": false,
+  "trainer.experiment_name": "l1_reasoning_body_top32_20260911_seed42",
+  "algorithm.hint_ladder.online.model": "glm-5.3-flash",
+  "algorithm.hint_ladder.online.concurrency": 128,
+  "teacher_prompt_sha256": "2776610b8a2e1a3e18ca12c95aa5c449058203001beddedbf83cef66ec5216bc"
+}

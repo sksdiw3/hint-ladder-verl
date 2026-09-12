@@ -1,0 +1,10 @@
+{
+  "positions_tested": 105,
+  "rank_rows_per_position": 10,
+  "button_controls_valid": true,
+  "js_errors": [],
+  "narrow_layout": {
+    "scrollWidth": 320,
+    "clientWidth": 320
+  }
+}

@@ -1,9 +1,9 @@
 import pytest
 from hintladder.teacher_prompt import ANCHOR, OPEN, insert_note, remove_note
-from agent_system.environments.prompts import ALFWORLD_TEMPLATE_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_NO_HIS_ACTION_TAG_ONLY
+from agent_system.environments.prompts import ALFWORLD_TEMPLATE_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_NO_HIS_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_REASONING
 
 
-@pytest.mark.parametrize("template", [ALFWORLD_TEMPLATE_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_NO_HIS_ACTION_TAG_ONLY])
+@pytest.mark.parametrize("template", [ALFWORLD_TEMPLATE_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_NO_HIS_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_REASONING])
 def test_native_templates_preserve_original(template):
     text = template.format(task_description="put a mug away", current_observation="look", admissible_actions="look",
                            step_count=2, history_length=2, action_history="go to desk 1", current_step=3)
@@ -11,6 +11,7 @@ def test_native_templates_preserve_original(template):
         result = insert_note(prompt, "Observe before acting.")
         assert result.count(OPEN) == 1
         assert remove_note(result) == prompt
+        assert insert_note(prompt, '') == prompt
 
 
 @pytest.mark.parametrize("text", ["no anchor", ANCHOR + "\n" + ANCHOR + "\n", ANCHOR + "\n" + OPEN])

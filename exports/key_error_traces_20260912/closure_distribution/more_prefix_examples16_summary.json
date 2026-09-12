@@ -1,0 +1,14 @@
+{
+  "all_turn1": {
+    "n": 10,
+    "mean_student_close_probability": 0.9997715413570404,
+    "mean_teacher_close_probability": 0.7556479722261429,
+    "teacher_close_not_top1": 2
+  },
+  "all_later_turns": {
+    "n": 402,
+    "mean_student_close_probability": 0.999985160815775,
+    "mean_teacher_close_probability": 0.9974920942415646,
+    "teacher_close_not_top1": 0
+  }
+}

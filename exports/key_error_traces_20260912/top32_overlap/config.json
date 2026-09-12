@@ -1,0 +1,63 @@
+{
+  "model": "/models/Qwen3-4B",
+  "checkpoint_step": 0,
+  "split": "train",
+  "source": "runs/base_closure_distribution_20260911/inputs.jsonl",
+  "source_sha256": "16fffdf1edea81190cee4b3065d2bc04fbff3df2bed86d6ab3af22116f116082",
+  "source_arm": "no_hint",
+  "tasks": 10,
+  "source_turns": 414,
+  "included_turns": 412,
+  "excluded_turns": 2,
+  "excluded_reason": "Original base responses without a closing reasoning tag",
+  "body_positions": 87246,
+  "mask": "Current original-token reasoning_body_mask; exclude tags, action and straddling BPE",
+  "top_k": 32,
+  "additional_overlap_prefixes": [
+    1,
+    8,
+    16,
+    20,
+    32
+  ],
+  "temperatures": [
+    1.0,
+    0.6
+  ],
+  "distributions": "full-vocabulary softmax, without generation top-k or top-p truncation",
+  "weights_dtype": "bfloat16",
+  "probability_dtype": "float32",
+  "attention": "flash_attention_2",
+  "teacher_prompt": "Current Student prompt + cached L1 hint + current advisory",
+  "advisory": "Use this hint as optional guidance for your reasoning; check it against the current observation and admissible actions. Keep the required response format and do not mention the hint.\n",
+  "teacher_prompt_sha256": "2776610b8a2e1a3e18ca12c95aa5c449058203001beddedbf83cef66ec5216bc",
+  "response_format_sha256": "067aaf0e64996882256507d48bfc025c7c46f45e02ce16e0b8f7ddb07f557a29",
+  "same_original_student_prefix": true,
+  "workers": 8,
+  "new_hint_requests": 0,
+  "new_rollouts": 0,
+  "training_or_weight_updates": false,
+  "model_identity": {
+    "model_host_path": "/mnt/disk4/zhangboyao/models/modelscope/Qwen3-4B",
+    "model_container_path": "/models/Qwen3-4B",
+    "checkpoint_step": 0,
+    "weight_files": [
+      {
+        "file": "model-00001-of-00003.safetensors",
+        "bytes": 3957900840
+      },
+      {
+        "file": "model-00002-of-00003.safetensors",
+        "bytes": 3987450520
+      },
+      {
+        "file": "model-00003-of-00003.safetensors",
+        "bytes": 99630640
+      }
+    ],
+    "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "model_config_sha256": "8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a",
+    "same_selection_as_previous_test": true,
+    "source_run": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/base_hint_compare10_20260911"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-09-12T08:20:00.732927+00:00",
+  "tests": {
+    "command": "python -m pytest tests/hintladder -q -p no:cacheprovider",
+    "passed": 108,
+    "failed": 0,
+    "seconds": 4.22,
+    "warnings": 2,
+    "runtime": "hintladder-runtime:verified-20260908",
+    "gpus_exposed": false,
+    "network": "none"
+  },
+  "run_source_hashes_verified": 33,
+  "original_retained_file_hashes_verified": 37,
+  "readable_episodes": 8,
+  "verbatim_turns_verified": 293,
+  "json_or_jsonl_files_parsed": 42,
+  "prefix_positions": 105,
+  "reasoning_body_positions": 85,
+  "training_status": "paused; container exited137, OOMKilled=false",
+  "historical_missing_links": {
+    "exports/key_error_traces_20260912/closure_distribution/REPORT.md": [
+      "examples.md",
+      "closure_positions.jsonl",
+      "matched_turns.jsonl",
+      "all_selected_positions.jsonl.gz"
+    ]
+  },
+  "note": "Historical closure report remains byte-identical; bulk distribution caches were deliberately deleted. Main report links retained examples and summaries.",
+  "primary_markdown_files_checked": 16,
+  "primary_link_errors": [],
+  "whitespace_checks": {
+    "code_config_and_main_report": "passed",
+    "raw_evidence_findings": {
+      "docs/hintladder/experiments/l1_reasoning_body_top32_20260911/report_20260912/traces/base_pair3_no_hint.md": 28,
+      "docs/hintladder/experiments/l1_reasoning_body_top32_20260911/report_20260912/traces/base_pair3_online_l1.md": 1,
+      "docs/hintladder/experiments/l1_reasoning_body_top32_20260911/report_20260912/traces/base_pair7_no_hint.md": 5,
+      "docs/hintladder/experiments/l1_reasoning_body_top32_20260911/report_20260912/traces/base_pair7_online_l1.md": 1,
+      "docs/hintladder/experiments/l1_reasoning_body_top32_20260911/report_20260912/training_timeline.csv": 111,
+      "docs/hintladder/experiments/l1_reasoning_body_top32_20260911/report_20260912/关键turn原文.md": 1,
+      "docs/hintladder/experiments/l1_reasoning_body_top32_20260911/source_changes.patch": 13,
+      "exports/key_error_traces_20260912/earlier_format_failure/training_metrics.csv": 34,
+      "exports/key_error_traces_20260912/top32_overlap/per_task.csv": 11,
+      "exports/turn7_prefix_top10_20260912/prefix_top10.csv": 2114,
+      "exports/turn7_prefix_top10_20260912/student_prompt.txt": 1,
+      "exports/turn7_prefix_top10_20260912/teacher_prompt.txt": 1,
+      "exports/turn7_prefix_top10_20260912/完整turn_逐prefix_top10.md": 2
+    },
+    "policy": "Preserve original model output spaces, exact prompt ending newlines, historical patch context and CSV line endings; do not rewrite evidence to satisfy style checks."
+  }
+}

@@ -29,6 +29,59 @@ def response_format_error(text, prompt_style):
     return ''
 
 
+def reasoning_body_mask(responses, response_mask, tokenizer):
+    """Select original response tokens wholly inside the reasoning body.
+
+    Tags are ordinary BPE tokens, and a token can straddle a body/tag boundary.
+    Locate both boundaries by decoding prefixes of the ORIGINAL sampled IDs;
+    re-encoding the text could change their segmentation. Exclude straddling
+    tokens, both reasoning tags, the complete action block and special tokens.
+    Malformed/truncated responses retain the existing zero-supervision policy.
+    """
+    import torch
+
+    keep = torch.zeros_like(response_mask, dtype=torch.bool)
+    specials = set(tokenizer.all_special_ids)
+    for row, (tokens, active) in enumerate(zip(responses.tolist(), response_mask.tolist())):
+        positions = [i for i, value in enumerate(active) if value]
+        ids = [tokens[i] for i in positions]
+        clean = tokenizer.decode(ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+        if response_format_error(clean, 'explicit_reasoning'):
+            continue
+        text = tokenizer.decode(ids, skip_special_tokens=False, clean_up_tokenization_spaces=False)
+        opening = re.search(r'<reasoning>', text, re.I)
+        closing = re.search(r'</reasoning>', text, re.I)
+        if opening is None or closing is None:
+            continue
+        decoded = {len(ids): text, 0: ''}
+
+        def prefix(count):
+            if count not in decoded:
+                decoded[count] = tokenizer.decode(ids[:count], skip_special_tokens=False,
+                                                   clean_up_tokenization_spaces=False)
+            return decoded[count]
+
+        def covering_prefix(char_end):
+            target = text[:char_end]
+            low, high = 0, len(ids)
+            while low < high:
+                middle = (low + high) // 2
+                if prefix(middle).startswith(target):
+                    high = middle
+                else:
+                    low = middle + 1
+            return low
+
+        start = covering_prefix(opening.end())
+        end = covering_prefix(closing.start())
+        if prefix(end) != text[:closing.start()]:
+            end -= 1
+        for index in range(start, end):
+            if ids[index] not in specials:
+                keep[row, positions[index]] = True
+    return keep
+
+
 def annotate_response_format(batch, tokenizer, prompt_style, output_dir, step):
     """Annotate original rows before padding/reordering; save every bad response."""
     texts = tokenizer.batch_decode(batch.batch['responses'], skip_special_tokens=True)

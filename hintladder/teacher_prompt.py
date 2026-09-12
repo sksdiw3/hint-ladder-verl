@@ -4,7 +4,8 @@ import re
 ANCHOR = "You are an expert agent operating in the ALFRED Embodied Environment"
 OPEN = "<private_teacher_note>"
 CLOSE = "</private_teacher_note>"
-ADVISORY = "This note is advisory. Decide from the current observation and admissible actions, and never mention the note.\n"
+ADVISORY = ("Use this hint as optional guidance for your reasoning; check it against the current observation and admissible actions. "
+            "Keep the required response format and do not mention the hint.\n")
 
 
 def insert_note(prompt_text: str, note: str) -> str:
@@ -20,7 +21,10 @@ def insert_note(prompt_text: str, note: str) -> str:
     if prompt_text.count(boundary) == 1 and ANCHOR in prompt_text:
         if not note.strip():
             return prompt_text
-        return prompt_text.replace(boundary, "\n" + OPEN + "\n" + note + "\n" + CLOSE + "\n" + ADVISORY + boundary.lstrip(), 1)
+        result = prompt_text.replace(boundary, "\n" + OPEN + "\n" + note + "\n" + CLOSE + "\n" + ADVISORY + boundary, 1)
+        if remove_note(result) != prompt_text:
+            raise AssertionError("private-note insertion changed the Student text")
+        return result
     anchors = list(re.finditer(r"(?m)^" + re.escape(ANCHOR) + r"[^\n]*\n", prompt_text))
     if len(anchors) != 1:
         raise ValueError("expected exactly one ALFWorld first-line anchor")
@@ -42,8 +46,8 @@ def remove_note(prompt_text: str) -> str:
     if prompt_text[end:end + len(suffix)] != suffix:
         raise ValueError("private note advisory was changed")
     after = prompt_text[end + len(suffix):]
-    if after.startswith('Prior to this step,') and ' You are now at step ' in after:
-        return prompt_text[:start].removesuffix('\n') + ' ' + after
+    if after.startswith(' Prior to this step,') and ' You are now at step ' in after:
+        return prompt_text[:start].removesuffix('\n') + after
     return prompt_text[:start] + after
 
 

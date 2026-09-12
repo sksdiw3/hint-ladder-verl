@@ -1,0 +1,1061 @@
+[
+  {
+    "row_id": 49,
+    "pair_id": 2,
+    "turn": 1,
+    "dtype": "float32",
+    "attention": "SDPA MATH",
+    "TF32": false,
+    "same_original_base_weights": true,
+    "student": {
+      "1.0": {
+        "closure_start_probability": 0.9769157767295837,
+        "open_start_probability": 0.02308308705687523,
+        "top10": [
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.9769157767295837
+          },
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.02308308705687523
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 3.02576921740183e-07
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 1.5296926392238674e-07
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 1.288656363840346e-07
+          },
+          {
+            "id": 37132,
+            "text": "。</",
+            "probability": 6.791778162096307e-08
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 6.499860916164835e-08
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 3.8402141910864884e-08
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 3.6285257465351606e-08
+          },
+          {
+            "id": 52508,
+            "text": "%</",
+            "probability": 3.138670123803422e-08
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 0.9980581402778625,
+        "open_start_probability": 0.001941853784956038,
+        "top10": [
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.9980581402778625
+          },
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.001941853784956038
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 1.4150974662896498e-11
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 4.5401234854969275e-12
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 3.4115819978058903e-12
+          },
+          {
+            "id": 37132,
+            "text": "。</",
+            "probability": 1.1731834037229105e-12
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 1.090352959830232e-12
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 4.535793669910998e-13
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 4.126768642521289e-13
+          },
+          {
+            "id": 52508,
+            "text": "%</",
+            "probability": 3.240683004064604e-13
+          }
+        ]
+      }
+    },
+    "teacher": {
+      "1.0": {
+        "closure_start_probability": 0.42336368560791016,
+        "open_start_probability": 0.5766312479972839,
+        "top10": [
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.5766312479972839
+          },
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.42336368560791016
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 1.920095883178874e-06
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 5.844713655278611e-07
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 3.286707510596898e-07
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 2.1887137791054556e-07
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 1.645636586999899e-07
+          },
+          {
+            "id": 27012,
+            "text": "#endregion",
+            "probability": 9.91433140029585e-08
+          },
+          {
+            "id": 21983,
+            "text": "<button",
+            "probability": 9.837665970735543e-08
+          },
+          {
+            "id": 37132,
+            "text": "。</",
+            "probability": 8.718980382127484e-08
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 0.3740338981151581,
+        "open_start_probability": 0.6259660720825195,
+        "top10": [
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.6259660720825195
+          },
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.3740338981151581
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 4.6479320392478485e-10
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 6.402159358209758e-11
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 2.452765421323555e-11
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 1.24557352279564e-11
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 7.743625185518965e-12
+          },
+          {
+            "id": 27012,
+            "text": "#endregion",
+            "probability": 3.3278245610557367e-12
+          },
+          {
+            "id": 21983,
+            "text": "<button",
+            "probability": 3.285048231702059e-12
+          },
+          {
+            "id": 37132,
+            "text": "。</",
+            "probability": 2.686358514109033e-12
+          }
+        ]
+      }
+    },
+    "full_vs_truncated_prefix_max_logit_error": 0.0,
+    "full_vs_truncated_prefix_kl": 0.0,
+    "teacher_after_literal_open_angle": {
+      "1.0": {
+        "closure_start_probability": 8.296863196477489e-11,
+        "open_start_probability": 9.476879031049327e-20,
+        "top10": [
+          {
+            "id": 1311,
+            "text": "action",
+            "probability": 0.9998418092727661
+          },
+          {
+            "id": 19895,
+            "text": "reason",
+            "probability": 0.000154050430865027
+          },
+          {
+            "id": 54765,
+            "text": "/action",
+            "probability": 1.2562381925818045e-06
+          },
+          {
+            "id": 1917,
+            "text": " action",
+            "probability": 6.263971954467706e-07
+          },
+          {
+            "id": 100675,
+            "text": "行动",
+            "probability": 4.63747710455209e-07
+          },
+          {
+            "id": 89107,
+            "text": "actionDate",
+            "probability": 4.564987818866939e-07
+          },
+          {
+            "id": 38933,
+            "text": "\taction",
+            "probability": 3.279669442690647e-07
+          },
+          {
+            "id": 4020,
+            "text": "actions",
+            "probability": 1.8750222352537094e-07
+          },
+          {
+            "id": 2165,
+            "text": "ration",
+            "probability": 1.4158594296986848e-07
+          },
+          {
+            "id": 25059,
+            "text": "-action",
+            "probability": 1.2087433276519732e-07
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 1.5787191976827762e-17,
+        "open_start_probability": 1.970414911789373e-32,
+        "top10": [
+          {
+            "id": 1311,
+            "text": "action",
+            "probability": 0.9999995231628418
+          },
+          {
+            "id": 19895,
+            "text": "reason",
+            "probability": 4.428123361321923e-07
+          },
+          {
+            "id": 54765,
+            "text": "/action",
+            "probability": 1.462969884125087e-10
+          },
+          {
+            "id": 1917,
+            "text": " action",
+            "probability": 4.587031796066121e-11
+          },
+          {
+            "id": 100675,
+            "text": "行动",
+            "probability": 2.7791892051598488e-11
+          },
+          {
+            "id": 89107,
+            "text": "actionDate",
+            "probability": 2.7071617517138158e-11
+          },
+          {
+            "id": 38933,
+            "text": "\taction",
+            "probability": 1.560146976886667e-11
+          },
+          {
+            "id": 4020,
+            "text": "actions",
+            "probability": 6.1441086593450045e-12
+          },
+          {
+            "id": 2165,
+            "text": "ration",
+            "probability": 3.847232428466629e-12
+          },
+          {
+            "id": 25059,
+            "text": "-action",
+            "probability": 2.9557790676842943e-12
+          }
+        ]
+      }
+    }
+  },
+  {
+    "row_id": 248,
+    "pair_id": 6,
+    "turn": 1,
+    "dtype": "float32",
+    "attention": "SDPA MATH",
+    "TF32": false,
+    "same_original_base_weights": true,
+    "student": {
+      "1.0": {
+        "closure_start_probability": 0.9965590834617615,
+        "open_start_probability": 0.0034404669422656298,
+        "top10": [
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.9965590834617615
+          },
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.0034404669422656298
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 2.3493066692026332e-07
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 1.0638409264629445e-07
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 2.803033005704947e-08
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 2.4218424599098398e-08
+          },
+          {
+            "id": 37132,
+            "text": "。</",
+            "probability": 1.553601869375143e-08
+          },
+          {
+            "id": 52508,
+            "text": "%</",
+            "probability": 1.0820659923638232e-08
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 7.78147146718311e-09
+          },
+          {
+            "id": 86661,
+            "text": "()</",
+            "probability": 5.690168780603244e-09
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 0.9999210834503174,
+        "open_start_probability": 7.885367085691541e-05,
+        "top10": [
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.9999210834503174
+          },
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 7.885367085691541e-05
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 8.995520474341934e-12
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 2.4020867760154996e-12
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 2.6012002339419193e-13
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 2.0387791661077154e-13
+          },
+          {
+            "id": 37132,
+            "text": "。</",
+            "probability": 9.728061590866602e-14
+          },
+          {
+            "id": 52508,
+            "text": "%</",
+            "probability": 5.3237301448749025e-14
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 3.073004023012964e-14
+          },
+          {
+            "id": 86661,
+            "text": "()</",
+            "probability": 1.8239062197404968e-14
+          }
+        ]
+      }
+    },
+    "teacher": {
+      "1.0": {
+        "closure_start_probability": 0.27727508544921875,
+        "open_start_probability": 0.7227226495742798,
+        "top10": [
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.7227226495742798
+          },
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.27727508544921875
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 7.750701911390934e-07
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 3.5538536735657544e-07
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 1.9853916910506086e-07
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 1.1775514963119349e-07
+          },
+          {
+            "id": 91190,
+            "text": "<r",
+            "probability": 7.663000189950253e-08
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 6.574143895932139e-08
+          },
+          {
+            "id": 4159,
+            "text": "<int",
+            "probability": 5.4729177634271764e-08
+          },
+          {
+            "id": 52508,
+            "text": "%</",
+            "probability": 4.1749160573090194e-08
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 0.16844405233860016,
+        "open_start_probability": 0.8315559029579163,
+        "top10": [
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.8315559029579163
+          },
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.16844405233860016
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 9.343433665653933e-11
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 2.5474433326677648e-11
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 9.653451649160871e-12
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 4.041772992680048e-12
+          },
+          {
+            "id": 91190,
+            "text": "<r",
+            "probability": 1.975160269715448e-12
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 1.529925817110589e-12
+          },
+          {
+            "id": 4159,
+            "text": "<int",
+            "probability": 1.1271200986429086e-12
+          },
+          {
+            "id": 52508,
+            "text": "%</",
+            "probability": 7.178240207100783e-13
+          }
+        ]
+      }
+    },
+    "full_vs_truncated_prefix_max_logit_error": 0.0,
+    "full_vs_truncated_prefix_kl": 0.0,
+    "teacher_after_literal_open_angle": {
+      "1.0": {
+        "closure_start_probability": 2.6421029808432195e-09,
+        "open_start_probability": 5.5882518930347184e-18,
+        "top10": [
+          {
+            "id": 1311,
+            "text": "action",
+            "probability": 0.5634815692901611
+          },
+          {
+            "id": 19895,
+            "text": "reason",
+            "probability": 0.4364525377750397
+          },
+          {
+            "id": 54765,
+            "text": "/action",
+            "probability": 3.1632574973627925e-05
+          },
+          {
+            "id": 2165,
+            "text": "ration",
+            "probability": 6.658708116447087e-06
+          },
+          {
+            "id": 46692,
+            "text": "reasonable",
+            "probability": 4.131537934881635e-06
+          },
+          {
+            "id": 408,
+            "text": "end",
+            "probability": 2.5914439447660698e-06
+          },
+          {
+            "id": 2874,
+            "text": " reason",
+            "probability": 2.3513553060183767e-06
+          },
+          {
+            "id": 32711,
+            "text": " reasoning",
+            "probability": 2.3509426227974473e-06
+          },
+          {
+            "id": 76503,
+            "text": "raison",
+            "probability": 1.7560390688231564e-06
+          },
+          {
+            "id": 100675,
+            "text": "行动",
+            "probability": 1.5180883110588184e-06
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 7.945209702826805e-15,
+        "open_start_probability": 2.7689594348534615e-29,
+        "top10": [
+          {
+            "id": 1311,
+            "text": "action",
+            "probability": 0.6048603057861328
+          },
+          {
+            "id": 19895,
+            "text": "reason",
+            "probability": 0.3951396644115448
+          },
+          {
+            "id": 54765,
+            "text": "/action",
+            "probability": 4.978284806611555e-08
+          },
+          {
+            "id": 2165,
+            "text": "ration",
+            "probability": 3.7082770187879532e-09
+          },
+          {
+            "id": 46692,
+            "text": "reasonable",
+            "probability": 1.6738186392473153e-09
+          },
+          {
+            "id": 408,
+            "text": "end",
+            "probability": 7.692926851099458e-10
+          },
+          {
+            "id": 2874,
+            "text": " reason",
+            "probability": 6.542127395370301e-10
+          },
+          {
+            "id": 32711,
+            "text": " reasoning",
+            "probability": 6.54021892199097e-10
+          },
+          {
+            "id": 76503,
+            "text": "raison",
+            "probability": 4.0217262853303737e-10
+          },
+          {
+            "id": 100675,
+            "text": "行动",
+            "probability": 3.155129768561693e-10
+          }
+        ]
+      }
+    }
+  },
+  {
+    "row_id": 312,
+    "pair_id": 9,
+    "turn": 1,
+    "dtype": "float32",
+    "attention": "SDPA MATH",
+    "TF32": false,
+    "same_original_base_weights": true,
+    "student": {
+      "1.0": {
+        "closure_start_probability": 0.9838908314704895,
+        "open_start_probability": 0.01610863208770752,
+        "top10": [
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.9838908314704895
+          },
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.01610863208770752
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 2.027426404538346e-07
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 3.8430570725722646e-08
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 3.56353986319391e-08
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 2.8924661776841276e-08
+          },
+          {
+            "id": 37132,
+            "text": "。</",
+            "probability": 1.9269890572104487e-08
+          },
+          {
+            "id": 52508,
+            "text": "%</",
+            "probability": 1.8941165080832434e-08
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 1.775662283876045e-08
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 1.4566470696308897e-08
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 0.9989455342292786,
+        "open_start_probability": 0.0010545358527451754,
+        "top10": [
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.9989455342292786
+          },
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.0010545358527451754
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 7.181329315930629e-12
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 4.4918506848096174e-13
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 3.9606433909454564e-13
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 2.797332406944547e-13
+          },
+          {
+            "id": 37132,
+            "text": "。</",
+            "probability": 1.4215507297774682e-13
+          },
+          {
+            "id": 52508,
+            "text": "%</",
+            "probability": 1.3813611170719609e-13
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 1.2404048057787498e-13
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 8.917037030639619e-14
+          }
+        ]
+      }
+    },
+    "teacher": {
+      "1.0": {
+        "closure_start_probability": 0.5766264200210571,
+        "open_start_probability": 0.42337146401405334,
+        "top10": [
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.5766264200210571
+          },
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.42337146401405334
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 5.496642643265659e-07
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 2.8342742552922573e-07
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 1.7193526957726135e-07
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 1.3773238549674716e-07
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 1.0661622695806727e-07
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 8.96917171644418e-08
+          },
+          {
+            "id": 21983,
+            "text": "<button",
+            "probability": 7.118595846122844e-08
+          },
+          {
+            "id": 91190,
+            "text": "<r",
+            "probability": 6.355389814416412e-08
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 0.6259562969207764,
+        "open_start_probability": 0.37404370307922363,
+        "top10": [
+          {
+            "id": 522,
+            "text": "</",
+            "probability": 0.6259562969207764
+          },
+          {
+            "id": 27,
+            "text": "<",
+            "probability": 0.37404370307922363
+          },
+          {
+            "id": 88752,
+            "text": "<algorithm",
+            "probability": 5.7794116714582344e-11
+          },
+          {
+            "id": 690,
+            "text": " </",
+            "probability": 1.916272175661593e-11
+          },
+          {
+            "id": 39982,
+            "text": "<number",
+            "probability": 8.330319940796915e-12
+          },
+          {
+            "id": 11347,
+            "text": ";</",
+            "probability": 5.75591007148657e-12
+          },
+          {
+            "id": 1472,
+            "text": "></",
+            "probability": 3.756287815515069e-12
+          },
+          {
+            "id": 3918,
+            "text": ".</",
+            "probability": 2.8160570663543494e-12
+          },
+          {
+            "id": 21983,
+            "text": "<button",
+            "probability": 1.9159205472130125e-12
+          },
+          {
+            "id": 91190,
+            "text": "<r",
+            "probability": 1.5859563011824673e-12
+          }
+        ]
+      }
+    },
+    "full_vs_truncated_prefix_max_logit_error": 0.0,
+    "full_vs_truncated_prefix_kl": 0.0,
+    "teacher_after_literal_open_angle": {
+      "1.0": {
+        "closure_start_probability": 2.469941959293287e-11,
+        "open_start_probability": 3.310507673995062e-20,
+        "top10": [
+          {
+            "id": 1311,
+            "text": "action",
+            "probability": 0.9998880624771118
+          },
+          {
+            "id": 19895,
+            "text": "reason",
+            "probability": 0.0001095139523386024
+          },
+          {
+            "id": 54765,
+            "text": "/action",
+            "probability": 6.328076551653794e-07
+          },
+          {
+            "id": 1917,
+            "text": " action",
+            "probability": 4.018681636352994e-07
+          },
+          {
+            "id": 100675,
+            "text": "行动",
+            "probability": 3.9484473290940514e-07
+          },
+          {
+            "id": 89107,
+            "text": "actionDate",
+            "probability": 2.0779212661636848e-07
+          },
+          {
+            "id": 38933,
+            "text": "\taction",
+            "probability": 1.9879274759659893e-07
+          },
+          {
+            "id": 4020,
+            "text": "actions",
+            "probability": 1.8171164128943929e-07
+          },
+          {
+            "id": 34922,
+            "text": "acting",
+            "probability": 1.0909577952133986e-07
+          },
+          {
+            "id": 25059,
+            "text": "-action",
+            "probability": 7.632618803654623e-08
+          }
+        ]
+      },
+      "0.6": {
+        "closure_start_probability": 2.095207959746804e-18,
+        "open_start_probability": 3.413817061728331e-33,
+        "top10": [
+          {
+            "id": 1311,
+            "text": "action",
+            "probability": 0.9999997615814209
+          },
+          {
+            "id": 19895,
+            "text": "reason",
+            "probability": 2.507247813809954e-07
+          },
+          {
+            "id": 54765,
+            "text": "/action",
+            "probability": 4.6651724150414964e-11
+          },
+          {
+            "id": 1917,
+            "text": " action",
+            "probability": 2.1888756432386636e-11
+          },
+          {
+            "id": 100675,
+            "text": "行动",
+            "probability": 2.125487980064733e-11
+          },
+          {
+            "id": 89107,
+            "text": "actionDate",
+            "probability": 7.291164200173839e-12
+          },
+          {
+            "id": 38933,
+            "text": "\taction",
+            "probability": 6.772509636432389e-12
+          },
+          {
+            "id": 4020,
+            "text": "actions",
+            "probability": 5.830690097408109e-12
+          },
+          {
+            "id": 34922,
+            "text": "acting",
+            "probability": 2.491314663247146e-12
+          },
+          {
+            "id": 25059,
+            "text": "-action",
+            "probability": 1.3736349297605033e-12
+          }
+        ]
+      }
+    }
+  }
+]

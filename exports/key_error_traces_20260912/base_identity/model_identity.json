@@ -1,0 +1,23 @@
+{
+  "model_host_path": "/mnt/disk4/zhangboyao/models/modelscope/Qwen3-4B",
+  "model_container_path": "/models/Qwen3-4B",
+  "checkpoint_step": 0,
+  "weight_files": [
+    {
+      "file": "model-00001-of-00003.safetensors",
+      "bytes": 3957900840
+    },
+    {
+      "file": "model-00002-of-00003.safetensors",
+      "bytes": 3987450520
+    },
+    {
+      "file": "model-00003-of-00003.safetensors",
+      "bytes": 99630640
+    }
+  ],
+  "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "model_config_sha256": "8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a",
+  "same_selection_as_previous_test": true,
+  "source_run": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/base_hint_compare10_20260911"
+}

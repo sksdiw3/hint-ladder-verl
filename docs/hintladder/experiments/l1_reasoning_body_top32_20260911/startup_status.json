@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-09-11T09:43:25.622084+00:00",
+  "status": "running",
+  "last_completed_step": 1,
+  "distillation_topk": 32,
+  "include_tail": true,
+  "loss_scope": "reasoning_body",
+  "initial_checkpoint": "Qwen3-4B base",
+  "checkpoint": "train/global_step_1",
+  "checkpoint_shard_counts": {
+    "model": 8,
+    "optimizer": 8,
+    "extra": 8
+  },
+  "step_seconds": 524.5088883452117,
+  "first_rollout_rows": 6226,
+  "filtered_format_error_rows": 3,
+  "hint_failed_states": 0,
+  "tests_passed": 108
+}

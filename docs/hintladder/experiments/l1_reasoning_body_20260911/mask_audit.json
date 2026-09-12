@@ -1,0 +1,12 @@
+{
+  "rows": 412,
+  "canonical_offset_crosschecks": 412,
+  "mask_time_seconds": 0.6331351734697819,
+  "response_tokens": 95764,
+  "supervised_body_tokens": 87246,
+  "closing_tag_supervised_tokens": 0,
+  "action_supervised_tokens": 0,
+  "teacher_prompt_identity_checks": 412,
+  "advisory": "Use this hint as optional guidance for your reasoning; check it against the current observation and admissible actions. Keep the required response format and do not mention the hint.\n",
+  "hydra_composition": "passed"
+}

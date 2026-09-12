@@ -1,0 +1,1537 @@
+{
+  "format_error_counts": [
+    {
+      "step": 1,
+      "unique_error_turns": 3,
+      "error_counts": {
+        "invalid_reasoning_action_format": 3
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000001.jsonl",
+        "sha256": "72ea0efdca4d3f0d054a17320047b0ba3eb132eb72f2515e80e95a9496e5dd2e",
+        "bytes": 10495
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 2,
+      "unique_error_turns": 4,
+      "error_counts": {
+        "invalid_reasoning_action_format": 4
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000002.jsonl",
+        "sha256": "0d5c1887de6f470736da16e1cc4ba9fb278a31fd9da458a3944e257c0ee523b6",
+        "bytes": 19664
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 3,
+      "unique_error_turns": 2,
+      "error_counts": {
+        "invalid_reasoning_action_format": 2
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000003.jsonl",
+        "sha256": "c4e6742be7c5da63c16daaa9a72c9dd770bae6fc5c384fc7ea541c4b10fd55c6",
+        "bytes": 10492
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 4,
+      "unique_error_turns": 4,
+      "error_counts": {
+        "invalid_reasoning_action_format": 4
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000004.jsonl",
+        "sha256": "9c87b3c5f1d9cd777556f3b282f61e0e460564b28d8a4dd4174d64a908e9f3a3",
+        "bytes": 8616
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 5,
+      "unique_error_turns": 4,
+      "error_counts": {
+        "invalid_reasoning_action_format": 4
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000005.jsonl",
+        "sha256": "1a3dcf285c656edefbdb5e8632db00ed6e7af8ee65d8a383603b04f3ed760005",
+        "bytes": 13121
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 7,
+      "unique_error_turns": 2,
+      "error_counts": {
+        "invalid_reasoning_action_format": 2
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000007.jsonl",
+        "sha256": "8e6841ff6f4f57b05f17dcd97a4aec87029a6afd5c9f3f019c59ecdd4b63e070",
+        "bytes": 8922
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 8,
+      "unique_error_turns": 8,
+      "error_counts": {
+        "invalid_reasoning_action_format": 8
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000008.jsonl",
+        "sha256": "58dd0a01a6d0093d78851227304c04485dd36c0f53009f74e3fe7882372cc921",
+        "bytes": 32055
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 9,
+      "unique_error_turns": 10,
+      "error_counts": {
+        "invalid_reasoning_action_format": 10
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000009.jsonl",
+        "sha256": "e0f67b5617bf43f5ebbf9638003d33f775ddcaa290de3a5484945d0f1a0958a0",
+        "bytes": 44627
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 10,
+      "unique_error_turns": 11,
+      "error_counts": {
+        "invalid_reasoning_action_format": 11
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000010.jsonl",
+        "sha256": "df1d0985b0f8140a6420e53268d0843257d4b53363705fde5e71ab68085606fa",
+        "bytes": 44865
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 11,
+      "unique_error_turns": 2,
+      "error_counts": {
+        "invalid_reasoning_action_format": 2
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000011.jsonl",
+        "sha256": "0e3a92b9cb833cf8e47af6d66c247a255736dc050fda713341c299c4259112ff",
+        "bytes": 4602
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 12,
+      "unique_error_turns": 5,
+      "error_counts": {
+        "invalid_reasoning_action_format": 5
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000012.jsonl",
+        "sha256": "260992119f7b30abd83e394589429440c55c3c89ad4328a5c4040d4b01e985fb",
+        "bytes": 10456
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 13,
+      "unique_error_turns": 1,
+      "error_counts": {
+        "invalid_reasoning_action_format": 1
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000013.jsonl",
+        "sha256": "135032352492448f1a2c0e47c3610c446ac8f906c70cd8564f5041357f44b895",
+        "bytes": 4098
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 14,
+      "unique_error_turns": 1,
+      "error_counts": {
+        "invalid_reasoning_action_format": 1
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000014.jsonl",
+        "sha256": "fa06caa67e2085f7318016c97e869af4255a6c6b463573b17ce0c77f4d97f8ef",
+        "bytes": 526
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 16,
+      "unique_error_turns": 1,
+      "error_counts": {
+        "invalid_reasoning_action_format": 1
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000016.jsonl",
+        "sha256": "b57091c7c4abbf15b2ba2d28d8346455bfd8822a8be5f572f4a2a27a700b2f9f",
+        "bytes": 537
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 17,
+      "unique_error_turns": 2,
+      "error_counts": {
+        "invalid_reasoning_action_format": 2
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000017.jsonl",
+        "sha256": "2a46ef0c87d6b341f1e15046a80da0bcc80242e2a6f516ca5b9fe58e659904d7",
+        "bytes": 4852
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 18,
+      "unique_error_turns": 2,
+      "error_counts": {
+        "invalid_reasoning_action_format": 2
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000018.jsonl",
+        "sha256": "fbd3a630707f3758dd4465945e3c58943b73fb603675e36b469fd0e19ea36049",
+        "bytes": 1078
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 19,
+      "unique_error_turns": 1402,
+      "error_counts": {
+        "empty_reasoning": 1395,
+        "invalid_reasoning_action_format": 7
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000019.jsonl",
+        "sha256": "75b0db3241b8d3b29d45a32e6f5eebbab4de51ce8f1a04d0f512d0eef1a3e3ea",
+        "bytes": 616691
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 20,
+      "unique_error_turns": 3894,
+      "error_counts": {
+        "empty_reasoning": 3890,
+        "invalid_reasoning_action_format": 4
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000020.jsonl",
+        "sha256": "ef6f4203293787b5c4a7afd8441ead764d202cdad9fed77ac219733b116b50fe",
+        "bytes": 1709259
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 21,
+      "unique_error_turns": 5072,
+      "error_counts": {
+        "empty_reasoning": 5057,
+        "invalid_reasoning_action_format": 15
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000021.jsonl",
+        "sha256": "7b1bf4615a08d8b04457be423174884d5504dca28ba054cb9c3820f406fd614a",
+        "bytes": 2189654
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 22,
+      "unique_error_turns": 4472,
+      "error_counts": {
+        "empty_reasoning": 4414,
+        "invalid_reasoning_action_format": 58
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000022.jsonl",
+        "sha256": "83d03679de7e26d850ad4199b6a0165bbf40b270d797fb95451d525be7a169c3",
+        "bytes": 1947788
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 23,
+      "unique_error_turns": 4834,
+      "error_counts": {
+        "empty_reasoning": 4816,
+        "invalid_reasoning_action_format": 18
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000023.jsonl",
+        "sha256": "b40c96b88d81c6486718e9ff0ee9693ff0d387a6e1db87faa79e4b744ccc9223",
+        "bytes": 2114669
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 24,
+      "unique_error_turns": 4890,
+      "error_counts": {
+        "empty_reasoning": 4850,
+        "invalid_reasoning_action_format": 40
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000024.jsonl",
+        "sha256": "e1348c6d35df1a07e46c26bcea279b23a33594b875ca01b3882ddb57ccf423de",
+        "bytes": 2126290
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 25,
+      "unique_error_turns": 4481,
+      "error_counts": {
+        "invalid_reasoning_action_format": 38,
+        "empty_reasoning": 4443
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000025.jsonl",
+        "sha256": "1ff16cef1507d070a07dd598bf64c22498a1779784c6fab9f8e775fae66305f7",
+        "bytes": 1938716
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 26,
+      "unique_error_turns": 5493,
+      "error_counts": {
+        "empty_reasoning": 5467,
+        "invalid_reasoning_action_format": 26
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000026.jsonl",
+        "sha256": "a1735c28c5a4cb6d9f2f432fb17db16694e2f9e03025aa4c10425bac74287fb2",
+        "bytes": 2391871
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 27,
+      "unique_error_turns": 4731,
+      "error_counts": {
+        "empty_reasoning": 4671,
+        "invalid_reasoning_action_format": 60
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000027.jsonl",
+        "sha256": "024909d167a1143a4042c5fe7f96cf0c107521051e94f77f2cee7b4c678bd0ac",
+        "bytes": 2059917
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 28,
+      "unique_error_turns": 4704,
+      "error_counts": {
+        "empty_reasoning": 4669,
+        "invalid_reasoning_action_format": 35
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000028.jsonl",
+        "sha256": "dbfbb9e29698575f418e32ab7488105ac443a2fd3a1349028cf858bf84d417fa",
+        "bytes": 2061305
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 29,
+      "unique_error_turns": 4655,
+      "error_counts": {
+        "empty_reasoning": 4623,
+        "invalid_reasoning_action_format": 32
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000029.jsonl",
+        "sha256": "3f897a03fd0c2f903b6aa5aeda7ae4bae7dadc622c18b057c615c686fe3a75c7",
+        "bytes": 2009543
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 30,
+      "unique_error_turns": 3956,
+      "error_counts": {
+        "empty_reasoning": 3910,
+        "invalid_reasoning_action_format": 46
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000030.jsonl",
+        "sha256": "cf7a9e5dc0e9fbb4c1cc91ce8c14beca485edae3b97f3d66b70e50fcb5d359d3",
+        "bytes": 1707224
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 31,
+      "unique_error_turns": 4363,
+      "error_counts": {
+        "empty_reasoning": 4313,
+        "invalid_reasoning_action_format": 50
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000031.jsonl",
+        "sha256": "f87557dd0dea55d2d1ab1c05e4cf59acb3680046807cf7763e37e19a55cc3733",
+        "bytes": 1892386
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 32,
+      "unique_error_turns": 3978,
+      "error_counts": {
+        "empty_reasoning": 3933,
+        "invalid_reasoning_action_format": 45
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000032.jsonl",
+        "sha256": "699273bd190952bef672812365700d43004c0838ac02267d287500caf1ad6057",
+        "bytes": 1733304
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 33,
+      "unique_error_turns": 4937,
+      "error_counts": {
+        "invalid_reasoning_action_format": 35,
+        "empty_reasoning": 4902
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000033.jsonl",
+        "sha256": "161eb974cb36c326e64ae16a56fc5e7172322a9cbc9dbd5b05f1cccc845e2bfa",
+        "bytes": 2143972
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 34,
+      "unique_error_turns": 5151,
+      "error_counts": {
+        "empty_reasoning": 5078,
+        "invalid_reasoning_action_format": 73
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000034.jsonl",
+        "sha256": "4764537166b74c64662205675a79b0e074d95bb18573b60e610acdafbceff361",
+        "bytes": 2235859
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 35,
+      "unique_error_turns": 5606,
+      "error_counts": {
+        "empty_reasoning": 5580,
+        "invalid_reasoning_action_format": 26
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000035.jsonl",
+        "sha256": "ee6596e0553db19ccae824e7554179e4a0af058787ac902f66376d84778cd314",
+        "bytes": 2430225
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 36,
+      "unique_error_turns": 5192,
+      "error_counts": {
+        "empty_reasoning": 5161,
+        "invalid_reasoning_action_format": 31
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000036.jsonl",
+        "sha256": "da9672bc1a0c556f756a20c62e538a965060ea12259ed5a1a24879dfdb76f991",
+        "bytes": 2257003
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 37,
+      "unique_error_turns": 5334,
+      "error_counts": {
+        "empty_reasoning": 5293,
+        "invalid_reasoning_action_format": 41
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000037.jsonl",
+        "sha256": "b9426d35f58266b3a8d7943e2a67dd0ab504e9adc7f9cf8450a9c8ddeca0907e",
+        "bytes": 2318198
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 38,
+      "unique_error_turns": 6004,
+      "error_counts": {
+        "empty_reasoning": 5960,
+        "invalid_reasoning_action_format": 44
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000038.jsonl",
+        "sha256": "ee6045b0eb920ef5dfaa318db63d90decf241e529e6bb486b768e6146cd4dead",
+        "bytes": 2603384
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 39,
+      "unique_error_turns": 4804,
+      "error_counts": {
+        "empty_reasoning": 4777,
+        "invalid_reasoning_action_format": 27
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000039.jsonl",
+        "sha256": "c861e18b1b47d17480bae13883bc2e014429e32e1d37384afdb2e5087426a3b9",
+        "bytes": 2072121
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 40,
+      "unique_error_turns": 4966,
+      "error_counts": {
+        "empty_reasoning": 4945,
+        "invalid_reasoning_action_format": 21
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000040.jsonl",
+        "sha256": "b324082c57c29d64cfe89c4d65986083c3133e46a6db166582aab137816b45e7",
+        "bytes": 2136052
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 41,
+      "unique_error_turns": 4784,
+      "error_counts": {
+        "invalid_reasoning_action_format": 49,
+        "empty_reasoning": 4735
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000041.jsonl",
+        "sha256": "c8c2d1a71a9ce86eabee57b8a1186580cdf75057d15920c1ce13a354b7e979e5",
+        "bytes": 2086645
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 42,
+      "unique_error_turns": 5435,
+      "error_counts": {
+        "empty_reasoning": 5380,
+        "invalid_reasoning_action_format": 55
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000042.jsonl",
+        "sha256": "f8a10a6b806fbb1086230eaac13315dea3375dbe30e4e1c3c3c99e17dff8de78",
+        "bytes": 2352564
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 43,
+      "unique_error_turns": 5095,
+      "error_counts": {
+        "empty_reasoning": 5040,
+        "invalid_reasoning_action_format": 55
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000043.jsonl",
+        "sha256": "3f453953ed4b08e400207d32670dd6755dd6f6a0ecaed184e4c95958ca635782",
+        "bytes": 2210510
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 44,
+      "unique_error_turns": 4510,
+      "error_counts": {
+        "empty_reasoning": 4469,
+        "invalid_reasoning_action_format": 41
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000044.jsonl",
+        "sha256": "92f25a2a00c71f3529c161061647a2d1b23228033c338e580b4eba26d6374bee",
+        "bytes": 1968577
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 45,
+      "unique_error_turns": 4712,
+      "error_counts": {
+        "empty_reasoning": 4667,
+        "invalid_reasoning_action_format": 45
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000045.jsonl",
+        "sha256": "f4160b96ebb4b8ab405fb7421b2111781076601dbf5860191e8edc682814d486",
+        "bytes": 2056037
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 46,
+      "unique_error_turns": 5108,
+      "error_counts": {
+        "empty_reasoning": 5043,
+        "invalid_reasoning_action_format": 65
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000046.jsonl",
+        "sha256": "ef2a4cab4089cd2272b087b9dc7b7e9663e93aa8755516975cfbf121cb2446f5",
+        "bytes": 2214555
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 47,
+      "unique_error_turns": 4411,
+      "error_counts": {
+        "empty_reasoning": 4363,
+        "invalid_reasoning_action_format": 48
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000047.jsonl",
+        "sha256": "876917846d2087257a5249c37deb963399687cf9492ffbf5684695b59b0a7d9d",
+        "bytes": 1927875
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 48,
+      "unique_error_turns": 5747,
+      "error_counts": {
+        "empty_reasoning": 5701,
+        "invalid_reasoning_action_format": 46
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000048.jsonl",
+        "sha256": "172c2fdd44d44c9c6a4092a9a05e760fbbb796ed3649b24fa72e8bdf44408722",
+        "bytes": 2494071
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 49,
+      "unique_error_turns": 4887,
+      "error_counts": {
+        "invalid_reasoning_action_format": 41,
+        "empty_reasoning": 4846
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000049.jsonl",
+        "sha256": "cc923ea00f7f740bad9258ec570436c7b229aa84ac75f3c64576995aa61087e9",
+        "bytes": 2126644
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 50,
+      "unique_error_turns": 5220,
+      "error_counts": {
+        "empty_reasoning": 5188,
+        "invalid_reasoning_action_format": 32
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000050.jsonl",
+        "sha256": "a43e8fe37f2cfc8a1e20a4512fa6b5c3e143b96f4234fb7aa8e7e5ede616925a",
+        "bytes": 2291346
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 51,
+      "unique_error_turns": 4765,
+      "error_counts": {
+        "empty_reasoning": 4725,
+        "invalid_reasoning_action_format": 40
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000051.jsonl",
+        "sha256": "fe9fbdccbbd1846aa732907af37e60c880b4273d52e3b1f9d6cc23768575c67d",
+        "bytes": 2068698
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 52,
+      "unique_error_turns": 4940,
+      "error_counts": {
+        "empty_reasoning": 4900,
+        "invalid_reasoning_action_format": 40
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000052.jsonl",
+        "sha256": "bb3be8d228eb809eb4704b099b84f5dd0c93fae37eac7892a364779e58bb2799",
+        "bytes": 2140824
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 53,
+      "unique_error_turns": 5433,
+      "error_counts": {
+        "empty_reasoning": 5385,
+        "invalid_reasoning_action_format": 48
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000053.jsonl",
+        "sha256": "695554a3b4b999a6ca4100649aa668a29e4ee84add0f6f1e3d73931dd8f9a264",
+        "bytes": 2355544
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 54,
+      "unique_error_turns": 5738,
+      "error_counts": {
+        "empty_reasoning": 5681,
+        "invalid_reasoning_action_format": 57
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000054.jsonl",
+        "sha256": "01464bae1e5029aacc4f5f6c27dcedff65d6f87dcc01b90ecb2f79ccd1939dcb",
+        "bytes": 2490200
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 55,
+      "unique_error_turns": 3770,
+      "error_counts": {
+        "empty_reasoning": 3714,
+        "invalid_reasoning_action_format": 56
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000055.jsonl",
+        "sha256": "ff2e07c54de2a61e0ce77157ff6c30d1638fe0dcfa79492eedf9699f231fab1b",
+        "bytes": 1650786
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 56,
+      "unique_error_turns": 4225,
+      "error_counts": {
+        "empty_reasoning": 4172,
+        "invalid_reasoning_action_format": 53
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000056.jsonl",
+        "sha256": "ac71edcc2804936ff8b93bc3fc44db5acce1a1da7117fe3b1710a58ba583dabb",
+        "bytes": 1815272
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 57,
+      "unique_error_turns": 3772,
+      "error_counts": {
+        "empty_reasoning": 3702,
+        "invalid_reasoning_action_format": 70
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000057.jsonl",
+        "sha256": "086bed3305300d0723d2fdd7bcbbec07e4066731e1ed6dd5821ba31bb79ba7a7",
+        "bytes": 1657156
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 58,
+      "unique_error_turns": 5768,
+      "error_counts": {
+        "empty_reasoning": 5720,
+        "invalid_reasoning_action_format": 48
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000058.jsonl",
+        "sha256": "8d1218d6a0e7df8ef05ef80669dbe4531b73270e2dc962c997e29fbd6adf2cb0",
+        "bytes": 2507872
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 59,
+      "unique_error_turns": 5825,
+      "error_counts": {
+        "empty_reasoning": 5761,
+        "invalid_reasoning_action_format": 64
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000059.jsonl",
+        "sha256": "a2fa2efe21a35a2e99ee26e85981545d816c33a90bba418110f7730b7a39bfb0",
+        "bytes": 2539013
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 60,
+      "unique_error_turns": 3991,
+      "error_counts": {
+        "empty_reasoning": 3933,
+        "invalid_reasoning_action_format": 58
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000060.jsonl",
+        "sha256": "914bf5fd7484d214b9ee07ec661c85f3c80818a7492ee2254e8afc51c7429a76",
+        "bytes": 1730597
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 61,
+      "unique_error_turns": 5254,
+      "error_counts": {
+        "invalid_reasoning_action_format": 42,
+        "empty_reasoning": 5212
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000061.jsonl",
+        "sha256": "683edeb251db2d555fa4e153c142ad5d343e00f519e0965852d4e5a7e1432320",
+        "bytes": 2266759
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 62,
+      "unique_error_turns": 5250,
+      "error_counts": {
+        "empty_reasoning": 5220,
+        "invalid_reasoning_action_format": 30
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000062.jsonl",
+        "sha256": "adbff4ed0b68f503cbcfac3293cdc58b27f9e75f27c8ccdc71d3148165945025",
+        "bytes": 2260844
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 63,
+      "unique_error_turns": 4395,
+      "error_counts": {
+        "empty_reasoning": 4362,
+        "invalid_reasoning_action_format": 33
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000063.jsonl",
+        "sha256": "93ccff0f2818a5d9d805c8ee11b86b530a6735577df0b6b7006557641355ba17",
+        "bytes": 1915356
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 64,
+      "unique_error_turns": 4402,
+      "error_counts": {
+        "empty_reasoning": 4337,
+        "invalid_reasoning_action_format": 65
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000064.jsonl",
+        "sha256": "b6e6f3159d281b56de59157729581bec3627cdd6fca9fc2a39c48bfaa16fcf90",
+        "bytes": 1920682
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 65,
+      "unique_error_turns": 4699,
+      "error_counts": {
+        "empty_reasoning": 4623,
+        "invalid_reasoning_action_format": 76
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000065.jsonl",
+        "sha256": "2f093a837ed3d4ef96ac1c38db602ccab27b146f5b35750e8541bb3ab1e6eee0",
+        "bytes": 2041772
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 66,
+      "unique_error_turns": 4576,
+      "error_counts": {
+        "empty_reasoning": 4488,
+        "invalid_reasoning_action_format": 88
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000066.jsonl",
+        "sha256": "99bb015c27f956e9238e03a5ed8890c9e5a44b5c61340f30478219578962dc01",
+        "bytes": 2006300
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 67,
+      "unique_error_turns": 4385,
+      "error_counts": {
+        "empty_reasoning": 4347,
+        "invalid_reasoning_action_format": 38
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000067.jsonl",
+        "sha256": "3e6972454f1d16773a8d6f46d84f61312d87cc95098fbcbebba5dd552c41724e",
+        "bytes": 1904213
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 68,
+      "unique_error_turns": 4022,
+      "error_counts": {
+        "empty_reasoning": 3959,
+        "invalid_reasoning_action_format": 63
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000068.jsonl",
+        "sha256": "d9c2806aaeb479d2dd27fbbb9055ca34d87a979adc4265b3ee41abf6bfa5a77b",
+        "bytes": 1759304
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 69,
+      "unique_error_turns": 4597,
+      "error_counts": {
+        "empty_reasoning": 4547,
+        "invalid_reasoning_action_format": 50
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000069.jsonl",
+        "sha256": "ee171e121e4f2e7544f8f7d57f791f0e61237779920d55256061621242fefdfc",
+        "bytes": 2000390
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 70,
+      "unique_error_turns": 4774,
+      "error_counts": {
+        "empty_reasoning": 4729,
+        "invalid_reasoning_action_format": 45
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000070.jsonl",
+        "sha256": "45109c5a3f8e2c74e03e8c7f9040cfc575e256d519963ee225debd45a86c00c8",
+        "bytes": 2082139
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 71,
+      "unique_error_turns": 4147,
+      "error_counts": {
+        "empty_reasoning": 4109,
+        "invalid_reasoning_action_format": 38
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000071.jsonl",
+        "sha256": "2cd9ebc186af43df4dca84fc364d21d4de9320bf24a23a8d545e35ae26e31ff4",
+        "bytes": 1804691
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 72,
+      "unique_error_turns": 5572,
+      "error_counts": {
+        "empty_reasoning": 5528,
+        "invalid_reasoning_action_format": 44
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000072.jsonl",
+        "sha256": "52f328acceeae7d138920a0e2b44f3d6601aef05d740611d10be001c88724cfe",
+        "bytes": 2427396
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 73,
+      "unique_error_turns": 4292,
+      "error_counts": {
+        "empty_reasoning": 4258,
+        "invalid_reasoning_action_format": 34
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000073.jsonl",
+        "sha256": "5038eff5491b1f66f4475945da6bd1856010a2f6d777d51142b194499ac85bdf",
+        "bytes": 1862469
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 74,
+      "unique_error_turns": 4200,
+      "error_counts": {
+        "empty_reasoning": 4149,
+        "invalid_reasoning_action_format": 51
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000074.jsonl",
+        "sha256": "64832552289fa105b0b9aae97a8ec32528f9ec37cdcea697e887fa9fdb1b60c9",
+        "bytes": 1842451
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 75,
+      "unique_error_turns": 4960,
+      "error_counts": {
+        "empty_reasoning": 4924,
+        "invalid_reasoning_action_format": 36
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000075.jsonl",
+        "sha256": "4afd181ede31a49b3914313b5445deda6b89cbaaf3c5ea6c3114ad92a70135c1",
+        "bytes": 2142846
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 76,
+      "unique_error_turns": 5005,
+      "error_counts": {
+        "empty_reasoning": 4947,
+        "invalid_reasoning_action_format": 58
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000076.jsonl",
+        "sha256": "a12974d99f960dc1073e00eae8babb38fa78a535e7e9e1560cb6108c99a33577",
+        "bytes": 2190666
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 77,
+      "unique_error_turns": 5710,
+      "error_counts": {
+        "empty_reasoning": 5658,
+        "invalid_reasoning_action_format": 52
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000077.jsonl",
+        "sha256": "90b9244d73b95028acff12ac5f47232f0b33fd8c0525d97bf5f3b01789391d56",
+        "bytes": 2468174
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 78,
+      "unique_error_turns": 5172,
+      "error_counts": {
+        "empty_reasoning": 5104,
+        "invalid_reasoning_action_format": 68
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000078.jsonl",
+        "sha256": "749901436ef114a43ea2a5d5271d2c5e88ab980df83a45288c2c2264502d788a",
+        "bytes": 2254053
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 79,
+      "unique_error_turns": 4120,
+      "error_counts": {
+        "empty_reasoning": 4082,
+        "invalid_reasoning_action_format": 38
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000079.jsonl",
+        "sha256": "b6a93951991073cc4a47288561e563bed8bb7252be80d5f5e81d32ce351d0852",
+        "bytes": 1789679
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 80,
+      "unique_error_turns": 5663,
+      "error_counts": {
+        "empty_reasoning": 5599,
+        "invalid_reasoning_action_format": 64
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000080.jsonl",
+        "sha256": "5af33742de53a4a0cc0be2ec5487bcf9c46acdb146cdf3dd11408b2a39aed779",
+        "bytes": 2459136
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 81,
+      "unique_error_turns": 5470,
+      "error_counts": {
+        "empty_reasoning": 5424,
+        "invalid_reasoning_action_format": 46
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000081.jsonl",
+        "sha256": "603b4741bc8d2342a6313ccdc39c26c95bbb649bcf5dab226389f2fc1f63184a",
+        "bytes": 2378026
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 82,
+      "unique_error_turns": 5427,
+      "error_counts": {
+        "empty_reasoning": 5354,
+        "invalid_reasoning_action_format": 73
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000082.jsonl",
+        "sha256": "aa25c3596101928667a1ded660428eae5474307d23cf2f6a43adbae2198efb59",
+        "bytes": 2363625
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 83,
+      "unique_error_turns": 5278,
+      "error_counts": {
+        "empty_reasoning": 5211,
+        "invalid_reasoning_action_format": 67
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000083.jsonl",
+        "sha256": "d866a26a1b247a9932adefa78eca17711c4a1d208a747dd5c9a5fdb5dde322fc",
+        "bytes": 2303251
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 84,
+      "unique_error_turns": 3578,
+      "error_counts": {
+        "empty_reasoning": 3551,
+        "invalid_reasoning_action_format": 27
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000084.jsonl",
+        "sha256": "c826164c74648a7e9d3d2c3471f33b5ea1797ec155e9cbcce9fa5438ffc0c6ba",
+        "bytes": 1549375
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 85,
+      "unique_error_turns": 4950,
+      "error_counts": {
+        "empty_reasoning": 4919,
+        "invalid_reasoning_action_format": 31
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000085.jsonl",
+        "sha256": "27daf8b98acab95388a9f568975cde196ba270b84e194a7a3f2b1729d45962bc",
+        "bytes": 2156067
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 86,
+      "unique_error_turns": 4700,
+      "error_counts": {
+        "empty_reasoning": 4664,
+        "invalid_reasoning_action_format": 36
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000086.jsonl",
+        "sha256": "c42d90310ab9cf48b592db95df9205555c3581fac220980406f3e9627c66cf7d",
+        "bytes": 2045520
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 87,
+      "unique_error_turns": 5174,
+      "error_counts": {
+        "empty_reasoning": 5125,
+        "invalid_reasoning_action_format": 49
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000087.jsonl",
+        "sha256": "610bea60d8ac126f30760fe28c9e99fca063db6a02e9519de15d0d1cc0660ac5",
+        "bytes": 2239412
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 88,
+      "unique_error_turns": 4552,
+      "error_counts": {
+        "empty_reasoning": 4493,
+        "invalid_reasoning_action_format": 59
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000088.jsonl",
+        "sha256": "b7f6d799d90581088dbc6269e619afef33e27d160586ebe2966955cf2c4c8a55",
+        "bytes": 1963875
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 89,
+      "unique_error_turns": 5109,
+      "error_counts": {
+        "empty_reasoning": 5049,
+        "invalid_reasoning_action_format": 60
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000089.jsonl",
+        "sha256": "b8336a78e6b5f844ae767fe1d4c0093606998ccc53ca3747807b962f0f26c71b",
+        "bytes": 2209212
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 90,
+      "unique_error_turns": 4808,
+      "error_counts": {
+        "invalid_reasoning_action_format": 61,
+        "empty_reasoning": 4747
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000090.jsonl",
+        "sha256": "47f4fad193835649a0a4ab717829bb47b91a7486a71bd3d5d9727b018a2224c0",
+        "bytes": 2094202
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 91,
+      "unique_error_turns": 4344,
+      "error_counts": {
+        "empty_reasoning": 4324,
+        "invalid_reasoning_action_format": 20
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000091.jsonl",
+        "sha256": "d4995341efdba9afa58e51e8c3936f93dc6fcaadbe76ecaa5b8b4d09f3d0dbba",
+        "bytes": 1893142
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 92,
+      "unique_error_turns": 4646,
+      "error_counts": {
+        "empty_reasoning": 4606,
+        "invalid_reasoning_action_format": 40
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000092.jsonl",
+        "sha256": "01211d66df4e9d04dd536ba49c1b398161b1842ee99d8a5b00f690a2686e1fe1",
+        "bytes": 2019871
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 93,
+      "unique_error_turns": 5489,
+      "error_counts": {
+        "empty_reasoning": 5435,
+        "invalid_reasoning_action_format": 54
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000093.jsonl",
+        "sha256": "0df7825ea8faa7b546e7764480ab8c0c142edc834f4fcfea3cdca3490a80b30e",
+        "bytes": 2377657
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 94,
+      "unique_error_turns": 5544,
+      "error_counts": {
+        "empty_reasoning": 5503,
+        "invalid_reasoning_action_format": 41
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000094.jsonl",
+        "sha256": "ea7bd2154338b4a4762e6b3aa7b5c02996a635b5026f06289fff2381612c0c61",
+        "bytes": 2412452
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 95,
+      "unique_error_turns": 4392,
+      "error_counts": {
+        "empty_reasoning": 4334,
+        "invalid_reasoning_action_format": 58
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000095.jsonl",
+        "sha256": "cad0aecbee2f7e462a89040b67d7634312a1043fda3bce5cb149699fc47e9449",
+        "bytes": 1899862
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 96,
+      "unique_error_turns": 5009,
+      "error_counts": {
+        "empty_reasoning": 4954,
+        "invalid_reasoning_action_format": 55
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000096.jsonl",
+        "sha256": "d598bdaaf4b68a7b4e7506735a11fe44fd79a15e2512936fe7a6bdae123c3e2f",
+        "bytes": 2185076
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 97,
+      "unique_error_turns": 5375,
+      "error_counts": {
+        "empty_reasoning": 5348,
+        "invalid_reasoning_action_format": 27
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000097.jsonl",
+        "sha256": "fa51af96c34e2f8a543b93965963cb8827cbe52e35049b1317df377481c7d807",
+        "bytes": 2326493
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 98,
+      "unique_error_turns": 4827,
+      "error_counts": {
+        "empty_reasoning": 4755,
+        "invalid_reasoning_action_format": 72
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000098.jsonl",
+        "sha256": "2d65d76d78046651a67a9c50b0883945945061721fe35877c19440f084580171",
+        "bytes": 2101544
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 99,
+      "unique_error_turns": 5238,
+      "error_counts": {
+        "empty_reasoning": 5193,
+        "invalid_reasoning_action_format": 45
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000099.jsonl",
+        "sha256": "a65d5d71dbdfc1be9dbc7e4bd319441fbd357fbc12c49c42db81bddef9733dc6",
+        "bytes": 2281357
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 100,
+      "unique_error_turns": 4780,
+      "error_counts": {
+        "empty_reasoning": 4738,
+        "invalid_reasoning_action_format": 42
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000100.jsonl",
+        "sha256": "feb48f89e186d5792da4f6bc64ee5f86a362e13e36495cad3bde737b7ee07421",
+        "bytes": 2076503
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 101,
+      "unique_error_turns": 4973,
+      "error_counts": {
+        "empty_reasoning": 4939,
+        "invalid_reasoning_action_format": 34
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000101.jsonl",
+        "sha256": "8b4eccebf23548a3c7cbf353fc4530e362c3cac3421b54f05e87af628b6588a9",
+        "bytes": 2168979
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 102,
+      "unique_error_turns": 5183,
+      "error_counts": {
+        "empty_reasoning": 5152,
+        "invalid_reasoning_action_format": 31
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000102.jsonl",
+        "sha256": "bce6eba4a8e8c7e0f9b27f680e44f3d7b746c0889e7cc17a45b66b1fe3f08bb4",
+        "bytes": 2281618
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 103,
+      "unique_error_turns": 4896,
+      "error_counts": {
+        "invalid_reasoning_action_format": 41,
+        "empty_reasoning": 4855
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000103.jsonl",
+        "sha256": "7c635712d7f65fe21840f67e174efe1673375f67958e904ef2cb82b918c42dbb",
+        "bytes": 2143356
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 104,
+      "unique_error_turns": 4808,
+      "error_counts": {
+        "empty_reasoning": 4757,
+        "invalid_reasoning_action_format": 51
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000104.jsonl",
+        "sha256": "4b22855a01ef7ee6bb80eb756623df1a235f3185ee4816bb9b4448226bb7a094",
+        "bytes": 2084281
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 105,
+      "unique_error_turns": 4901,
+      "error_counts": {
+        "empty_reasoning": 4835,
+        "invalid_reasoning_action_format": 66
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000105.jsonl",
+        "sha256": "cddbfda73335ea81a361649da5f8d5ac0eda8266ff5cb219cd83d0fd60e63a33",
+        "bytes": 2130154
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 106,
+      "unique_error_turns": 5304,
+      "error_counts": {
+        "empty_reasoning": 5226,
+        "invalid_reasoning_action_format": 78
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000106.jsonl",
+        "sha256": "334dba4f09201ea1b51e4f0e6d3c4dde67e43942d75cdfc47e5f6db3c67f98d8",
+        "bytes": 2333753
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 107,
+      "unique_error_turns": 5033,
+      "error_counts": {
+        "empty_reasoning": 5003,
+        "invalid_reasoning_action_format": 30
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000107.jsonl",
+        "sha256": "b066d066cd5adadeb29b752b495963fe2f6c4ea206d68d9041217621cf8288e2",
+        "bytes": 2154403
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 108,
+      "unique_error_turns": 5330,
+      "error_counts": {
+        "empty_reasoning": 5293,
+        "invalid_reasoning_action_format": 37
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000108.jsonl",
+        "sha256": "1f1b30768a7dcb6392e575162f11a2dbdb8431f4492dd897c3c3ab086acf0cf5",
+        "bytes": 2302939
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 109,
+      "unique_error_turns": 4950,
+      "error_counts": {
+        "empty_reasoning": 4906,
+        "invalid_reasoning_action_format": 44
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000109.jsonl",
+        "sha256": "c567cc00deb06ea7f3ba2b22a3c19a1d036cbd1ff2031ecd14d9b8ffd22f1674",
+        "bytes": 2154314
+      },
+      "denominator_available_here": false
+    },
+    {
+      "step": 110,
+      "unique_error_turns": 4321,
+      "error_counts": {
+        "empty_reasoning": 4278,
+        "invalid_reasoning_action_format": 43
+      },
+      "source": {
+        "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_reasoning_body_top32_20260911/train/format_errors/step_000110.jsonl",
+        "sha256": "09f1d309ff09751e659799de57f32cd50ffaf72ddbb954170953734aa2208056",
+        "bytes": 1876538
+      },
+      "denominator_available_here": false
+    }
+  ],
+  "rollout_denominator_checks": [
+    {
+      "step": 5,
+      "episodes": 128,
+      "unique_turns": 4644,
+      "empty_reasoning": 0,
+      "all_format_errors": 4
+    },
+    {
+      "step": 10,
+      "episodes": 128,
+      "unique_turns": 5000,
+      "empty_reasoning": 0,
+      "all_format_errors": 11
+    },
+    {
+      "step": 20,
+      "episodes": 128,
+      "unique_turns": 4328,
+      "empty_reasoning": 3890,
+      "all_format_errors": 3894
+    },
+    {
+      "step": 50,
+      "episodes": 128,
+      "unique_turns": 5220,
+      "empty_reasoning": 5188,
+      "all_format_errors": 5220
+    },
+    {
+      "step": 110,
+      "episodes": 128,
+      "unique_turns": 4323,
+      "empty_reasoning": 4278,
+      "all_format_errors": 4321
+    }
+  ]
+}

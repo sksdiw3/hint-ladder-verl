@@ -1,0 +1,3147 @@
+{
+  "config": {
+    "model": "/models/Qwen3-4B",
+    "checkpoint_step": 0,
+    "workers": 8,
+    "model_host_path": "/mnt/disk4/zhangboyao/models/modelscope/Qwen3-4B",
+    "source": "exports/base_hint_compare10_20260911/episodes.jsonl",
+    "source_sha256": "d31dc09bc763af53b0bced008ab6ff2348f86e149bb8c172c6ae097944a365d1",
+    "student_turns": 414,
+    "scored_turns": 412,
+    "excluded_turns": 2,
+    "source_arm": "no_hint",
+    "same_student_prefix_in_both_arms": true,
+    "temperatures": [
+      1.0,
+      0.6
+    ],
+    "top_k_top_p_truncation": false,
+    "probability_normalization": "full vocabulary",
+    "entropy_units": "nats",
+    "native_thinking": false,
+    "hint_model": "glm-5.3-flash",
+    "hint_thinking": true,
+    "hint_prompt_path": "configs/experiments/l1_online_full_20260910/l1_prompt.txt",
+    "fresh_hint_seed_step": 0,
+    "hint_deduplication": "same public task, observation and last two actions",
+    "fresh_unique_hint_states": 226,
+    "training_or_weight_updates": false
+  },
+  "groups": {
+    "<reasoning>:part0": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9999995944858755,
+          "median_probability": 0.9999996423721313,
+          "p05_probability": 0.9999992847442627,
+          "min_probability": 0.9999977350234985,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 8.22681700033746e-06
+        },
+        "teacher": {
+          "mean_probability": 0.9999991626415438,
+          "median_probability": 0.9999992847442627,
+          "p05_probability": 0.9999984502792358,
+          "min_probability": 0.999996542930603,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.411401309242932e-05
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 4.224888807260075e-07,
+        "mean_training_top20_tail_kl": 9.754124398370144e-08,
+        "mean_target_gradient": 4.318443316857792e-07,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 4.0227533746797585e-10
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.5506969980613173e-09
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 1.3452687042308827e-10,
+        "mean_training_top20_tail_kl": 1.3452590620933336e-10,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "<reasoning>:part1": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.999998737596771,
+          "median_probability": 0.9999988079071045,
+          "p05_probability": 0.9999982714653015,
+          "min_probability": 0.9999979734420776,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 2.0495113703961658e-05
+        },
+        "teacher": {
+          "mean_probability": 0.9999988293184817,
+          "median_probability": 0.999998927116394,
+          "p05_probability": 0.9999982118606567,
+          "min_probability": 0.999997615814209,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.9201837580271566e-05
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 1.6519001337469678e-07,
+        "mean_training_top20_tail_kl": -1.033647942574258e-06,
+        "mean_target_gradient": -9.172171064950887e-08,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.4901119927369828e-09
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.303109773808669e-09
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 8.881504305473619e-12,
+        "mean_training_top20_tail_kl": 8.879938092804521e-12,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "<reasoning>:part2": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 4.367980379227904e-09
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 8.477814592469792e-10
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": -5.6162252151335786e-11,
+        "mean_training_top20_tail_kl": -5.615803601118977e-11,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 2.423406204567965e-15
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.5252931787812118e-16
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": -9.849660181535473e-18,
+        "mean_training_top20_tail_kl": -9.849659878871693e-18,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "<reasoning>:part3": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9999115711566314,
+          "median_probability": 0.9999251961708069,
+          "p05_probability": 0.9997965693473816,
+          "min_probability": 0.999290406703949,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0008862495364932665
+        },
+        "teacher": {
+          "mean_probability": 0.9931457481771997,
+          "median_probability": 0.9997388124465942,
+          "p05_probability": 0.9975274205207825,
+          "min_probability": 0.3208213150501251,
+          "not_top1": 1,
+          "outside_top20": 0,
+          "probability_below_50pct": 1,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.015003255934344161
+        },
+        "teacher_lower_by_5pp": 9,
+        "teacher_lower_by_20pp": 5,
+        "teacher_lower_by_50pp": 1,
+        "mean_full_forward_kl": 0.047808203778688475,
+        "mean_training_top20_tail_kl": 0.0478078932884332,
+        "mean_target_gradient": 0.006765822907095974,
+        "target_gradient_above_1e4": 309,
+        "target_gradient_below_minus_1e4": 3
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.999999747982303,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.9999992847442627,
+          "min_probability": 0.9999943971633911,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 3.798497870796211e-06
+        },
+        "teacher": {
+          "mean_probability": 0.9947546698442362,
+          "median_probability": 0.999998927116394,
+          "p05_probability": 0.9999545812606812,
+          "min_probability": 0.22270016372203827,
+          "not_top1": 1,
+          "outside_top20": 0,
+          "probability_below_50pct": 1,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00797770012791103
+        },
+        "teacher_lower_by_5pp": 6,
+        "teacher_lower_by_20pp": 3,
+        "teacher_lower_by_50pp": 1,
+        "mean_full_forward_kl": 0.07156633312623367,
+        "mean_training_top20_tail_kl": 0.0715661650692149,
+        "mean_target_gradient": 0.00524507810189886,
+        "target_gradient_above_1e4": 12,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "reasoning_body_control": {
+      "1.0": {
+        "positions": 3296,
+        "student": {
+          "mean_probability": 0.9350191470194897,
+          "median_probability": 0.9990876019001007,
+          "p05_probability": 0.5740612149238586,
+          "min_probability": 0.1170075461268425,
+          "not_top1": 70,
+          "outside_top20": 0,
+          "probability_below_50pct": 123,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.15829579870542596
+        },
+        "teacher": {
+          "mean_probability": 0.7630143038085276,
+          "median_probability": 0.9957084059715271,
+          "p05_probability": 0.0031659353990107775,
+          "min_probability": 3.442444219221505e-14,
+          "not_top1": 712,
+          "outside_top20": 7,
+          "probability_below_50pct": 764,
+          "probability_below_10pct": 449,
+          "mean_entropy_nats": 0.23854634538987177
+        },
+        "teacher_lower_by_5pp": 1056,
+        "teacher_lower_by_20pp": 825,
+        "teacher_lower_by_50pp": 594,
+        "mean_full_forward_kl": 1.1337306648591798,
+        "mean_training_top20_tail_kl": 1.1336973387182239,
+        "mean_target_gradient": 0.1720047709825946,
+        "target_gradient_above_1e4": 1587,
+        "target_gradient_below_minus_1e4": 456
+      },
+      "0.6": {
+        "positions": 3296,
+        "student": {
+          "mean_probability": 0.9571787670437807,
+          "median_probability": 0.999992698431015,
+          "p05_probability": 0.6956393718719482,
+          "min_probability": 0.05133591964840889,
+          "not_top1": 70,
+          "outside_top20": 0,
+          "probability_below_50pct": 100,
+          "probability_below_10pct": 9,
+          "mean_entropy_nats": 0.08440597276048915
+        },
+        "teacher": {
+          "mean_probability": 0.7746804313742579,
+          "median_probability": 0.9998955726623535,
+          "p05_probability": 8.464748680125922e-05,
+          "min_probability": 3.642947354080511e-23,
+          "not_top1": 712,
+          "outside_top20": 7,
+          "probability_below_50pct": 742,
+          "probability_below_10pct": 525,
+          "mean_entropy_nats": 0.13946840158275603
+        },
+        "teacher_lower_by_5pp": 942,
+        "teacher_lower_by_20pp": 784,
+        "teacher_lower_by_50pp": 630,
+        "mean_full_forward_kl": 1.9560767762388274,
+        "mean_training_top20_tail_kl": 1.956076645421977,
+        "mean_target_gradient": 0.1824983355647984,
+        "target_gradient_above_1e4": 1340,
+        "target_gradient_below_minus_1e4": 377
+      }
+    },
+    "before_close:3": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9599554077948181,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.7291797995567322,
+          "min_probability": 0.18181651830673218,
+          "not_top1": 5,
+          "outside_top20": 0,
+          "probability_below_50pct": 6,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.09931963428132257
+        },
+        "teacher": {
+          "mean_probability": 0.9190006101863899,
+          "median_probability": 0.9999991059303284,
+          "p05_probability": 0.3127501904964447,
+          "min_probability": 5.713079372071661e-05,
+          "not_top1": 28,
+          "outside_top20": 0,
+          "probability_below_50pct": 29,
+          "probability_below_10pct": 6,
+          "mean_entropy_nats": 0.12332925324414891
+        },
+        "teacher_lower_by_5pp": 51,
+        "teacher_lower_by_20pp": 32,
+        "teacher_lower_by_50pp": 14,
+        "mean_full_forward_kl": 0.13337675672547306,
+        "mean_training_top20_tail_kl": 0.13336839048210697,
+        "mean_target_gradient": 0.04095479766431364,
+        "target_gradient_above_1e4": 104,
+        "target_gradient_below_minus_1e4": 49
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9757340904325247,
+          "median_probability": 1.0,
+          "p05_probability": 0.8515533208847046,
+          "min_probability": 0.07585086673498154,
+          "not_top1": 5,
+          "outside_top20": 0,
+          "probability_below_50pct": 6,
+          "probability_below_10pct": 1,
+          "mean_entropy_nats": 0.05179956218114578
+        },
+        "teacher": {
+          "mean_probability": 0.928041587987262,
+          "median_probability": 1.0,
+          "p05_probability": 0.30294016003608704,
+          "min_probability": 8.7562284534215e-08,
+          "not_top1": 28,
+          "outside_top20": 0,
+          "probability_below_50pct": 28,
+          "probability_below_10pct": 16,
+          "mean_entropy_nats": 0.07216405145550309
+        },
+        "teacher_lower_by_5pp": 45,
+        "teacher_lower_by_20pp": 33,
+        "teacher_lower_by_50pp": 20,
+        "mean_full_forward_kl": 0.23430767136157907,
+        "mean_training_top20_tail_kl": 0.23430763588127881,
+        "mean_target_gradient": 0.04769250256850303,
+        "target_gradient_above_1e4": 78,
+        "target_gradient_below_minus_1e4": 36
+      }
+    },
+    "before_close:2": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9523271469272745,
+          "median_probability": 0.9999934434890747,
+          "p05_probability": 0.7310302257537842,
+          "min_probability": 0.06707773357629776,
+          "not_top1": 7,
+          "outside_top20": 0,
+          "probability_below_50pct": 12,
+          "probability_below_10pct": 1,
+          "mean_entropy_nats": 0.11295905302872525
+        },
+        "teacher": {
+          "mean_probability": 0.9245070203881908,
+          "median_probability": 0.9999869465827942,
+          "p05_probability": 0.46649137139320374,
+          "min_probability": 0.0008040828979574144,
+          "not_top1": 19,
+          "outside_top20": 0,
+          "probability_below_50pct": 24,
+          "probability_below_10pct": 6,
+          "mean_entropy_nats": 0.13800639461036845
+        },
+        "teacher_lower_by_5pp": 55,
+        "teacher_lower_by_20pp": 25,
+        "teacher_lower_by_50pp": 9,
+        "mean_full_forward_kl": 0.10135286553290275,
+        "mean_training_top20_tail_kl": 0.10132737034309915,
+        "mean_target_gradient": 0.027820126506165395,
+        "target_gradient_above_1e4": 129,
+        "target_gradient_below_minus_1e4": 56
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9674991731332995,
+          "median_probability": 1.0,
+          "p05_probability": 0.8411310315132141,
+          "min_probability": 0.024512609466910362,
+          "not_top1": 7,
+          "outside_top20": 0,
+          "probability_below_50pct": 8,
+          "probability_below_10pct": 3,
+          "mean_entropy_nats": 0.05556683683054292
+        },
+        "teacher": {
+          "mean_probability": 0.9384904240978976,
+          "median_probability": 1.0,
+          "p05_probability": 0.4980052709579468,
+          "min_probability": 6.962258339626715e-06,
+          "not_top1": 19,
+          "outside_top20": 0,
+          "probability_below_50pct": 22,
+          "probability_below_10pct": 11,
+          "mean_entropy_nats": 0.07784254066786633
+        },
+        "teacher_lower_by_5pp": 42,
+        "teacher_lower_by_20pp": 26,
+        "teacher_lower_by_50pp": 11,
+        "mean_full_forward_kl": 0.15482830685526053,
+        "mean_training_top20_tail_kl": 0.15482812013186933,
+        "mean_target_gradient": 0.029008748796452016,
+        "target_gradient_above_1e4": 95,
+        "target_gradient_below_minus_1e4": 41
+      }
+    },
+    "before_close:1": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.8999262126795586,
+          "median_probability": 0.9964164197444916,
+          "p05_probability": 0.4378194510936737,
+          "min_probability": 0.11701247841119766,
+          "not_top1": 20,
+          "outside_top20": 0,
+          "probability_below_50pct": 32,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.20906860304718589
+        },
+        "teacher": {
+          "mean_probability": 0.9355834194648902,
+          "median_probability": 0.9980652332305908,
+          "p05_probability": 0.6116218566894531,
+          "min_probability": 0.016395211219787598,
+          "not_top1": 13,
+          "outside_top20": 0,
+          "probability_below_50pct": 14,
+          "probability_below_10pct": 1,
+          "mean_entropy_nats": 0.14863886983655483
+        },
+        "teacher_lower_by_5pp": 30,
+        "teacher_lower_by_20pp": 14,
+        "teacher_lower_by_50pp": 3,
+        "mean_full_forward_kl": 0.11033026275245894,
+        "mean_training_top20_tail_kl": 0.11032934767295875,
+        "mean_target_gradient": -0.035657206694911986,
+        "target_gradient_above_1e4": 101,
+        "target_gradient_below_minus_1e4": 177
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9229951312910151,
+          "median_probability": 0.999930202960968,
+          "p05_probability": 0.4198174476623535,
+          "min_probability": 0.046977851539850235,
+          "not_top1": 20,
+          "outside_top20": 0,
+          "probability_below_50pct": 25,
+          "probability_below_10pct": 1,
+          "mean_entropy_nats": 0.12932358860792323
+        },
+        "teacher": {
+          "mean_probability": 0.9560522664896691,
+          "median_probability": 0.9999701380729675,
+          "p05_probability": 0.7159433364868164,
+          "min_probability": 0.0012509129010140896,
+          "not_top1": 13,
+          "outside_top20": 0,
+          "probability_below_50pct": 14,
+          "probability_below_10pct": 4,
+          "mean_entropy_nats": 0.07553397459983387
+        },
+        "teacher_lower_by_5pp": 22,
+        "teacher_lower_by_20pp": 13,
+        "teacher_lower_by_50pp": 6,
+        "mean_full_forward_kl": 0.14752172313304418,
+        "mean_training_top20_tail_kl": 0.14752166192832716,
+        "mean_target_gradient": -0.033057135204305345,
+        "target_gradient_above_1e4": 63,
+        "target_gradient_below_minus_1e4": 139
+      }
+    },
+    "</reasoning>:part0": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9993846170531894,
+          "median_probability": 0.9998762607574463,
+          "p05_probability": 0.9978166222572327,
+          "min_probability": 0.9820122718811035,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.004224113699454666
+        },
+        "teacher": {
+          "mean_probability": 0.9829628924721653,
+          "median_probability": 0.9982981085777283,
+          "p05_probability": 0.9399043917655945,
+          "min_probability": 0.268940806388855,
+          "not_top1": 2,
+          "outside_top20": 0,
+          "probability_below_50pct": 3,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.052607768721518545
+        },
+        "teacher_lower_by_5pp": 27,
+        "teacher_lower_by_20pp": 7,
+        "teacher_lower_by_50pp": 2,
+        "mean_full_forward_kl": 0.05425474228166435,
+        "mean_training_top20_tail_kl": 0.05425455619011353,
+        "mean_target_gradient": 0.016421724581024023,
+        "target_gradient_above_1e4": 376,
+        "target_gradient_below_minus_1e4": 3
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9999799758774562,
+          "median_probability": 0.9999996423721313,
+          "p05_probability": 0.9999631643295288,
+          "min_probability": 0.9987289309501648,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00017535545879723182
+        },
+        "teacher": {
+          "mean_probability": 0.9916220912800252,
+          "median_probability": 0.9999756813049316,
+          "p05_probability": 0.9898826479911804,
+          "min_probability": 0.1588689386844635,
+          "not_top1": 2,
+          "outside_top20": 0,
+          "probability_below_50pct": 2,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.017318884459267096
+        },
+        "teacher_lower_by_5pp": 10,
+        "teacher_lower_by_20pp": 5,
+        "teacher_lower_by_50pp": 2,
+        "mean_full_forward_kl": 0.05742419595267072,
+        "mean_training_top20_tail_kl": 0.057423972319798185,
+        "mean_target_gradient": 0.008357884669766842,
+        "target_gradient_above_1e4": 147,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "all_closing_tokens": {
+      "1.0": {
+        "positions": 1648,
+        "student": {
+          "mean_probability": 0.999815627281527,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.9993734955787659,
+          "min_probability": 0.9820122718811035,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.001263652571091905
+        },
+        "teacher": {
+          "mean_probability": 0.9956800335095924,
+          "median_probability": 0.9999997615814209,
+          "p05_probability": 0.985935389995575,
+          "min_probability": 0.268940806388855,
+          "not_top1": 2,
+          "outside_top20": 0,
+          "probability_below_50pct": 3,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.013561809269967069
+        },
+        "teacher_lower_by_5pp": 27,
+        "teacher_lower_by_20pp": 7,
+        "teacher_lower_by_50pp": 2,
+        "mean_full_forward_kl": 0.013637622379909049,
+        "mean_training_top20_tail_kl": 0.013637498546719262,
+        "mean_target_gradient": 0.004135593771934509,
+        "target_gradient_above_1e4": 425,
+        "target_gradient_below_minus_1e4": 10
+      },
+      "0.6": {
+        "positions": 1648,
+        "student": {
+          "mean_probability": 0.9999940366059252,
+          "median_probability": 1.0,
+          "p05_probability": 0.9999953508377075,
+          "min_probability": 0.9987289309501648,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 5.25443431950302e-05
+        },
+        "teacher": {
+          "mean_probability": 0.9979037219857417,
+          "median_probability": 1.0,
+          "p05_probability": 0.9991617202758789,
+          "min_probability": 0.1588689386844635,
+          "not_top1": 2,
+          "outside_top20": 0,
+          "probability_below_50pct": 2,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.004346473716161721
+        },
+        "teacher_lower_by_5pp": 10,
+        "teacher_lower_by_20pp": 5,
+        "teacher_lower_by_50pp": 2,
+        "mean_full_forward_kl": 0.014360654235790424,
+        "mean_training_top20_tail_kl": 0.014360582496953832,
+        "mean_target_gradient": 0.002090314638267443,
+        "target_gradient_above_1e4": 153,
+        "target_gradient_below_minus_1e4": 3
+      }
+    },
+    "</reasoning>:part1": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9999998366659127,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.9999996423721313,
+          "min_probability": 0.9999993443489075,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 3.1083036434526626e-06
+        },
+        "teacher": {
+          "mean_probability": 0.9999997829927981,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.9999993443489075,
+          "min_probability": 0.9999973773956299,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 3.840442263577263e-06
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 2.427938616062535e-07,
+        "mean_training_top20_tail_kl": 1.1232338470877178e-07,
+        "mean_target_gradient": 5.367311459143185e-08,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 9.685491587344226e-11
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 2.553722819673487e-10
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 4.169825388584408e-11,
+        "mean_training_top20_tail_kl": 4.169825395104917e-11,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "</reasoning>:part2": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9999999701976776,
+          "median_probability": 1.0,
+          "p05_probability": 0.9999998807907104,
+          "min_probability": 0.9999936819076538,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 4.6591794013040207e-07
+        },
+        "teacher": {
+          "mean_probability": 0.9999999930557696,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 0.9999984502792358,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.3213460523158697e-07
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 2.8645367608530986e-08,
+        "mean_training_top20_tail_kl": 1.839330304095403e-08,
+        "mean_target_gradient": -2.28580919284265e-08,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.2007297069652674e-10
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.2900370737644304e-11
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 1.2335681558236984e-12,
+        "mean_training_top20_tail_kl": 1.2335681546045525e-12,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "</reasoning>:part3": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.999878085209328,
+          "median_probability": 0.9999997615814209,
+          "p05_probability": 0.9997386336326599,
+          "min_probability": 0.9890130758285522,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.000826922363329371
+        },
+        "teacher": {
+          "mean_probability": 0.9997574655176367,
+          "median_probability": 0.9999982714653015,
+          "p05_probability": 0.9990886449813843,
+          "min_probability": 0.9859341979026794,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0016354957814809213
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.00029547579874262896,
+        "mean_training_top20_tail_kl": 0.00029530728007576496,
+        "mean_target_gradient": 0.00012061969169135233,
+        "target_gradient_above_1e4": 49,
+        "target_gradient_below_minus_1e4": 7
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9999961705462447,
+          "median_probability": 1.0,
+          "p05_probability": 0.999998927116394,
+          "min_probability": 0.9994471669197083,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 3.482169705500242e-05
+        },
+        "teacher": {
+          "mean_probability": 0.9999927966629417,
+          "median_probability": 1.0,
+          "p05_probability": 0.9999914169311523,
+          "min_probability": 0.9991617202758789,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 6.701013710713643e-05
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 1.842094755915832e-05,
+        "mean_training_top20_tail_kl": 1.8357625085322808e-05,
+        "mean_target_gradient": 3.373883302929332e-06,
+        "target_gradient_above_1e4": 6,
+        "target_gradient_below_minus_1e4": 3
+      }
+    },
+    "<action>:part0": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9999976347661713,
+          "median_probability": 0.9999982714653015,
+          "p05_probability": 0.9999935626983643,
+          "min_probability": 0.9999804496765137,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 3.7619457955470265e-05
+        },
+        "teacher": {
+          "mean_probability": 0.9999950156339164,
+          "median_probability": 0.9999967813491821,
+          "p05_probability": 0.9999855756759644,
+          "min_probability": 0.9999535083770752,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 7.48258792972354e-05
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 2.2098977174284914e-06,
+        "mean_training_top20_tail_kl": 1.8109260512730293e-06,
+        "mean_target_gradient": 2.6191322548875533e-06,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 4.133141881899381e-09
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.472660510665919e-08
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 1.3957267754043934e-09,
+        "mean_training_top20_tail_kl": 1.395524545629952e-09,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "<action>:part1": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9999998242241664,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.9999996423721313,
+          "min_probability": 0.9999991059303284,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 4.314037298472701e-06
+        },
+        "teacher": {
+          "mean_probability": 0.9999998653108634,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.9999997615814209,
+          "min_probability": 0.9999991059303284,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 3.3293038776260023e-06
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": -4.65367643557647e-09,
+        "mean_training_top20_tail_kl": -1.7154116375053953e-07,
+        "mean_target_gradient": -4.108669688400713e-08,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.5360018853678727e-10
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 9.561682579403896e-11
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": -1.105653544304852e-12,
+        "mean_training_top20_tail_kl": -1.1056556911406956e-12,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "<action>:part2": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9535810380306059,
+          "median_probability": 0.9859364032745361,
+          "p05_probability": 0.7772998809814453,
+          "min_probability": 0.14804720878601074,
+          "not_top1": 3,
+          "outside_top20": 0,
+          "probability_below_50pct": 4,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.13116542155938044
+        },
+        "teacher": {
+          "mean_probability": 0.9746153533720927,
+          "median_probability": 0.9975274205207825,
+          "p05_probability": 0.9626728892326355,
+          "min_probability": 0.022977367043495178,
+          "not_top1": 9,
+          "outside_top20": 0,
+          "probability_below_50pct": 9,
+          "probability_below_10pct": 4,
+          "mean_entropy_nats": 0.04077825583996493
+        },
+        "teacher_lower_by_5pp": 9,
+        "teacher_lower_by_20pp": 7,
+        "teacher_lower_by_50pp": 4,
+        "mean_full_forward_kl": 0.032545093385653555,
+        "mean_training_top20_tail_kl": 0.032544997298567746,
+        "mean_target_gradient": -0.02103431537313369,
+        "target_gradient_above_1e4": 11,
+        "target_gradient_below_minus_1e4": 399
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.9771188057922912,
+          "median_probability": 0.9991617202758789,
+          "p05_probability": 0.8892729878425598,
+          "min_probability": 0.05133555084466934,
+          "not_top1": 3,
+          "outside_top20": 0,
+          "probability_below_50pct": 3,
+          "probability_below_10pct": 2,
+          "mean_entropy_nats": 0.0517447652743659
+        },
+        "teacher": {
+          "mean_probability": 0.9790014089644633,
+          "median_probability": 0.9999545812606812,
+          "p05_probability": 0.9955776333808899,
+          "min_probability": 0.001926734228618443,
+          "not_top1": 9,
+          "outside_top20": 0,
+          "probability_below_50pct": 9,
+          "probability_below_10pct": 7,
+          "mean_entropy_nats": 0.009312966396891633
+        },
+        "teacher_lower_by_5pp": 8,
+        "teacher_lower_by_20pp": 7,
+        "teacher_lower_by_50pp": 5,
+        "mean_full_forward_kl": 0.030955209991136254,
+        "mean_training_top20_tail_kl": 0.030955402388374326,
+        "mean_target_gradient": -0.0018826033558370999,
+        "target_gradient_above_1e4": 9,
+        "target_gradient_below_minus_1e4": 305
+      }
+    },
+    "</action>:part0": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 0.999999997540585,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 0.9999993443489075,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 4.492069222999454e-08
+        },
+        "teacher": {
+          "mean_probability": 0.9999994741192142,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 0.9998416304588318,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 5.308045020618219e-06
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 2.337621158648477e-06,
+        "mean_training_top20_tail_kl": 2.335261211157604e-06,
+        "mean_target_gradient": 5.234213708673866e-07,
+        "target_gradient_above_1e4": 1,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 3.649285711750074e-12
+        },
+        "teacher": {
+          "mean_probability": 0.9999999985532854,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 0.9999995231628418,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 2.1328303407733227e-08
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 1.0738730333918759e-08,
+        "mean_training_top20_tail_kl": 1.0996990400164428e-08,
+        "mean_target_gradient": 1.4467146790143355e-09,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "</action>:part1": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.5203678512917683e-07
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.2117630394249476e-07
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": -1.2704458492415802e-09,
+        "mean_training_top20_tail_kl": -1.2699844242979345e-09,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 5.355672001557401e-13
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 3.5379985078066067e-13
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": -3.9138639642087805e-15,
+        "mean_training_top20_tail_kl": -3.913862109206064e-15,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "</action>:part2": {
+      "1.0": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 4.1513036536262183e-07
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 4.412583246021622e-07
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 2.301306868537992e-09,
+        "mean_training_top20_tail_kl": 2.1057787380727663e-09,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 412,
+        "student": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.1873955039219371e-12
+        },
+        "teacher": {
+          "mean_probability": 1.0,
+          "median_probability": 1.0,
+          "p05_probability": 1.0,
+          "min_probability": 1.0,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 1.322434637221765e-12
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 8.566599258637366e-15,
+        "mean_training_top20_tail_kl": 8.519077417571462e-15,
+        "mean_target_gradient": 0.0,
+        "target_gradient_above_1e4": 0,
+        "target_gradient_below_minus_1e4": 0
+      }
+    }
+  },
+  "tokens_by_closing_part": {
+    "0": {
+      "</": 412
+    },
+    "1": {
+      "reason": 412
+    },
+    "2": {
+      "ing": 412
+    },
+    "3": {
+      ">\n\n": 412
+    }
+  },
+  "scored_positions": 10300,
+  "validations": [
+    {
+      "identical_input_native_forward_max_logit_error": 0.0,
+      "shorter_prefix_bf16_max_logit_difference": 0.03125,
+      "shorter_prefix_distribution_kl": 1.295547745435089e-16,
+      "top20_tail_gradient_max_error": 2.9802322387695312e-06
+    },
+    {
+      "identical_input_native_forward_max_logit_error": 0.0,
+      "shorter_prefix_bf16_max_logit_difference": 0.625,
+      "shorter_prefix_distribution_kl": 6.960514383536065e-06,
+      "top20_tail_gradient_max_error": 2.9802322387695312e-06
+    },
+    {
+      "identical_input_native_forward_max_logit_error": 0.0,
+      "shorter_prefix_bf16_max_logit_difference": 0.0625,
+      "shorter_prefix_distribution_kl": 1.0023723523303399e-14,
+      "top20_tail_gradient_max_error": 3.635883331298828e-06
+    },
+    {
+      "identical_input_native_forward_max_logit_error": 0.0,
+      "shorter_prefix_bf16_max_logit_difference": 0.0625,
+      "shorter_prefix_distribution_kl": 1.0157987562805625e-14,
+      "top20_tail_gradient_max_error": 3.6954879760742188e-06
+    },
+    {
+      "identical_input_native_forward_max_logit_error": 0.0,
+      "shorter_prefix_bf16_max_logit_difference": 0.609375,
+      "shorter_prefix_distribution_kl": 2.7232335924054496e-06,
+      "top20_tail_gradient_max_error": 2.682209014892578e-06
+    },
+    {
+      "identical_input_native_forward_max_logit_error": 0.0,
+      "shorter_prefix_bf16_max_logit_difference": 0.0625,
+      "shorter_prefix_distribution_kl": 2.3794242401051213e-13,
+      "top20_tail_gradient_max_error": 3.635883331298828e-06
+    },
+    {
+      "identical_input_native_forward_max_logit_error": 0.0,
+      "shorter_prefix_bf16_max_logit_difference": 0.5625,
+      "shorter_prefix_distribution_kl": 6.140869572845986e-06,
+      "top20_tail_gradient_max_error": 3.635883331298828e-06
+    },
+    {
+      "identical_input_native_forward_max_logit_error": 0.0,
+      "shorter_prefix_bf16_max_logit_difference": 0.0625,
+      "shorter_prefix_distribution_kl": 5.832685815452057e-15,
+      "top20_tail_gradient_max_error": 1.7881393432617188e-06
+    }
+  ],
+  "per_task_first_closing_token": {
+    "1": {
+      "1.0": {
+        "positions": 49,
+        "student": {
+          "mean_probability": 0.9997908704134882,
+          "median_probability": 0.9999480843544006,
+          "p05_probability": 0.9989672303199768,
+          "min_probability": 0.9971981048583984,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0017594241073719766
+        },
+        "teacher": {
+          "mean_probability": 0.9864424418429939,
+          "median_probability": 0.9980729222297668,
+          "p05_probability": 0.9465941190719604,
+          "min_probability": 0.7057777643203735,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.04969019332291245
+        },
+        "teacher_lower_by_5pp": 3,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.0481208244499408,
+        "mean_training_top20_tail_kl": 0.04812065377501888,
+        "mean_target_gradient": 0.013348428570494359,
+        "target_gradient_above_1e4": 44,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 49,
+        "student": {
+          "mean_probability": 0.9999979284344888,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.99998939037323,
+          "min_probability": 0.9999440908432007,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 2.4682051777180408e-05
+        },
+        "teacher": {
+          "mean_probability": 0.9954626097971079,
+          "median_probability": 0.9999701380729675,
+          "p05_probability": 0.9917696118354797,
+          "min_probability": 0.8112780451774597,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.014492544484759392
+        },
+        "teacher_lower_by_5pp": 1,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.032274422425441866,
+        "mean_training_top20_tail_kl": 0.03227426338809712,
+        "mean_target_gradient": 0.004535318637380795,
+        "target_gradient_above_1e4": 20,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "2": {
+      "1.0": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.9990201270580292,
+          "median_probability": 0.9997943639755249,
+          "p05_probability": 0.9982980489730835,
+          "min_probability": 0.982012927532196,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.005987240373506211
+        },
+        "teacher": {
+          "mean_probability": 0.9787139022350311,
+          "median_probability": 0.9971762597560883,
+          "p05_probability": 0.939906895160675,
+          "min_probability": 0.43782132863998413,
+          "not_top1": 1,
+          "outside_top20": 0,
+          "probability_below_50pct": 1,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.06088058132212609
+        },
+        "teacher_lower_by_5pp": 3,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 1,
+        "mean_full_forward_kl": 0.059774278201148265,
+        "mean_training_top20_tail_kl": 0.05977405715166242,
+        "mean_target_gradient": 0.020306224822998046,
+        "target_gradient_above_1e4": 49,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.9999513840675354,
+          "median_probability": 0.9999992251396179,
+          "p05_probability": 0.9999756813049316,
+          "min_probability": 0.9987289309501648,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00038944040520050294
+        },
+        "teacher": {
+          "mean_probability": 0.9868834102153778,
+          "median_probability": 0.9999428391456604,
+          "p05_probability": 0.9898826479911804,
+          "min_probability": 0.39731526374816895,
+          "not_top1": 1,
+          "outside_top20": 0,
+          "probability_below_50pct": 1,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0202239539123957
+        },
+        "teacher_lower_by_5pp": 1,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 1,
+        "mean_full_forward_kl": 0.07315865976292059,
+        "mean_training_top20_tail_kl": 0.07315828103521142,
+        "mean_target_gradient": 0.013067973852157593,
+        "target_gradient_above_1e4": 23,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "3": {
+      "1.0": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.9992024970054626,
+          "median_probability": 0.9997959434986115,
+          "p05_probability": 0.9964029788970947,
+          "min_probability": 0.9820122718811035,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.005311746148217935
+        },
+        "teacher": {
+          "mean_probability": 0.9802073132991791,
+          "median_probability": 0.9961614906787872,
+          "p05_probability": 0.9046400785446167,
+          "min_probability": 0.6791754364967346,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.07002222474198788
+        },
+        "teacher_lower_by_5pp": 5,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.05429028066340834,
+        "mean_training_top20_tail_kl": 0.05429010341409594,
+        "mean_target_gradient": 0.01899518370628357,
+        "target_gradient_above_1e4": 50,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.99996896982193,
+          "median_probability": 0.9999992847442627,
+          "p05_probability": 0.9999151825904846,
+          "min_probability": 0.9987289309501648,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00025796211423141814
+        },
+        "teacher": {
+          "mean_probability": 0.9934302842617035,
+          "median_probability": 0.9999053776264191,
+          "p05_probability": 0.977022647857666,
+          "min_probability": 0.7772998809814453,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.021764003383032103
+        },
+        "teacher_lower_by_5pp": 1,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.03263918662139531,
+        "mean_training_top20_tail_kl": 0.032638684803041544,
+        "mean_target_gradient": 0.006538685560226441,
+        "target_gradient_above_1e4": 25,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "4": {
+      "1.0": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.9994875812530517,
+          "median_probability": 0.9998908638954163,
+          "p05_probability": 0.9971988797187805,
+          "min_probability": 0.9933049082756042,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0037183394211751874
+        },
+        "teacher": {
+          "mean_probability": 0.9930497288703919,
+          "median_probability": 0.99896639585495,
+          "p05_probability": 0.9626715183258057,
+          "min_probability": 0.9241377711296082,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.03321462043793872
+        },
+        "teacher_lower_by_5pp": 1,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.014149639799289843,
+        "mean_training_top20_tail_kl": 0.014149670535202859,
+        "mean_target_gradient": 0.006437852382659912,
+        "target_gradient_above_1e4": 48,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.999988843202591,
+          "median_probability": 0.9999997615814209,
+          "p05_probability": 0.9999440908432007,
+          "min_probability": 0.9997597932815552,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00011180667196970973
+        },
+        "teacher": {
+          "mean_probability": 0.9992548966407776,
+          "median_probability": 0.99998939037323,
+          "p05_probability": 0.9955776333808899,
+          "min_probability": 0.9847328066825867,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.004655600240611477
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.0028780339026803236,
+        "mean_training_top20_tail_kl": 0.002877894431010124,
+        "mean_target_gradient": 0.0007339465618133545,
+        "target_gradient_above_1e4": 14,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "5": {
+      "1.0": {
+        "positions": 49,
+        "student": {
+          "mean_probability": 0.999340609628327,
+          "median_probability": 0.9997690320014954,
+          "p05_probability": 0.9971861839294434,
+          "min_probability": 0.9953888058662415,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.004950776879885947
+        },
+        "teacher": {
+          "mean_probability": 0.9847680172141717,
+          "median_probability": 0.9984979629516602,
+          "p05_probability": 0.9525726437568665,
+          "min_probability": 0.6224572062492371,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.04852145422269039
+        },
+        "teacher_lower_by_5pp": 2,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.04787729121210363,
+        "mean_training_top20_tail_kl": 0.04787721879991444,
+        "mean_target_gradient": 0.014572592414155299,
+        "target_gradient_above_1e4": 39,
+        "target_gradient_below_minus_1e4": 2
+      },
+      "0.6": {
+        "positions": 49,
+        "student": {
+          "mean_probability": 0.9999894572764026,
+          "median_probability": 0.9999991059303284,
+          "p05_probability": 0.9999440908432007,
+          "min_probability": 0.9998713731765747,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00011571429578532852
+        },
+        "teacher": {
+          "mean_probability": 0.9929015806743077,
+          "median_probability": 0.9999802112579346,
+          "p05_probability": 0.9933071136474609,
+          "min_probability": 0.6970589756965637,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.017893304771597954
+        },
+        "teacher_lower_by_5pp": 1,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.04935452914979652,
+        "mean_training_top20_tail_kl": 0.04935437354186939,
+        "mean_target_gradient": 0.0070878766020950005,
+        "target_gradient_above_1e4": 16,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "6": {
+      "1.0": {
+        "positions": 27,
+        "student": {
+          "mean_probability": 0.9993694645387156,
+          "median_probability": 0.9997377991676331,
+          "p05_probability": 0.9975269436836243,
+          "min_probability": 0.9975267052650452,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.004828988522166145
+        },
+        "teacher": {
+          "mean_probability": 0.9573521923135828,
+          "median_probability": 0.9975263476371765,
+          "p05_probability": 0.8519490361213684,
+          "min_probability": 0.268940806388855,
+          "not_top1": 1,
+          "outside_top20": 0,
+          "probability_below_50pct": 1,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0830283086721061
+        },
+        "teacher_lower_by_5pp": 4,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 1,
+        "mean_full_forward_kl": 0.18230781482782699,
+        "mean_training_top20_tail_kl": 0.18230735164952758,
+        "mean_target_gradient": 0.04201727222513269,
+        "target_gradient_above_1e4": 27,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 27,
+        "student": {
+          "mean_probability": 0.9999912955142833,
+          "median_probability": 0.999998927116394,
+          "p05_probability": 0.9999545812606812,
+          "min_probability": 0.9999545812606812,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 9.964281132060596e-05
+        },
+        "teacher": {
+          "mean_probability": 0.9657427304320865,
+          "median_probability": 0.9999545812606812,
+          "p05_probability": 0.948664128780365,
+          "min_probability": 0.1588689386844635,
+          "not_top1": 1,
+          "outside_top20": 0,
+          "probability_below_50pct": 1,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.031057240438645682
+        },
+        "teacher_lower_by_5pp": 2,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 1,
+        "mean_full_forward_kl": 0.3124419247641131,
+        "mean_training_top20_tail_kl": 0.31244168853162657,
+        "mean_target_gradient": 0.034248566185986554,
+        "target_gradient_above_1e4": 12,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "7": {
+      "1.0": {
+        "positions": 33,
+        "student": {
+          "mean_probability": 0.9995174859509324,
+          "median_probability": 0.9998764395713806,
+          "p05_probability": 0.9995119571685791,
+          "min_probability": 0.9902895092964172,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0033353878847485635
+        },
+        "teacher": {
+          "mean_probability": 0.9889122103199814,
+          "median_probability": 0.9975269436836243,
+          "p05_probability": 0.9626722931861877,
+          "min_probability": 0.8807896375656128,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.043849726939559776
+        },
+        "teacher_lower_by_5pp": 2,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.034243750056758115,
+        "mean_training_top20_tail_kl": 0.03424329659857463,
+        "mean_target_gradient": 0.010605275630950928,
+        "target_gradient_above_1e4": 32,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 33,
+        "student": {
+          "mean_probability": 0.9999851223194238,
+          "median_probability": 0.9999996423721313,
+          "p05_probability": 0.999997079372406,
+          "min_probability": 0.9995511174201965,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00013483881809872253
+        },
+        "teacher": {
+          "mean_probability": 0.9976739937608893,
+          "median_probability": 0.9999545812606812,
+          "p05_probability": 0.9955776333808899,
+          "min_probability": 0.9655547142028809,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.010864670849073402
+        },
+        "teacher_lower_by_5pp": 0,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.014418256834405287,
+        "mean_training_top20_tail_kl": 0.014417993869132619,
+        "mean_target_gradient": 0.0023111285585345645,
+        "target_gradient_above_1e4": 8,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "8": {
+      "1.0": {
+        "positions": 4,
+        "student": {
+          "mean_probability": 0.9988561123609543,
+          "median_probability": 0.9989596009254456,
+          "p05_probability": 0.9975269436836243,
+          "min_probability": 0.9975269436836243,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.008484011697873939
+        },
+        "teacher": {
+          "mean_probability": 0.9053157418966293,
+          "median_probability": 0.945293128490448,
+          "p05_probability": 0.7310570478439331,
+          "min_probability": 0.7310570478439331,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.24357644823612645
+        },
+        "teacher_lower_by_5pp": 2,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.4003993699734565,
+        "mean_training_top20_tail_kl": 0.4003994740487542,
+        "mean_target_gradient": 0.09354037046432495,
+        "target_gradient_above_1e4": 4,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 4,
+        "student": {
+          "mean_probability": 0.9999832510948181,
+          "median_probability": 0.9999892115592957,
+          "p05_probability": 0.9999545812606812,
+          "min_probability": 0.9999545812606812,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00019191011487151854
+        },
+        "teacher": {
+          "mean_probability": 0.9543283730745316,
+          "median_probability": 0.9880921840667725,
+          "p05_probability": 0.8411311507225037,
+          "min_probability": 0.8411311507225037,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.13850118339951223
+        },
+        "teacher_lower_by_5pp": 1,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.3774564151329969,
+        "mean_training_top20_tail_kl": 0.3774568293677021,
+        "mean_target_gradient": 0.04565487802028656,
+        "target_gradient_above_1e4": 3,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "9": {
+      "1.0": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.9994317853450775,
+          "median_probability": 0.9999291598796844,
+          "p05_probability": 0.9986743927001953,
+          "min_probability": 0.9859359264373779,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0036407405953377747
+        },
+        "teacher": {
+          "mean_probability": 0.985287355184555,
+          "median_probability": 0.9988984763622284,
+          "p05_probability": 0.9740408062934875,
+          "min_probability": 0.49999910593032837,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 1,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.03714268976618769
+        },
+        "teacher_lower_by_5pp": 2,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.03968409348758541,
+        "mean_training_top20_tail_kl": 0.03968393681378075,
+        "mean_target_gradient": 0.014144430160522461,
+        "target_gradient_above_1e4": 42,
+        "target_gradient_below_minus_1e4": 0
+      },
+      "0.6": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.999977341890335,
+          "median_probability": 0.9999998807907104,
+          "p05_probability": 0.9999840259552002,
+          "min_probability": 0.9991617202758789,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.00019433225581041825
+        },
+        "teacher": {
+          "mean_probability": 0.9894687068462372,
+          "median_probability": 0.9999881982803345,
+          "p05_probability": 0.9976279735565186,
+          "min_probability": 0.5,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.016978800908079846
+        },
+        "teacher_lower_by_5pp": 1,
+        "teacher_lower_by_20pp": 1,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.05908465867305937,
+        "mean_training_top20_tail_kl": 0.05908452914380519,
+        "mean_target_gradient": 0.010508635044097901,
+        "target_gradient_above_1e4": 12,
+        "target_gradient_below_minus_1e4": 0
+      }
+    },
+    "10": {
+      "1.0": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.9993888628482819,
+          "median_probability": 0.9999089539051056,
+          "p05_probability": 0.9982348680496216,
+          "min_probability": 0.9840908646583557,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.004084902636022889
+        },
+        "teacher": {
+          "mean_probability": 0.9884921824932098,
+          "median_probability": 0.9988982081413269,
+          "p05_probability": 0.9399126172065735,
+          "min_probability": 0.8175705075263977,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.04271826108044479
+        },
+        "teacher_lower_by_5pp": 3,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.03200358625831541,
+        "mean_training_top20_tail_kl": 0.03200335639865443,
+        "mean_target_gradient": 0.010896680355072021,
+        "target_gradient_above_1e4": 41,
+        "target_gradient_below_minus_1e4": 1
+      },
+      "0.6": {
+        "positions": 50,
+        "student": {
+          "mean_probability": 0.9999766838550568,
+          "median_probability": 0.9999998211860657,
+          "p05_probability": 0.9999755620956421,
+          "min_probability": 0.9989677667617798,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.0001956455654178768
+        },
+        "teacher": {
+          "mean_probability": 0.997019647359848,
+          "median_probability": 0.9999881982803345,
+          "p05_probability": 0.9898826479911804,
+          "min_probability": 0.9241418242454529,
+          "not_top1": 0,
+          "outside_top20": 0,
+          "probability_below_50pct": 0,
+          "probability_below_10pct": 0,
+          "mean_entropy_nats": 0.01232542995979344
+        },
+        "teacher_lower_by_5pp": 2,
+        "teacher_lower_by_20pp": 0,
+        "teacher_lower_by_50pp": 0,
+        "mean_full_forward_kl": 0.01698726105224921,
+        "mean_training_top20_tail_kl": 0.016987144200579517,
+        "mean_target_gradient": 0.00295703649520874,
+        "target_gradient_above_1e4": 14,
+        "target_gradient_below_minus_1e4": 0
+      }
+    }
+  },
+  "turns_with_any_closing_part_not_teacher_top1": {
+    "1.0": 2,
+    "0.6": 2
+  },
+  "first_closing_teacher_top1_ties": {
+    "1.0": 1,
+    "0.6": 1
+  },
+  "top10_first_closing_positions_share_of_first_closing_kl": 0.8960465983763767,
+  "short_greedy_continuation_checks": {
+    "selection": "ten lowest teacher first-closing-token probabilities in BF16 scoring",
+    "matched_prefix_pairs": 10,
+    "student_starts_with_reasoning_close": 10,
+    "teacher_starts_with_reasoning_close": 9
+  },
+  "precision_check": [
+    {
+      "row_id": 49,
+      "pair_id": 2,
+      "turn": 1,
+      "dtype": "float32",
+      "attention": "SDPA MATH",
+      "TF32": false,
+      "same_original_base_weights": true,
+      "student": {
+        "1.0": {
+          "closure_start_probability": 0.9769157767295837,
+          "open_start_probability": 0.02308308705687523,
+          "top10": [
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.9769157767295837
+            },
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.02308308705687523
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 3.02576921740183e-07
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 1.5296926392238674e-07
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 1.288656363840346e-07
+            },
+            {
+              "id": 37132,
+              "text": "。</",
+              "probability": 6.791778162096307e-08
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 6.499860916164835e-08
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 3.8402141910864884e-08
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 3.6285257465351606e-08
+            },
+            {
+              "id": 52508,
+              "text": "%</",
+              "probability": 3.138670123803422e-08
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 0.9980581402778625,
+          "open_start_probability": 0.001941853784956038,
+          "top10": [
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.9980581402778625
+            },
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.001941853784956038
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 1.4150974662896498e-11
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 4.5401234854969275e-12
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 3.4115819978058903e-12
+            },
+            {
+              "id": 37132,
+              "text": "。</",
+              "probability": 1.1731834037229105e-12
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 1.090352959830232e-12
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 4.535793669910998e-13
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 4.126768642521289e-13
+            },
+            {
+              "id": 52508,
+              "text": "%</",
+              "probability": 3.240683004064604e-13
+            }
+          ]
+        }
+      },
+      "teacher": {
+        "1.0": {
+          "closure_start_probability": 0.42336368560791016,
+          "open_start_probability": 0.5766312479972839,
+          "top10": [
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.5766312479972839
+            },
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.42336368560791016
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 1.920095883178874e-06
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 5.844713655278611e-07
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 3.286707510596898e-07
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 2.1887137791054556e-07
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 1.645636586999899e-07
+            },
+            {
+              "id": 27012,
+              "text": "#endregion",
+              "probability": 9.91433140029585e-08
+            },
+            {
+              "id": 21983,
+              "text": "<button",
+              "probability": 9.837665970735543e-08
+            },
+            {
+              "id": 37132,
+              "text": "。</",
+              "probability": 8.718980382127484e-08
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 0.3740338981151581,
+          "open_start_probability": 0.6259660720825195,
+          "top10": [
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.6259660720825195
+            },
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.3740338981151581
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 4.6479320392478485e-10
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 6.402159358209758e-11
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 2.452765421323555e-11
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 1.24557352279564e-11
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 7.743625185518965e-12
+            },
+            {
+              "id": 27012,
+              "text": "#endregion",
+              "probability": 3.3278245610557367e-12
+            },
+            {
+              "id": 21983,
+              "text": "<button",
+              "probability": 3.285048231702059e-12
+            },
+            {
+              "id": 37132,
+              "text": "。</",
+              "probability": 2.686358514109033e-12
+            }
+          ]
+        }
+      },
+      "full_vs_truncated_prefix_max_logit_error": 0.0,
+      "full_vs_truncated_prefix_kl": 0.0,
+      "teacher_after_literal_open_angle": {
+        "1.0": {
+          "closure_start_probability": 8.296863196477489e-11,
+          "open_start_probability": 9.476879031049327e-20,
+          "top10": [
+            {
+              "id": 1311,
+              "text": "action",
+              "probability": 0.9998418092727661
+            },
+            {
+              "id": 19895,
+              "text": "reason",
+              "probability": 0.000154050430865027
+            },
+            {
+              "id": 54765,
+              "text": "/action",
+              "probability": 1.2562381925818045e-06
+            },
+            {
+              "id": 1917,
+              "text": " action",
+              "probability": 6.263971954467706e-07
+            },
+            {
+              "id": 100675,
+              "text": "行动",
+              "probability": 4.63747710455209e-07
+            },
+            {
+              "id": 89107,
+              "text": "actionDate",
+              "probability": 4.564987818866939e-07
+            },
+            {
+              "id": 38933,
+              "text": "\taction",
+              "probability": 3.279669442690647e-07
+            },
+            {
+              "id": 4020,
+              "text": "actions",
+              "probability": 1.8750222352537094e-07
+            },
+            {
+              "id": 2165,
+              "text": "ration",
+              "probability": 1.4158594296986848e-07
+            },
+            {
+              "id": 25059,
+              "text": "-action",
+              "probability": 1.2087433276519732e-07
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 1.5787191976827762e-17,
+          "open_start_probability": 1.970414911789373e-32,
+          "top10": [
+            {
+              "id": 1311,
+              "text": "action",
+              "probability": 0.9999995231628418
+            },
+            {
+              "id": 19895,
+              "text": "reason",
+              "probability": 4.428123361321923e-07
+            },
+            {
+              "id": 54765,
+              "text": "/action",
+              "probability": 1.462969884125087e-10
+            },
+            {
+              "id": 1917,
+              "text": " action",
+              "probability": 4.587031796066121e-11
+            },
+            {
+              "id": 100675,
+              "text": "行动",
+              "probability": 2.7791892051598488e-11
+            },
+            {
+              "id": 89107,
+              "text": "actionDate",
+              "probability": 2.7071617517138158e-11
+            },
+            {
+              "id": 38933,
+              "text": "\taction",
+              "probability": 1.560146976886667e-11
+            },
+            {
+              "id": 4020,
+              "text": "actions",
+              "probability": 6.1441086593450045e-12
+            },
+            {
+              "id": 2165,
+              "text": "ration",
+              "probability": 3.847232428466629e-12
+            },
+            {
+              "id": 25059,
+              "text": "-action",
+              "probability": 2.9557790676842943e-12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "row_id": 248,
+      "pair_id": 6,
+      "turn": 1,
+      "dtype": "float32",
+      "attention": "SDPA MATH",
+      "TF32": false,
+      "same_original_base_weights": true,
+      "student": {
+        "1.0": {
+          "closure_start_probability": 0.9965590834617615,
+          "open_start_probability": 0.0034404669422656298,
+          "top10": [
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.9965590834617615
+            },
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.0034404669422656298
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 2.3493066692026332e-07
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 1.0638409264629445e-07
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 2.803033005704947e-08
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 2.4218424599098398e-08
+            },
+            {
+              "id": 37132,
+              "text": "。</",
+              "probability": 1.553601869375143e-08
+            },
+            {
+              "id": 52508,
+              "text": "%</",
+              "probability": 1.0820659923638232e-08
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 7.78147146718311e-09
+            },
+            {
+              "id": 86661,
+              "text": "()</",
+              "probability": 5.690168780603244e-09
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 0.9999210834503174,
+          "open_start_probability": 7.885367085691541e-05,
+          "top10": [
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.9999210834503174
+            },
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 7.885367085691541e-05
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 8.995520474341934e-12
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 2.4020867760154996e-12
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 2.6012002339419193e-13
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 2.0387791661077154e-13
+            },
+            {
+              "id": 37132,
+              "text": "。</",
+              "probability": 9.728061590866602e-14
+            },
+            {
+              "id": 52508,
+              "text": "%</",
+              "probability": 5.3237301448749025e-14
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 3.073004023012964e-14
+            },
+            {
+              "id": 86661,
+              "text": "()</",
+              "probability": 1.8239062197404968e-14
+            }
+          ]
+        }
+      },
+      "teacher": {
+        "1.0": {
+          "closure_start_probability": 0.27727508544921875,
+          "open_start_probability": 0.7227226495742798,
+          "top10": [
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.7227226495742798
+            },
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.27727508544921875
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 7.750701911390934e-07
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 3.5538536735657544e-07
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 1.9853916910506086e-07
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 1.1775514963119349e-07
+            },
+            {
+              "id": 91190,
+              "text": "<r",
+              "probability": 7.663000189950253e-08
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 6.574143895932139e-08
+            },
+            {
+              "id": 4159,
+              "text": "<int",
+              "probability": 5.4729177634271764e-08
+            },
+            {
+              "id": 52508,
+              "text": "%</",
+              "probability": 4.1749160573090194e-08
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 0.16844405233860016,
+          "open_start_probability": 0.8315559029579163,
+          "top10": [
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.8315559029579163
+            },
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.16844405233860016
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 9.343433665653933e-11
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 2.5474433326677648e-11
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 9.653451649160871e-12
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 4.041772992680048e-12
+            },
+            {
+              "id": 91190,
+              "text": "<r",
+              "probability": 1.975160269715448e-12
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 1.529925817110589e-12
+            },
+            {
+              "id": 4159,
+              "text": "<int",
+              "probability": 1.1271200986429086e-12
+            },
+            {
+              "id": 52508,
+              "text": "%</",
+              "probability": 7.178240207100783e-13
+            }
+          ]
+        }
+      },
+      "full_vs_truncated_prefix_max_logit_error": 0.0,
+      "full_vs_truncated_prefix_kl": 0.0,
+      "teacher_after_literal_open_angle": {
+        "1.0": {
+          "closure_start_probability": 2.6421029808432195e-09,
+          "open_start_probability": 5.5882518930347184e-18,
+          "top10": [
+            {
+              "id": 1311,
+              "text": "action",
+              "probability": 0.5634815692901611
+            },
+            {
+              "id": 19895,
+              "text": "reason",
+              "probability": 0.4364525377750397
+            },
+            {
+              "id": 54765,
+              "text": "/action",
+              "probability": 3.1632574973627925e-05
+            },
+            {
+              "id": 2165,
+              "text": "ration",
+              "probability": 6.658708116447087e-06
+            },
+            {
+              "id": 46692,
+              "text": "reasonable",
+              "probability": 4.131537934881635e-06
+            },
+            {
+              "id": 408,
+              "text": "end",
+              "probability": 2.5914439447660698e-06
+            },
+            {
+              "id": 2874,
+              "text": " reason",
+              "probability": 2.3513553060183767e-06
+            },
+            {
+              "id": 32711,
+              "text": " reasoning",
+              "probability": 2.3509426227974473e-06
+            },
+            {
+              "id": 76503,
+              "text": "raison",
+              "probability": 1.7560390688231564e-06
+            },
+            {
+              "id": 100675,
+              "text": "行动",
+              "probability": 1.5180883110588184e-06
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 7.945209702826805e-15,
+          "open_start_probability": 2.7689594348534615e-29,
+          "top10": [
+            {
+              "id": 1311,
+              "text": "action",
+              "probability": 0.6048603057861328
+            },
+            {
+              "id": 19895,
+              "text": "reason",
+              "probability": 0.3951396644115448
+            },
+            {
+              "id": 54765,
+              "text": "/action",
+              "probability": 4.978284806611555e-08
+            },
+            {
+              "id": 2165,
+              "text": "ration",
+              "probability": 3.7082770187879532e-09
+            },
+            {
+              "id": 46692,
+              "text": "reasonable",
+              "probability": 1.6738186392473153e-09
+            },
+            {
+              "id": 408,
+              "text": "end",
+              "probability": 7.692926851099458e-10
+            },
+            {
+              "id": 2874,
+              "text": " reason",
+              "probability": 6.542127395370301e-10
+            },
+            {
+              "id": 32711,
+              "text": " reasoning",
+              "probability": 6.54021892199097e-10
+            },
+            {
+              "id": 76503,
+              "text": "raison",
+              "probability": 4.0217262853303737e-10
+            },
+            {
+              "id": 100675,
+              "text": "行动",
+              "probability": 3.155129768561693e-10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "row_id": 312,
+      "pair_id": 9,
+      "turn": 1,
+      "dtype": "float32",
+      "attention": "SDPA MATH",
+      "TF32": false,
+      "same_original_base_weights": true,
+      "student": {
+        "1.0": {
+          "closure_start_probability": 0.9838908314704895,
+          "open_start_probability": 0.01610863208770752,
+          "top10": [
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.9838908314704895
+            },
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.01610863208770752
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 2.027426404538346e-07
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 3.8430570725722646e-08
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 3.56353986319391e-08
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 2.8924661776841276e-08
+            },
+            {
+              "id": 37132,
+              "text": "。</",
+              "probability": 1.9269890572104487e-08
+            },
+            {
+              "id": 52508,
+              "text": "%</",
+              "probability": 1.8941165080832434e-08
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 1.775662283876045e-08
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 1.4566470696308897e-08
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 0.9989455342292786,
+          "open_start_probability": 0.0010545358527451754,
+          "top10": [
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.9989455342292786
+            },
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.0010545358527451754
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 7.181329315930629e-12
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 4.4918506848096174e-13
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 3.9606433909454564e-13
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 2.797332406944547e-13
+            },
+            {
+              "id": 37132,
+              "text": "。</",
+              "probability": 1.4215507297774682e-13
+            },
+            {
+              "id": 52508,
+              "text": "%</",
+              "probability": 1.3813611170719609e-13
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 1.2404048057787498e-13
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 8.917037030639619e-14
+            }
+          ]
+        }
+      },
+      "teacher": {
+        "1.0": {
+          "closure_start_probability": 0.5766264200210571,
+          "open_start_probability": 0.42337146401405334,
+          "top10": [
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.5766264200210571
+            },
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.42337146401405334
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 5.496642643265659e-07
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 2.8342742552922573e-07
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 1.7193526957726135e-07
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 1.3773238549674716e-07
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 1.0661622695806727e-07
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 8.96917171644418e-08
+            },
+            {
+              "id": 21983,
+              "text": "<button",
+              "probability": 7.118595846122844e-08
+            },
+            {
+              "id": 91190,
+              "text": "<r",
+              "probability": 6.355389814416412e-08
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 0.6259562969207764,
+          "open_start_probability": 0.37404370307922363,
+          "top10": [
+            {
+              "id": 522,
+              "text": "</",
+              "probability": 0.6259562969207764
+            },
+            {
+              "id": 27,
+              "text": "<",
+              "probability": 0.37404370307922363
+            },
+            {
+              "id": 88752,
+              "text": "<algorithm",
+              "probability": 5.7794116714582344e-11
+            },
+            {
+              "id": 690,
+              "text": " </",
+              "probability": 1.916272175661593e-11
+            },
+            {
+              "id": 39982,
+              "text": "<number",
+              "probability": 8.330319940796915e-12
+            },
+            {
+              "id": 11347,
+              "text": ";</",
+              "probability": 5.75591007148657e-12
+            },
+            {
+              "id": 1472,
+              "text": "></",
+              "probability": 3.756287815515069e-12
+            },
+            {
+              "id": 3918,
+              "text": ".</",
+              "probability": 2.8160570663543494e-12
+            },
+            {
+              "id": 21983,
+              "text": "<button",
+              "probability": 1.9159205472130125e-12
+            },
+            {
+              "id": 91190,
+              "text": "<r",
+              "probability": 1.5859563011824673e-12
+            }
+          ]
+        }
+      },
+      "full_vs_truncated_prefix_max_logit_error": 0.0,
+      "full_vs_truncated_prefix_kl": 0.0,
+      "teacher_after_literal_open_angle": {
+        "1.0": {
+          "closure_start_probability": 2.469941959293287e-11,
+          "open_start_probability": 3.310507673995062e-20,
+          "top10": [
+            {
+              "id": 1311,
+              "text": "action",
+              "probability": 0.9998880624771118
+            },
+            {
+              "id": 19895,
+              "text": "reason",
+              "probability": 0.0001095139523386024
+            },
+            {
+              "id": 54765,
+              "text": "/action",
+              "probability": 6.328076551653794e-07
+            },
+            {
+              "id": 1917,
+              "text": " action",
+              "probability": 4.018681636352994e-07
+            },
+            {
+              "id": 100675,
+              "text": "行动",
+              "probability": 3.9484473290940514e-07
+            },
+            {
+              "id": 89107,
+              "text": "actionDate",
+              "probability": 2.0779212661636848e-07
+            },
+            {
+              "id": 38933,
+              "text": "\taction",
+              "probability": 1.9879274759659893e-07
+            },
+            {
+              "id": 4020,
+              "text": "actions",
+              "probability": 1.8171164128943929e-07
+            },
+            {
+              "id": 34922,
+              "text": "acting",
+              "probability": 1.0909577952133986e-07
+            },
+            {
+              "id": 25059,
+              "text": "-action",
+              "probability": 7.632618803654623e-08
+            }
+          ]
+        },
+        "0.6": {
+          "closure_start_probability": 2.095207959746804e-18,
+          "open_start_probability": 3.413817061728331e-33,
+          "top10": [
+            {
+              "id": 1311,
+              "text": "action",
+              "probability": 0.9999997615814209
+            },
+            {
+              "id": 19895,
+              "text": "reason",
+              "probability": 2.507247813809954e-07
+            },
+            {
+              "id": 54765,
+              "text": "/action",
+              "probability": 4.6651724150414964e-11
+            },
+            {
+              "id": 1917,
+              "text": " action",
+              "probability": 2.1888756432386636e-11
+            },
+            {
+              "id": 100675,
+              "text": "行动",
+              "probability": 2.125487980064733e-11
+            },
+            {
+              "id": 89107,
+              "text": "actionDate",
+              "probability": 7.291164200173839e-12
+            },
+            {
+              "id": 38933,
+              "text": "\taction",
+              "probability": 6.772509636432389e-12
+            },
+            {
+              "id": 4020,
+              "text": "actions",
+              "probability": 5.830690097408109e-12
+            },
+            {
+              "id": 34922,
+              "text": "acting",
+              "probability": 2.491314663247146e-12
+            },
+            {
+              "id": 25059,
+              "text": "-action",
+              "probability": 1.3736349297605033e-12
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -635,6 +635,8 @@ class DataParallelPPOActor(BasePPOActor):
         sdl_sample_filter = str(self.config.get("sdl_loss_sample_filter", "all") or "all").lower()
         sdl_token_scope = str(self.config.get("sdl_loss_token_scope", "all") or "all").lower()
         sdl_mask_special_tokens = bool(self.config.get("sdl_loss_mask_special_tokens", False))
+        if use_sdl_loss and sdl_token_scope == 'reasoning_body' and not sdl_mask_special_tokens:
+            raise ValueError('reasoning_body requires the keep mask built by HintLadderRayTrainer')
         sdar_mask_special_tokens = bool(self.config.get("sdar_loss_mask_special_tokens", False))
         sdl_sample_weighting = bool(self.config.get("sdl_loss_sample_weighting", False))
         sdl_loss_normalization = str(self.config.get("sdl_loss_normalization", "selected_token_mean") or "selected_token_mean").lower()
@@ -869,6 +871,8 @@ class DataParallelPPOActor(BasePPOActor):
                         from verl.trainer.ppo.skillsd_utils import aggregate_sdl_per_token_loss, compute_sdl_loss
 
                         sdl_response_mask = response_mask
+                        if sdl_token_scope == 'reasoning_body':
+                            metrics['actor/sdl_token_scope_reasoning_body'] = 1.0
                         response_token_count = response_mask.float().sum().clamp(min=1.0)
                         if sdl_mask_special_tokens:
                             if "sdl_special_token_keep_mask" not in data:

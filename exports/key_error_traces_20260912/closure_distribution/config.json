@@ -1,0 +1,28 @@
+{
+  "model": "/models/Qwen3-4B",
+  "checkpoint_step": 0,
+  "workers": 8,
+  "model_host_path": "/mnt/disk4/zhangboyao/models/modelscope/Qwen3-4B",
+  "source": "exports/base_hint_compare10_20260911/episodes.jsonl",
+  "source_sha256": "d31dc09bc763af53b0bced008ab6ff2348f86e149bb8c172c6ae097944a365d1",
+  "student_turns": 414,
+  "scored_turns": 412,
+  "excluded_turns": 2,
+  "source_arm": "no_hint",
+  "same_student_prefix_in_both_arms": true,
+  "temperatures": [
+    1.0,
+    0.6
+  ],
+  "top_k_top_p_truncation": false,
+  "probability_normalization": "full vocabulary",
+  "entropy_units": "nats",
+  "native_thinking": false,
+  "hint_model": "glm-5.3-flash",
+  "hint_thinking": true,
+  "hint_prompt_path": "configs/experiments/l1_online_full_20260910/l1_prompt.txt",
+  "fresh_hint_seed_step": 0,
+  "hint_deduplication": "same public task, observation and last two actions",
+  "fresh_unique_hint_states": 226,
+  "training_or_weight_updates": false
+}

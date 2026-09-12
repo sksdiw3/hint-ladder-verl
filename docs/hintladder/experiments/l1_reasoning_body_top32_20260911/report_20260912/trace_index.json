@@ -1,0 +1,58 @@
+[
+  {
+    "file": "traces/base_pair3_no_hint.md",
+    "source_jsonl": "base_matched_controls.jsonl",
+    "pair_id": 3,
+    "arm": "no_hint",
+    "turns": 50
+  },
+  {
+    "file": "traces/base_pair3_online_l1.md",
+    "source_jsonl": "base_matched_controls.jsonl",
+    "pair_id": 3,
+    "arm": "online_l1",
+    "turns": 5
+  },
+  {
+    "file": "traces/base_pair7_no_hint.md",
+    "source_jsonl": "base_matched_controls.jsonl",
+    "pair_id": 7,
+    "arm": "no_hint",
+    "turns": 33
+  },
+  {
+    "file": "traces/base_pair7_online_l1.md",
+    "source_jsonl": "base_matched_controls.jsonl",
+    "pair_id": 7,
+    "arm": "online_l1",
+    "turns": 5
+  },
+  {
+    "file": "traces/train_step10_largest_format_failure_episode.md",
+    "source_jsonl": "training_error_episodes.jsonl",
+    "step": 10,
+    "traj_uid": "248653c1-8a1a-490d-a0d0-a666b0056db1",
+    "turns": 50
+  },
+  {
+    "file": "traces/train_step20_mixed_valid_and_empty_reasoning.md",
+    "source_jsonl": "training_error_episodes.jsonl",
+    "step": 20,
+    "traj_uid": "004522b2-3773-4847-85fa-73b840be196a",
+    "turns": 50
+  },
+  {
+    "file": "traces/train_step110_mixed_valid_and_empty_reasoning.md",
+    "source_jsonl": "training_error_episodes.jsonl",
+    "step": 110,
+    "traj_uid": "03433d88-3f9c-45ce-b629-926b5451354e",
+    "turns": 50
+  },
+  {
+    "file": "traces/train_step110_all_turns_empty_reasoning.md",
+    "source_jsonl": "training_error_episodes.jsonl",
+    "step": 110,
+    "traj_uid": "019ac84f-ba7b-42c8-9cb9-0b962d58e61e",
+    "turns": 50
+  }
+]

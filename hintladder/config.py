@@ -51,8 +51,11 @@ def validate_student_config(flat, *, coverage=False):
         raise ValueError("native agent rollout requires rollout.n=1; use env.rollout.n for groups")
     if flat.get(a + "ppo_epochs", 1) != 1:
         raise ValueError("active-token accounting requires one PPO epoch")
-    if flat.get(a + "sdl_loss_mask_special_tokens") is not True or flat.get(a + "sdl_loss_token_scope") != "all":
-        raise ValueError("SDL must cover all ordinary response tokens")
+    scope = flat.get(a + "sdl_loss_token_scope")
+    if flat.get(a + "sdl_loss_mask_special_tokens") is not True or scope not in ("all", "reasoning_body"):
+        raise ValueError("SDL requires special-token masking and scope all or reasoning_body")
+    if scope == "reasoning_body" and flat.get("env.alfworld.prompt_style") != "explicit_reasoning":
+        raise ValueError("reasoning_body supervision requires the explicit_reasoning prompt")
     if flat.get(a + "sdl_loss_sample_filter", "all") != "all" or flat.get(a + "sdl_loss_sample_weighting", False):
         raise ValueError("SDL filtering/weighting would change the declared active-token budget")
     if flat.get(a + "use_candidate_ce_loss", False) or flat.get(a + "use_sdar_loss", False):

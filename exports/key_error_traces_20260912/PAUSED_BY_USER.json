@@ -1,0 +1,17 @@
+{
+  "paused_at": "2026-09-11T16:29:32.777034+00:00",
+  "finished_at": "2026-09-11T16:29:05.021350362Z",
+  "reason": "User explicitly requested pause after empty-reasoning degeneration was reported",
+  "container_name": "hintladder-l1-reasoning-body-top32-20260911",
+  "container_status": "exited",
+  "exit_code": 137,
+  "oom_killed": false,
+  "last_completed_step": 110,
+  "latest_complete_checkpoint": 110,
+  "retained_complete_checkpoints": [
+    100,
+    105,
+    110
+  ],
+  "do_not_restart_without_user_instruction": true
+}

@@ -1,0 +1,218 @@
+diff --git a/hintladder/config.py b/hintladder/config.py
+index a2902c2..f07e465 100644
+--- a/hintladder/config.py
++++ b/hintladder/config.py
+@@ -51,8 +51,11 @@ def validate_student_config(flat, *, coverage=False):
+         raise ValueError("native agent rollout requires rollout.n=1; use env.rollout.n for groups")
+     if flat.get(a + "ppo_epochs", 1) != 1:
+         raise ValueError("active-token accounting requires one PPO epoch")
+-    if flat.get(a + "sdl_loss_mask_special_tokens") is not True or flat.get(a + "sdl_loss_token_scope") != "all":
+-        raise ValueError("SDL must cover all ordinary response tokens")
++    scope = flat.get(a + "sdl_loss_token_scope")
++    if flat.get(a + "sdl_loss_mask_special_tokens") is not True or scope not in ("all", "reasoning_body"):
++        raise ValueError("SDL requires special-token masking and scope all or reasoning_body")
++    if scope == "reasoning_body" and flat.get("env.alfworld.prompt_style") != "explicit_reasoning":
++        raise ValueError("reasoning_body supervision requires the explicit_reasoning prompt")
+     if flat.get(a + "sdl_loss_sample_filter", "all") != "all" or flat.get(a + "sdl_loss_sample_weighting", False):
+         raise ValueError("SDL filtering/weighting would change the declared active-token budget")
+     if flat.get(a + "use_candidate_ce_loss", False) or flat.get(a + "use_sdar_loss", False):
+diff --git a/hintladder/response_format.py b/hintladder/response_format.py
+index 498e987..bfbc392 100644
+--- a/hintladder/response_format.py
++++ b/hintladder/response_format.py
+@@ -29,6 +29,59 @@ def response_format_error(text, prompt_style):
+     return ''
+ 
+ 
++def reasoning_body_mask(responses, response_mask, tokenizer):
++    """Select original response tokens wholly inside the reasoning body.
++
++    Tags are ordinary BPE tokens, and a token can straddle a body/tag boundary.
++    Locate both boundaries by decoding prefixes of the ORIGINAL sampled IDs;
++    re-encoding the text could change their segmentation. Exclude straddling
++    tokens, both reasoning tags, the complete action block and special tokens.
++    Malformed/truncated responses retain the existing zero-supervision policy.
++    """
++    import torch
++
++    keep = torch.zeros_like(response_mask, dtype=torch.bool)
++    specials = set(tokenizer.all_special_ids)
++    for row, (tokens, active) in enumerate(zip(responses.tolist(), response_mask.tolist())):
++        positions = [i for i, value in enumerate(active) if value]
++        ids = [tokens[i] for i in positions]
++        clean = tokenizer.decode(ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
++        if response_format_error(clean, 'explicit_reasoning'):
++            continue
++        text = tokenizer.decode(ids, skip_special_tokens=False, clean_up_tokenization_spaces=False)
++        opening = re.search(r'<reasoning>', text, re.I)
++        closing = re.search(r'</reasoning>', text, re.I)
++        if opening is None or closing is None:
++            continue
++        decoded = {len(ids): text, 0: ''}
++
++        def prefix(count):
++            if count not in decoded:
++                decoded[count] = tokenizer.decode(ids[:count], skip_special_tokens=False,
++                                                   clean_up_tokenization_spaces=False)
++            return decoded[count]
++
++        def covering_prefix(char_end):
++            target = text[:char_end]
++            low, high = 0, len(ids)
++            while low < high:
++                middle = (low + high) // 2
++                if prefix(middle).startswith(target):
++                    high = middle
++                else:
++                    low = middle + 1
++            return low
++
++        start = covering_prefix(opening.end())
++        end = covering_prefix(closing.start())
++        if prefix(end) != text[:closing.start()]:
++            end -= 1
++        for index in range(start, end):
++            if ids[index] not in specials:
++                keep[row, positions[index]] = True
++    return keep
++
++
+ def annotate_response_format(batch, tokenizer, prompt_style, output_dir, step):
+     """Annotate original rows before padding/reordering; save every bad response."""
+     texts = tokenizer.batch_decode(batch.batch['responses'], skip_special_tokens=True)
+diff --git a/hintladder/teacher_prompt.py b/hintladder/teacher_prompt.py
+index 25e98d6..37c63e9 100644
+--- a/hintladder/teacher_prompt.py
++++ b/hintladder/teacher_prompt.py
+@@ -4,7 +4,8 @@ import re
+ ANCHOR = "You are an expert agent operating in the ALFRED Embodied Environment"
+ OPEN = "<private_teacher_note>"
+ CLOSE = "</private_teacher_note>"
+-ADVISORY = "This note is advisory. Decide from the current observation and admissible actions, and never mention the note.\n"
++ADVISORY = ("Use this hint as optional guidance for your reasoning; check it against the current observation and admissible actions. "
++            "Keep the required response format and do not mention the hint.\n")
+ 
+ 
+ def insert_note(prompt_text: str, note: str) -> str:
+@@ -20,7 +21,10 @@ def insert_note(prompt_text: str, note: str) -> str:
+     if prompt_text.count(boundary) == 1 and ANCHOR in prompt_text:
+         if not note.strip():
+             return prompt_text
+-        return prompt_text.replace(boundary, "\n" + OPEN + "\n" + note + "\n" + CLOSE + "\n" + ADVISORY + boundary.lstrip(), 1)
++        result = prompt_text.replace(boundary, "\n" + OPEN + "\n" + note + "\n" + CLOSE + "\n" + ADVISORY + boundary, 1)
++        if remove_note(result) != prompt_text:
++            raise AssertionError("private-note insertion changed the Student text")
++        return result
+     anchors = list(re.finditer(r"(?m)^" + re.escape(ANCHOR) + r"[^\n]*\n", prompt_text))
+     if len(anchors) != 1:
+         raise ValueError("expected exactly one ALFWorld first-line anchor")
+@@ -42,8 +46,8 @@ def remove_note(prompt_text: str) -> str:
+     if prompt_text[end:end + len(suffix)] != suffix:
+         raise ValueError("private note advisory was changed")
+     after = prompt_text[end + len(suffix):]
+-    if after.startswith('Prior to this step,') and ' You are now at step ' in after:
+-        return prompt_text[:start].removesuffix('\n') + ' ' + after
++    if after.startswith(' Prior to this step,') and ' You are now at step ' in after:
++        return prompt_text[:start].removesuffix('\n') + after
+     return prompt_text[:start] + after
+ 
+ 
+diff --git a/tests/hintladder/test_teacher_prompt.py b/tests/hintladder/test_teacher_prompt.py
+index 8265bc5..315d162 100644
+--- a/tests/hintladder/test_teacher_prompt.py
++++ b/tests/hintladder/test_teacher_prompt.py
+@@ -1,9 +1,9 @@
+ import pytest
+ from hintladder.teacher_prompt import ANCHOR, OPEN, insert_note, remove_note
+-from agent_system.environments.prompts import ALFWORLD_TEMPLATE_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_NO_HIS_ACTION_TAG_ONLY
++from agent_system.environments.prompts import ALFWORLD_TEMPLATE_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_NO_HIS_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_REASONING
+ 
+ 
+-@pytest.mark.parametrize("template", [ALFWORLD_TEMPLATE_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_NO_HIS_ACTION_TAG_ONLY])
++@pytest.mark.parametrize("template", [ALFWORLD_TEMPLATE_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_NO_HIS_ACTION_TAG_ONLY, ALFWORLD_TEMPLATE_REASONING])
+ def test_native_templates_preserve_original(template):
+     text = template.format(task_description="put a mug away", current_observation="look", admissible_actions="look",
+                            step_count=2, history_length=2, action_history="go to desk 1", current_step=3)
+@@ -11,6 +11,7 @@ def test_native_templates_preserve_original(template):
+         result = insert_note(prompt, "Observe before acting.")
+         assert result.count(OPEN) == 1
+         assert remove_note(result) == prompt
++        assert insert_note(prompt, '') == prompt
+ 
+ 
+ @pytest.mark.parametrize("text", ["no anchor", ANCHOR + "\n" + ANCHOR + "\n", ANCHOR + "\n" + OPEN])
+diff --git a/verl/trainer/ppo/hint_ladder_ray_trainer.py b/verl/trainer/ppo/hint_ladder_ray_trainer.py
+index 2165a14..396e42a 100644
+--- a/verl/trainer/ppo/hint_ladder_ray_trainer.py
++++ b/verl/trainer/ppo/hint_ladder_ray_trainer.py
+@@ -32,7 +32,7 @@ from hintladder.io import read_json, write_json, read_jsonl
+ from hintladder.keys import data_root, normalize_gamefile, read_game_list
+ from hintladder.teacher_prompt import build_teacher_batch, OPEN
+ from hintladder.online_l1 import make_provider
+-from hintladder.response_format import annotate_response_format
++from hintladder.response_format import annotate_response_format, reasoning_body_mask
+ 
+ 
+ def save_budget(trainer):
+@@ -169,6 +169,17 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
+             batch.batch["teacher_topk_ids"], batch.batch["teacher_topk_log_probs"] = ids, probs
+         special = torch.tensor(self.tokenizer.all_special_ids, dtype=responses.dtype, device=responses.device)
+         keep = ~torch.isin(responses, special)
++        scope = self.config.actor_rollout_ref.actor.get('sdl_loss_token_scope', 'all')
++        scope_metrics = {}
++        if scope == 'reasoning_body':
++            body_mask = reasoning_body_mask(responses, batch.batch['response_mask'], self.tokenizer)
++            # Compile the token scope into the native SDL keep mask. The actor
++            # consumes this exact mask after distributed padding/reordering.
++            keep = keep & body_mask
++            body_counts = body_mask.sum(-1).cpu().numpy()
++            batch.non_tensor_batch['sdl_reasoning_body_tokens'] = body_counts
++            scope_metrics = {'hint_ladder/reasoning_body_tokens': int(body_counts.sum()),
++                             'hint_ladder/reasoning_body_only': 1}
+         if "online_l1_level" in batch.non_tensor_batch:
+             failed = torch.tensor([level == "L0_FAILED" for level in batch.non_tensor_batch["online_l1_level"]],
+                                   dtype=torch.bool, device=responses.device)
+@@ -181,9 +192,12 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
+                                     dtype=torch.bool, device=responses.device)
+             keep = keep & valid[:, None]
+         batch.batch["sdl_special_token_keep_mask"] = keep.to(batch.batch["response_mask"].dtype)
++        batch.non_tensor_batch['sdl_supervised_tokens'] = (batch.batch['response_mask'] * keep).sum(-1).cpu().numpy()
+         active = int((batch.batch["response_mask"] * keep).sum().item())
+         self._pending_active_tokens = active
+         self._last_teacher_skill_metrics = {"hint_ladder/active_tokens_step": active}
++        self._last_teacher_skill_metrics.update(scope_metrics)
++        self._last_teacher_skill_metrics['hint_ladder/supervised_token_ratio'] = active / max(1, int(batch.batch['response_mask'].sum()))
+         self._last_teacher_skill_metrics.update(getattr(self.hint_provider, 'metrics', {}))
+         self._last_teacher_skill_metrics.update({f"hint_ladder/level_counts/{key}": value
+                                                 for key, value in teacher.meta_info["hint_ladder_level_counts"].items()})
+@@ -192,7 +206,7 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
+     def _rollout_dump_extra_infos(self, batch, reward_extra_infos_dict):
+         result = super()._rollout_dump_extra_infos(batch, reward_extra_infos_dict)
+         for key in ('online_l1_hint', 'online_l1_level', 'online_l1_request_sha256',
+-                    'sdl_format_valid', 'sdl_format_error'):
++                    'sdl_format_valid', 'sdl_format_error', 'sdl_reasoning_body_tokens', 'sdl_supervised_tokens'):
+             if key in batch.non_tensor_batch:
+                 result[key] = batch.non_tensor_batch[key]
+         return result
+diff --git a/verl/workers/actor/dp_actor.py b/verl/workers/actor/dp_actor.py
+index b3052fc..72b4645 100644
+--- a/verl/workers/actor/dp_actor.py
++++ b/verl/workers/actor/dp_actor.py
+@@ -635,6 +635,8 @@ class DataParallelPPOActor(BasePPOActor):
+         sdl_sample_filter = str(self.config.get("sdl_loss_sample_filter", "all") or "all").lower()
+         sdl_token_scope = str(self.config.get("sdl_loss_token_scope", "all") or "all").lower()
+         sdl_mask_special_tokens = bool(self.config.get("sdl_loss_mask_special_tokens", False))
++        if use_sdl_loss and sdl_token_scope == 'reasoning_body' and not sdl_mask_special_tokens:
++            raise ValueError('reasoning_body requires the keep mask built by HintLadderRayTrainer')
+         sdar_mask_special_tokens = bool(self.config.get("sdar_loss_mask_special_tokens", False))
+         sdl_sample_weighting = bool(self.config.get("sdl_loss_sample_weighting", False))
+         sdl_loss_normalization = str(self.config.get("sdl_loss_normalization", "selected_token_mean") or "selected_token_mean").lower()
+@@ -869,6 +871,8 @@ class DataParallelPPOActor(BasePPOActor):
+                         from verl.trainer.ppo.skillsd_utils import aggregate_sdl_per_token_loss, compute_sdl_loss
+ 
+                         sdl_response_mask = response_mask
++                        if sdl_token_scope == 'reasoning_body':
++                            metrics['actor/sdl_token_scope_reasoning_body'] = 1.0
+                         response_token_count = response_mask.float().sum().clamp(min=1.0)
+                         if sdl_mask_special_tokens:
+                             if "sdl_special_token_keep_mask" not in data:

@@ -32,7 +32,7 @@ from hintladder.io import read_json, write_json, read_jsonl
 from hintladder.keys import data_root, normalize_gamefile, read_game_list
 from hintladder.teacher_prompt import build_teacher_batch, OPEN
 from hintladder.online_l1 import make_provider
-from hintladder.response_format import annotate_response_format
+from hintladder.response_format import annotate_response_format, reasoning_body_mask
 
 
 def save_budget(trainer):
@@ -169,6 +169,17 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
             batch.batch["teacher_topk_ids"], batch.batch["teacher_topk_log_probs"] = ids, probs
         special = torch.tensor(self.tokenizer.all_special_ids, dtype=responses.dtype, device=responses.device)
         keep = ~torch.isin(responses, special)
+        scope = self.config.actor_rollout_ref.actor.get('sdl_loss_token_scope', 'all')
+        scope_metrics = {}
+        if scope == 'reasoning_body':
+            body_mask = reasoning_body_mask(responses, batch.batch['response_mask'], self.tokenizer)
+            # Compile the token scope into the native SDL keep mask. The actor
+            # consumes this exact mask after distributed padding/reordering.
+            keep = keep & body_mask
+            body_counts = body_mask.sum(-1).cpu().numpy()
+            batch.non_tensor_batch['sdl_reasoning_body_tokens'] = body_counts
+            scope_metrics = {'hint_ladder/reasoning_body_tokens': int(body_counts.sum()),
+                             'hint_ladder/reasoning_body_only': 1}
         if "online_l1_level" in batch.non_tensor_batch:
             failed = torch.tensor([level == "L0_FAILED" for level in batch.non_tensor_batch["online_l1_level"]],
                                   dtype=torch.bool, device=responses.device)
@@ -181,9 +192,12 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
                                     dtype=torch.bool, device=responses.device)
             keep = keep & valid[:, None]
         batch.batch["sdl_special_token_keep_mask"] = keep.to(batch.batch["response_mask"].dtype)
+        batch.non_tensor_batch['sdl_supervised_tokens'] = (batch.batch['response_mask'] * keep).sum(-1).cpu().numpy()
         active = int((batch.batch["response_mask"] * keep).sum().item())
         self._pending_active_tokens = active
         self._last_teacher_skill_metrics = {"hint_ladder/active_tokens_step": active}
+        self._last_teacher_skill_metrics.update(scope_metrics)
+        self._last_teacher_skill_metrics['hint_ladder/supervised_token_ratio'] = active / max(1, int(batch.batch['response_mask'].sum()))
         self._last_teacher_skill_metrics.update(getattr(self.hint_provider, 'metrics', {}))
         self._last_teacher_skill_metrics.update({f"hint_ladder/level_counts/{key}": value
                                                 for key, value in teacher.meta_info["hint_ladder_level_counts"].items()})
@@ -192,7 +206,7 @@ class HintLadderRayTrainer(SkillSDRayTrainer):
     def _rollout_dump_extra_infos(self, batch, reward_extra_infos_dict):
         result = super()._rollout_dump_extra_infos(batch, reward_extra_infos_dict)
         for key in ('online_l1_hint', 'online_l1_level', 'online_l1_request_sha256',
-                    'sdl_format_valid', 'sdl_format_error'):
+                    'sdl_format_valid', 'sdl_format_error', 'sdl_reasoning_body_tokens', 'sdl_supervised_tokens'):
             if key in batch.non_tensor_batch:
                 result[key] = batch.non_tensor_batch[key]
         return result
