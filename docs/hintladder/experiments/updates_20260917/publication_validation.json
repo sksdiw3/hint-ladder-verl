@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-09-17T09:00:18.386449+00:00",
+  "status": "passed",
+  "command": "python docs/hintladder/experiments/updates_20260917/verify_publication.py",
+  "source_copies_verified": 70,
+  "free_running_episodes": 120,
+  "base_prefix_turns": 992,
+  "original_token_positions": 221620,
+  "training_evaluation_episodes": 2192,
+  "reasoning_forward_kl": {
+    "l1": 0.6492951905911696,
+    "l2": 1.1055311165633332,
+    "l3": 0.9712865104409071
+  },
+  "original_math_tests": {
+    "tests": 3,
+    "status": "passed",
+    "runtime": "hintladder-runtime:verified-20260908; CPU only"
+  },
+  "archive_whitespace": "Original CSV line endings, model outputs and runtime source are preserved byte-for-byte via scoped .gitattributes.",
+  "git_diff_cached_check": "passed",
+  "no_api_or_gpu_used": true
+}

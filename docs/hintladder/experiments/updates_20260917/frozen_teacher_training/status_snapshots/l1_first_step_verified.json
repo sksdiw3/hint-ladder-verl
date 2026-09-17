@@ -1,0 +1,19 @@
+{
+  "completed_step": 1,
+  "teacher_sha256_unchanged_after_student_update": true,
+  "teacher_workers": 8,
+  "student_update_skipped": false,
+  "checkpoint_shard_counts": {
+    "model": 8,
+    "optim": 8,
+    "extra_state": 8
+  },
+  "step_seconds": 522.6105554420501,
+  "train_rollout_successes": 8,
+  "train_rollout_episodes": 128,
+  "format_invalid_rows": 2,
+  "format_total_rows": 6236,
+  "empty_reasoning_rows": 0,
+  "metrics": "train/metrics.jsonl",
+  "audit": "train/frozen_teacher_audit.jsonl"
+}

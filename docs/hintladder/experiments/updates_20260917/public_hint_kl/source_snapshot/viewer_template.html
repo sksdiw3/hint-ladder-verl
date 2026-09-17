@@ -1,0 +1,30 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10题 · Base与L1–L3完整轨迹</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,sans-serif;background:Canvas;color:CanvasText}body{max-width:1500px;margin:auto;padding:24px}h1{font-size:1.4rem}h2{font-size:1.1rem}select,button{font:inherit;max-width:100%;padding:8px}label{display:block}#panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}article{min-width:0;border-top:2px solid GrayText;padding-top:12px}pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.65;margin:8px 0 20px}summary{cursor:pointer}details{margin:12px 0}.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.status{margin:8px 0}.hint{border-left:3px solid GrayText;padding-left:12px}#task{font-size:1.05rem}small{line-height:1.5}@media(max-width:780px){body{padding:12px}#panels{grid-template-columns:1fr}}
+</style>
+<h1>Base与L1–L3：同题独立完整轨迹</h1>
+<p>四组均为原始Qwen3-4B。L3＝无Oracle的明确动作建议。每组可独立切换turn，后续同编号turn可能处于不同状态。</p>
+<label for="sample">选择题目</label><select id="sample"></select>
+<p id="task"></p><div id="panels"></div>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(()=>{
+const data=JSON.parse(document.getElementById('data').textContent);
+const arms=['base','base_l1','base_l2','base_l3'];
+const labels=['Base · 无hint','Base + L1 · 轻量方向','Base + L2 · 分析与假设','Base + L3 · 明确动作，无Oracle'];
+const sample=document.getElementById('sample'),panels=document.getElementById('panels');
+data.forEach((p,i)=>sample.add(new Option(`${p.sample_id}. ${p.task_zh} · ${p.split}`,i)));
+function field(parent,label,role,text){const title=document.createElement('strong');title.textContent=label;parent.append(title);const pre=document.createElement('pre');pre.dataset.role=role;pre.textContent=text;parent.append(pre);return pre;}
+function render(){const p=data[Number(sample.value)];document.body.dataset.sample=p.sample_id;document.getElementById('task').textContent=p.task;panels.replaceChildren();
+arms.forEach((arm,ai)=>{const e=p[arm],panel=document.createElement('article');panel.dataset.arm=arm;const title=document.createElement('h2');title.textContent=labels[ai];panel.append(title);
+const status=document.createElement('p');status.className='status';status.textContent=`${e.success?'成功':'失败'} · ${e.turns.length} turns · ${e.termination}`;panel.append(status);
+const controls=document.createElement('div');controls.className='controls';const prev=document.createElement('button'),next=document.createElement('button'),sel=document.createElement('select');prev.type=next.type='button';prev.textContent='上一轮';next.textContent='下一轮';sel.dataset.role='turn';sel.setAttribute('aria-label',labels[ai]+' turn');e.turns.forEach((t,i)=>sel.add(new Option(`Turn ${t.turn} · ${t.executed_action}`,i)));controls.append(prev,sel,next);panel.append(controls);
+const content=document.createElement('div');content.setAttribute('aria-live','polite');panel.append(content);
+function turn(){const t=e.turns[Number(sel.value)];content.replaceChildren();field(content,'当前观察','observation',t.observation);field(content,'实际输入hint','hint',t.hint||'无');field(content,'模型完整输出：reasoning + action','output',t.output);field(content,'实际执行动作','action',t.executed_action);field(content,'环境反馈','feedback',t.feedback);
+const meta=document.createElement('p');meta.textContent=`输出tokens ${t.generated_tokens} · reasoning正文tokens ${t.reasoning_body_tokens??'格式不合格，未计数'} · 格式错误 ${t.format_error||'无'} · 动作合法 ${t.action_admissible}`;content.append(meta);
+const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='完整动作空间与近期历史';details.append(summary);field(details,'动作空间','actions',t.admissible_commands.join('\n'));field(details,'近期历史','history',JSON.stringify(t.recent_history,null,2));content.append(details);prev.disabled=Number(sel.value)===0;next.disabled=Number(sel.value)===e.turns.length-1;}
+sel.onchange=turn;prev.onclick=()=>{sel.value=String(Math.max(0,Number(sel.value)-1));turn()};next.onclick=()=>{sel.value=String(Math.min(e.turns.length-1,Number(sel.value)+1));turn()};panels.append(panel);turn();});}
+sample.onchange=render;render();document.body.dataset.ready='true';
+})();
+</script></html>

@@ -1,0 +1,260 @@
+{
+  "additional20": {
+    "base": {
+      "tasks": 20,
+      "successes": 11,
+      "success_rate": 0.55,
+      "turns": 632,
+      "mean_turns": 31.6,
+      "mean_response_tokens": 219.42246835443038,
+      "mean_reasoning_body_tokens_valid": 198.9003164556962,
+      "format_errors": 0,
+      "inadmissible_actions": 54,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 10,
+          "successes": 7
+        },
+        "valid_unseen": {
+          "tasks": 10,
+          "successes": 4
+        }
+      }
+    },
+    "base_l1": {
+      "tasks": 20,
+      "successes": 13,
+      "success_rate": 0.65,
+      "turns": 535,
+      "mean_turns": 26.75,
+      "mean_response_tokens": 149.42990654205607,
+      "mean_reasoning_body_tokens_valid": 128.71722846441946,
+      "format_errors": 1,
+      "inadmissible_actions": 32,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 10,
+          "successes": 7
+        },
+        "valid_unseen": {
+          "tasks": 10,
+          "successes": 6
+        }
+      }
+    },
+    "base_l2": {
+      "tasks": 20,
+      "successes": 16,
+      "success_rate": 0.8,
+      "turns": 422,
+      "mean_turns": 21.1,
+      "mean_response_tokens": 157.40758293838863,
+      "mean_reasoning_body_tokens_valid": 136.76978417266187,
+      "format_errors": 5,
+      "inadmissible_actions": 19,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 10,
+          "successes": 9
+        },
+        "valid_unseen": {
+          "tasks": 10,
+          "successes": 7
+        }
+      }
+    },
+    "base_l3": {
+      "tasks": 20,
+      "successes": 15,
+      "success_rate": 0.75,
+      "turns": 412,
+      "mean_turns": 20.6,
+      "mean_response_tokens": 133.50242718446603,
+      "mean_reasoning_body_tokens_valid": 112.28155339805825,
+      "format_errors": 0,
+      "inadmissible_actions": 4,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 10,
+          "successes": 8
+        },
+        "valid_unseen": {
+          "tasks": 10,
+          "successes": 7
+        }
+      }
+    }
+  },
+  "previous10": {
+    "base": {
+      "tasks": 10,
+      "successes": 4,
+      "success_rate": 0.4,
+      "turns": 360,
+      "mean_turns": 36.0,
+      "mean_response_tokens": 230.40277777777777,
+      "mean_reasoning_body_tokens_valid": 209.95833333333334,
+      "format_errors": 0,
+      "inadmissible_actions": 34,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 5,
+          "successes": 1
+        },
+        "valid_unseen": {
+          "tasks": 5,
+          "successes": 3
+        }
+      }
+    },
+    "base_l1": {
+      "tasks": 10,
+      "successes": 7,
+      "success_rate": 0.7,
+      "turns": 193,
+      "mean_turns": 19.3,
+      "mean_response_tokens": 156.2642487046632,
+      "mean_reasoning_body_tokens_valid": 135.7357512953368,
+      "format_errors": 0,
+      "inadmissible_actions": 22,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 5,
+          "successes": 2
+        },
+        "valid_unseen": {
+          "tasks": 5,
+          "successes": 5
+        }
+      }
+    },
+    "base_l2": {
+      "tasks": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "turns": 120,
+      "mean_turns": 12.0,
+      "mean_response_tokens": 163.16666666666666,
+      "mean_reasoning_body_tokens_valid": 143.64102564102564,
+      "format_errors": 3,
+      "inadmissible_actions": 2,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 5,
+          "successes": 5
+        },
+        "valid_unseen": {
+          "tasks": 5,
+          "successes": 5
+        }
+      }
+    },
+    "base_l3": {
+      "tasks": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "turns": 102,
+      "mean_turns": 10.2,
+      "mean_response_tokens": 136.7941176470588,
+      "mean_reasoning_body_tokens_valid": 115.7156862745098,
+      "format_errors": 0,
+      "inadmissible_actions": 1,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 5,
+          "successes": 5
+        },
+        "valid_unseen": {
+          "tasks": 5,
+          "successes": 5
+        }
+      }
+    }
+  },
+  "all30": {
+    "base": {
+      "tasks": 30,
+      "successes": 15,
+      "success_rate": 0.5,
+      "turns": 992,
+      "mean_turns": 33.06666666666667,
+      "mean_response_tokens": 223.40725806451613,
+      "mean_reasoning_body_tokens_valid": 202.9133064516129,
+      "format_errors": 0,
+      "inadmissible_actions": 88,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 15,
+          "successes": 8
+        },
+        "valid_unseen": {
+          "tasks": 15,
+          "successes": 7
+        }
+      }
+    },
+    "base_l1": {
+      "tasks": 30,
+      "successes": 20,
+      "success_rate": 0.6666666666666666,
+      "turns": 728,
+      "mean_turns": 24.266666666666666,
+      "mean_response_tokens": 151.24175824175825,
+      "mean_reasoning_body_tokens_valid": 130.58046767537826,
+      "format_errors": 1,
+      "inadmissible_actions": 54,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 15,
+          "successes": 9
+        },
+        "valid_unseen": {
+          "tasks": 15,
+          "successes": 11
+        }
+      }
+    },
+    "base_l2": {
+      "tasks": 30,
+      "successes": 26,
+      "success_rate": 0.8666666666666667,
+      "turns": 542,
+      "mean_turns": 18.066666666666666,
+      "mean_response_tokens": 158.68265682656826,
+      "mean_reasoning_body_tokens_valid": 138.27528089887642,
+      "format_errors": 8,
+      "inadmissible_actions": 21,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 15,
+          "successes": 14
+        },
+        "valid_unseen": {
+          "tasks": 15,
+          "successes": 12
+        }
+      }
+    },
+    "base_l3": {
+      "tasks": 30,
+      "successes": 25,
+      "success_rate": 0.8333333333333334,
+      "turns": 514,
+      "mean_turns": 17.133333333333333,
+      "mean_response_tokens": 134.1556420233463,
+      "mean_reasoning_body_tokens_valid": 112.96303501945525,
+      "format_errors": 0,
+      "inadmissible_actions": 5,
+      "by_split": {
+        "valid_seen": {
+          "tasks": 15,
+          "successes": 13
+        },
+        "valid_unseen": {
+          "tasks": 15,
+          "successes": 12
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "effective_runs": {
+    "l1": {
+      "completed_steps": 155,
+      "empty_reasoning_rows": 0,
+      "format_invalid_rows": 175,
+      "format_total_rows": 710076,
+      "skipped_updates": 0,
+      "response_tokens_first": 222.89279174804688,
+      "response_tokens_last": 162.8409423828125,
+      "response_tokens_last10_step_mean": 165.1687255859375,
+      "time_per_step_mean_s": 400.02856766635614
+    },
+    "l3": {
+      "completed_steps": 58,
+      "empty_reasoning_rows": 0,
+      "format_invalid_rows": 509,
+      "format_total_rows": 276032,
+      "skipped_updates": 0,
+      "response_tokens_first": 222.89279174804688,
+      "response_tokens_last": 177.7440948486328,
+      "response_tokens_last10_step_mean": 169.50198364257812,
+      "time_per_step_mean_s": 429.359959884354
+    }
+  },
+  "evaluations": [
+    {
+      "arm": "l1",
+      "step": 25,
+      "split": "valid_seen",
+      "successes": 61,
+      "tasks": 140,
+      "success_rate": 0.4357142857142857,
+      "training_response_tokens": 171.73841857910156
+    },
+    {
+      "arm": "l1",
+      "step": 25,
+      "split": "valid_unseen",
+      "successes": 51,
+      "tasks": 134,
+      "success_rate": 0.3805970149253731,
+      "training_response_tokens": 171.73841857910156
+    },
+    {
+      "arm": "l1",
+      "step": 50,
+      "split": "valid_seen",
+      "successes": 60,
+      "tasks": 140,
+      "success_rate": 0.42857142857142855,
+      "training_response_tokens": 166.6026153564453
+    },
+    {
+      "arm": "l1",
+      "step": 50,
+      "split": "valid_unseen",
+      "successes": 54,
+      "tasks": 134,
+      "success_rate": 0.40298507462686567,
+      "training_response_tokens": 166.6026153564453
+    },
+    {
+      "arm": "l1",
+      "step": 75,
+      "split": "valid_seen",
+      "successes": 64,
+      "tasks": 140,
+      "success_rate": 0.45714285714285713,
+      "training_response_tokens": 165.04937744140625
+    },
+    {
+      "arm": "l1",
+      "step": 75,
+      "split": "valid_unseen",
+      "successes": 55,
+      "tasks": 134,
+      "success_rate": 0.41044776119402987,
+      "training_response_tokens": 165.04937744140625
+    },
+    {
+      "arm": "l1",
+      "step": 100,
+      "split": "valid_seen",
+      "successes": 62,
+      "tasks": 140,
+      "success_rate": 0.44285714285714284,
+      "training_response_tokens": 164.78717041015625
+    },
+    {
+      "arm": "l1",
+      "step": 100,
+      "split": "valid_unseen",
+      "successes": 52,
+      "tasks": 134,
+      "success_rate": 0.3880597014925373,
+      "training_response_tokens": 164.78717041015625
+    },
+    {
+      "arm": "l1",
+      "step": 125,
+      "split": "valid_seen",
+      "successes": 61,
+      "tasks": 140,
+      "success_rate": 0.4357142857142857,
+      "training_response_tokens": 166.46353149414062
+    },
+    {
+      "arm": "l1",
+      "step": 125,
+      "split": "valid_unseen",
+      "successes": 59,
+      "tasks": 134,
+      "success_rate": 0.44029850746268656,
+      "training_response_tokens": 166.46353149414062
+    },
+    {
+      "arm": "l1",
+      "step": 150,
+      "split": "valid_seen",
+      "successes": 64,
+      "tasks": 140,
+      "success_rate": 0.45714285714285713,
+      "training_response_tokens": 166.817626953125
+    },
+    {
+      "arm": "l1",
+      "step": 150,
+      "split": "valid_unseen",
+      "successes": 59,
+      "tasks": 134,
+      "success_rate": 0.44029850746268656,
+      "training_response_tokens": 166.817626953125
+    },
+    {
+      "arm": "l3",
+      "step": 25,
+      "split": "valid_seen",
+      "successes": 59,
+      "tasks": 140,
+      "success_rate": 0.42142857142857143,
+      "training_response_tokens": 178.8112335205078
+    },
+    {
+      "arm": "l3",
+      "step": 25,
+      "split": "valid_unseen",
+      "successes": 49,
+      "tasks": 134,
+      "success_rate": 0.3656716417910448,
+      "training_response_tokens": 178.8112335205078
+    },
+    {
+      "arm": "l3",
+      "step": 50,
+      "split": "valid_seen",
+      "successes": 62,
+      "tasks": 140,
+      "success_rate": 0.44285714285714284,
+      "training_response_tokens": 169.67686462402344
+    },
+    {
+      "arm": "l3",
+      "step": 50,
+      "split": "valid_unseen",
+      "successes": 56,
+      "tasks": 134,
+      "success_rate": 0.417910447761194,
+      "training_response_tokens": 169.67686462402344
+    }
+  ],
+  "branch_rule": "L3 parent steps 1..50 plus resumed steps 51..58; parent steps 51..57 are archived but excluded from effective aggregates."
+}

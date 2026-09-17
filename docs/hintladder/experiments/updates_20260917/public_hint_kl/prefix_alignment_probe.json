@@ -1,0 +1,22 @@
+{
+  "base": {
+    "native_chunk_max_error": 0.0,
+    "isolated_prefix_max_logit_error": 0.5625,
+    "isolated_prefix_KL": 1.7414283043962307e-12,
+    "isolated_prefix_top1_agreement": true,
+    "same_shape_future_perturbation_max_error": 0.0,
+    "target_response_position": 3,
+    "prompt_length": 327,
+    "response_length": 89
+  },
+  "l3": {
+    "native_chunk_max_error": 0.0,
+    "isolated_prefix_max_logit_error": 0.0625,
+    "isolated_prefix_KL": 5.0015410473001503e-23,
+    "isolated_prefix_top1_agreement": true,
+    "same_shape_future_perturbation_max_error": 0.0,
+    "target_response_position": 3,
+    "prompt_length": 423,
+    "response_length": 89
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "paused",
+  "resume_step": 50,
+  "next_step_at_start": 51,
+  "container_name": "hintladder-l3-frozen-teacher-resume50-20260915",
+  "run_dir": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/resume50_20260915",
+  "metrics_path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/resume50_20260915/train/metrics.jsonl",
+  "training_log": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/resume50_20260915/training.log",
+  "wandb_url": "https://wandb.ai/2606478269-ustc/alfworld-l3-frozen-teacher/runs/l3-frozen-teacher-resume50-20260915",
+  "old_parent_metrics_are_historical_through_step": 57,
+  "created_at": "2026-09-15T03:13:16.147060+00:00",
+  "last_verified_completed_step": 58,
+  "last_verified_at": "2026-09-15T03:23:21.285395+00:00",
+  "pause_requested_at": "2026-09-15T04:06:20.563392+00:00",
+  "paused_at": "2026-09-15T04:08:04.573586+00:00",
+  "pause_record": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/resume50_20260915/PAUSED.json"
+}

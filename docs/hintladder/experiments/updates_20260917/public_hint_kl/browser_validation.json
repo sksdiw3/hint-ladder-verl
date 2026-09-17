@@ -1,0 +1,22 @@
+{
+  "tasks": 30,
+  "trajectories": 120,
+  "checked_turns": 360,
+  "turn_selection": "first, middle, final turn of every trajectory",
+  "raw_text_matches": true,
+  "sizes": [
+    {
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "width": 360,
+      "scroll": 360
+    }
+  ],
+  "page_errors": []
+}

@@ -1,10 +1,18 @@
 # Hint Ladder on verl
 
-研究多轮 agent 自蒸馏时，Teacher 应该获得多少额外信息。Student 使用干净观察完成任务；同一份当前模型权重作为 Teacher，在前向评分时接收 hint，监督 Student 实际生成的响应 token。支持原有任务级离线 bank，以及新增的逐 turn 在线 L1。
+研究多轮 agent 蒸馏时，Teacher 应该获得多少额外信息。Student 使用干净观察完成任务；Teacher 在评分时接收 hint，在 Student 实际生成的 prefix 下提供 next-token 监督。实验记录涵盖随 Student 更新的 Teacher、冻结 Base Teacher，以及不同 hint 的独立推理诊断；各自设置和证据见下方报告。
 
 这是 `sksdiw3/hint-ladder-verl` 的独立源码仓库。包含 Hint Ladder E1–E4 编排、所需原生 verl 代码和 agent 环境代码。当前 Hint Ladder 实现和验证范围是 **ALFWorld / Qwen3-4B**。保留了上游 WebShop 环境源码，但尚未实现或验证 WebShop 的 Hint Ladder privilege bank 与实验适配。
 
-## 当前实验与审查入口
+## 最新结果与 hint 分层（2026-09-17）
+
+- **[最新 OPD 结果总览](docs/hintladder/experiments/updates_20260917/README.md)**：冻结教师 L1 完成 155 步，step150 Seen / Unseen 为 **45.71% / 44.03%**；Oracle L3 恢复分支到 step58，最新完整评测 step50 为 **44.29% / 41.79%**。包含全部评测点、响应长度、分支来源、实际配置与原始指标。
+- **[当前 L1 / L2 / L3 分层与完整 prompts](docs/hintladder/hint_levels_20260917.md)**：方向、局部分析、明确动作建议，三层均无 Oracle；与历史训练的 Oracle L3 分开命名。拟议 L4 尚未实施。
+- **[30 题同 prefix KL 与独立推理对照](docs/hintladder/experiments/updates_20260917/public_hint_kl/REPORT.md)**：全部是原始 Base、无训练。reasoning 正文 KL(hint ‖ Base) 为 **0.649 / 1.106 / 0.971 nats/token**；L2 高于 L3 的题数为 27/30。附 **120 条完整轨迹**、992 个打分输入和可离线打开的浏览界面。
+
+旧 L1 训练的 GLM 输入未包含历史 observation 和动作空间；新 30 题诊断已对齐。历史完整 Base 使用 4096-token 响应预算，冻结教师训练评测使用 1024；报告明确保留这一比较限制。此次为已有实验归档，未启动新训练。
+
+## 历史实验与审查入口
 
 - **[完整实验报告（2026-09-12）](实验报告_20260912.md)**：在线无 oracle L1、仅监督 reasoning 正文、teacher top-32 + tail。全量计划223步，完成110步后暂停；step19开始大量空reasoning，42个记录步跳过optimizer。最后完整评测step100：**Seen 53/140=37.86%，Unseen 46/134=34.33%**；缺少同预算base，不能把历史成绩差直接解释成训练收益。
 - **[8局真实完整轨迹，293 turns](docs/hintladder/experiments/l1_reasoning_body_top32_20260911/report_20260912/真实轨迹.md)**：base同题有/无hint、训练中的正常/空/异常reasoning，逐turn包含原始prompt、hint、response、动作及来源。另附[110步指标](exports/key_error_traces_20260912/metrics.jsonl)、[全部105个prefix的两侧top-10](exports/turn7_prefix_top10_20260912/完整turn_逐prefix_top10.md)。所有OPD checkpoints与批量trace已按要求删除；精选证据已发布，训练保持暂停。

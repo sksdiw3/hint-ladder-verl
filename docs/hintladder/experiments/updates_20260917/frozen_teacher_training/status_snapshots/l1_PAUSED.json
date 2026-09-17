@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-13T02:53:31.925545+00:00",
+  "status": "paused_by_user",
+  "last_completed_step": 155,
+  "resume_checkpoint": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_frozen_base_teacher_top32_20260912/retained_checkpoints/global_step_150",
+  "preserved_weight_steps": [
+    50,
+    75,
+    100,
+    125,
+    150
+  ]
+}

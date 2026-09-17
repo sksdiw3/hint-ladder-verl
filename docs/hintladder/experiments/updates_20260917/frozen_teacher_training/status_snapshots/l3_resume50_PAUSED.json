@@ -1,0 +1,41 @@
+{
+  "status": "paused",
+  "verified_at": "2026-09-15T04:08:04.573586+00:00",
+  "container_name": "hintladder-l3-frozen-teacher-resume50-20260915",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 137,
+    "FinishedAt": "2026-09-15T04:07:17.372120822Z"
+  },
+  "remaining_training_processes": [],
+  "gpu_compute_processes": [],
+  "gpu_memory_and_utilization": [
+    "0, 1 MiB, 0 %",
+    "1, 1 MiB, 0 %",
+    "2, 1 MiB, 0 %",
+    "3, 1 MiB, 0 %",
+    "4, 1 MiB, 0 %",
+    "5, 1 MiB, 0 %",
+    "6, 1 MiB, 0 %",
+    "7, 1 MiB, 0 %"
+  ],
+  "last_completed_step": 58,
+  "interrupted_step": 59,
+  "retained_checkpoints": [
+    {
+      "step": 25,
+      "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/global_step_25",
+      "native_resume_complete": true
+    },
+    {
+      "step": 50,
+      "path": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/global_step_50",
+      "native_resume_complete": true
+    }
+  ],
+  "latest_resumable_checkpoint_step": 50,
+  "artifacts_preserved": true,
+  "docker_stop_note": "stop reported no exit event, but independent inspection confirmed exited, no original PIDs, and all GPUs released"
+}

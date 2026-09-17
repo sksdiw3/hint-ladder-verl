@@ -1,0 +1,5 @@
+# Preserve byte hashes of archived evidence and original source snapshots.
+* -text
+*.csv whitespace=cr-at-eol
+frozen_teacher_training/traces/l3_training_step_*.md -whitespace
+public_hint_kl/source_snapshot/runtime/** -whitespace

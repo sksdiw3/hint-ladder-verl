@@ -1,0 +1,20 @@
+{
+  "l1": {
+    "states": 992,
+    "mean_whitespace_words": 32.45665322580645,
+    "median_whitespace_words": 33.0,
+    "mean_added_prompt_tokens_including_note_and_advisory": 83.75907258064517
+  },
+  "l2": {
+    "states": 992,
+    "mean_whitespace_words": 142.02217741935485,
+    "median_whitespace_words": 140.0,
+    "mean_added_prompt_tokens_including_note_and_advisory": 221.00504032258064
+  },
+  "l3": {
+    "states": 992,
+    "mean_whitespace_words": 46.44959677419355,
+    "median_whitespace_words": 46.0,
+    "mean_added_prompt_tokens_including_note_and_advisory": 105.3195564516129
+  }
+}

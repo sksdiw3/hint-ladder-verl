@@ -1,0 +1,428 @@
+[
+  {
+    "published_path": "public_hint_kl/REPORT.md",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/REPORT.md",
+    "source_sha256": "b0e24881162799702f2ac1a33146ede355cf3763b89377ae8907a55fbdbb9bf7",
+    "encoding": "report links adapted for gzip; publication scope appended; results unchanged"
+  },
+  {
+    "published_path": "public_hint_kl/viewer.html",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/viewer.html",
+    "source_sha256": "eadacdebdf8d301ad221bfab1905b7e2b56f9d18761833dc079cbc384065847c",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/kl_summary.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/kl_summary.json",
+    "source_sha256": "e8cbbfa740baaf174b1d0b2060973e442ce4c7412f9aa3f5a7f518dee035eb1c",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/task_kl_metrics.csv",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/task_kl_metrics.csv",
+    "source_sha256": "e1649cff332427a8a30b7ecb02aa7232bc46288b3d12ebce4c6dbe50c3b49721",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/task_kl_metrics.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/task_kl_metrics.json",
+    "source_sha256": "0b7863e8877e43d7dd724c5c4ac5c2aec3996ff7624b1f71a8a8ba4d7746c7b9",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/paired_kl_differences.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/paired_kl_differences.json",
+    "source_sha256": "a5caae137cfe96b751b1ea31d3556028340d3e97673ba5aa763cc3ce081e7c30",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/rollout_summary.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/rollout_summary.json",
+    "source_sha256": "b6e8721125d3630b0096c9fc5e3652fd3faf42bb48dce5711c7f597431ae1b0a",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/hint_length_summary.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/hint_length_summary.json",
+    "source_sha256": "8abc77436fdbcc2292f0fb0da1f381ce83fb484c16d8b199ada3c8beea0e95c2",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/protocol.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/protocol.json",
+    "source_sha256": "25e743dbccd38d6ba10685603d14b2f235191e58737450fef113d832db2f7b00",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/provenance.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/provenance.json",
+    "source_sha256": "507d8e490dcb6067f1653c0f23055f5cf06adc08d354a9e3ae271647cec7b5a2",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/selection.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/selection.json",
+    "source_sha256": "a7529e348524cd590a7884cc58017076f1428bde9052a0394e6365a2bd688d4e",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/previous10_selection.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/previous10_selection.json",
+    "source_sha256": "64c5ac2b2e02bc655fdf08570e9b0bfd5851bbdb3740c02e96b79af097712bdb",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/validation.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/validation.json",
+    "source_sha256": "a76f80217cff71a2f7e438f7053c0ce1bbb9437a85380a8ca6cc68ce353e4ee0",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/browser_validation.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/browser_validation.json",
+    "source_sha256": "7054774522e9645d69291bd006c1b3bd78cc42483ba81d4a45d28b1010c1d1e4",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/prefix_alignment_probe.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/prefix_alignment_probe.json",
+    "source_sha256": "97323548ecc9176e515ae90b3f8ad39182863c4e75f653faf01f2635b1115514",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/prefix_hints_complete.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/prefix_hints_complete.json",
+    "source_sha256": "783241824662e4c28852e84961f2721deba14349c328179c9877418acd8a8913",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/execution.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/execution.json",
+    "source_sha256": "65bb0db016fc576ed15e74c5a4bb8aaecde8b38db75cb3bf97c2ef2b0e14d90d",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/package_validation.json",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/package_validation.json",
+    "source_sha256": "02f97155b75e7dcde3477a5f2e88bb967f2c0dd5828124ebacd472147746128a",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/kl_reasoning_paired.png",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/kl_reasoning_paired.png",
+    "source_sha256": "b93dd11b6bc6f039b9472b512a129d2d8750ac6cc26bb576823bef95a1444a53",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/kl_reasoning_paired.pdf",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/kl_reasoning_paired.pdf",
+    "source_sha256": "e88ce07f3fe07c0508fa2a91f2bca1cea7577362261f16cc2ae4ebbc9df67d14",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/kl_by_region.png",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/kl_by_region.png",
+    "source_sha256": "bc0b316149260d5b95edac1f41a3abf7df1594e5944e922912f1666ce3f35df3",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/l1_prompt.txt",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/l1_prompt.txt",
+    "source_sha256": "e5d4ba47d49b35644f378e122a47f8b74ddf431b95258331c772f6a3acd61a7c",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/l2_prompt.txt",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/l2_prompt.txt",
+    "source_sha256": "258f9f4286e247be10fdcf09b1271c499dcf8b3c3c87332b863120b54378571b",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/l3_prompt.txt",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/l3_prompt.txt",
+    "source_sha256": "2a0d852fcb27fd062d01dcfde8063b7daa636edb52c34439e7e445d1b544f54c",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/prompt_template.txt",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/prompt_template.txt",
+    "source_sha256": "4d35b898c874b388b7833f2c96447ffd36fa9d885c22ec935636690b0d763460",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/full_trajectories_30x4.jsonl.gz",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/full_trajectories_30x4.jsonl",
+    "source_sha256": "ab13fadb06885aaf7374b61576915c7aae3ef425342be1d6dde8e5954b9a3f24",
+    "encoding": "gzip (decompressed bytes equal source)"
+  },
+  {
+    "published_path": "public_hint_kl/turn_kl_metrics.jsonl.gz",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/turn_kl_metrics.jsonl",
+    "source_sha256": "c14754e40bf7b3467c43272bea47eabeb3027d91a707359603d93b79c9cdc271",
+    "encoding": "gzip (decompressed bytes equal source)"
+  },
+  {
+    "published_path": "public_hint_kl/scoring_inputs.jsonl.gz",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/scoring_inputs.jsonl",
+    "source_sha256": "dfa63b0ff5837fd5612c07521dac54d114e4eedb4cc10013c105e8f55ad47622",
+    "encoding": "gzip (decompressed bytes equal source)"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/score_worker.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/score_worker.py",
+    "source_sha256": "909c2d98f98a2ad4a5afc784a1af9e774b5e9b4ae65c6301d1681960554e8ed6",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/kl_math.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/kl_math.py",
+    "source_sha256": "d3f3d6d807f9361c979c2b9e230eed65a136916e234a58f19444f37884557352",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/test_kl_math.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/test_kl_math.py",
+    "source_sha256": "a26819d274aa05519ea04d51999d5a6745d41d28ac0e8d39b209e0b6b9b7c2b1",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/probe_prefix_alignment.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/probe_prefix_alignment.py",
+    "source_sha256": "8471b95670b808e08a6663e251acfe1b8f6ddf5b6c74133acc9c56cb623425f5",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/aggregate_results.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/aggregate_results.py",
+    "source_sha256": "1f675e74082c31d4db4dae7b5e0dc66bd87cbb977549ddd5fa53caf0fd7bca8e",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/hint_provider.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/hint_provider.py",
+    "source_sha256": "7d7203353622c4cba41894a26378c72c9af8ce00cda327e4e574537395884aca",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/rollout_worker.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/rollout_worker.py",
+    "source_sha256": "7afbc019f9cb65d23b78d59f9128c166efe6254a640af6341d7b67fd85ab75d9",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/prepare_prefix_hints.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/prepare_prefix_hints.py",
+    "source_sha256": "396115da11c85e2be515e0f7a502a336dafa209618f6cc46f58785ab1ca83879",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/common.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/common.py",
+    "source_sha256": "7876739be3a6b70008944bee99b6f3928a2d1719ce4d733eb8f259a86c5185d7",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/env_worker.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/env_worker.py",
+    "source_sha256": "1cc55cdf7a1ca2ad93de81806886bce919e6182e9f57455aaf257aeb177a928f",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/driver.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/driver.py",
+    "source_sha256": "944a4d25f53228b4ca368ad1a4259e347cd2473ed948704e711ec519685528e5",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/viewer_template.html",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/viewer_template.html",
+    "source_sha256": "d756cca8a5e5d68954ecea9f8f6ff25decaeaacc9b278bac4136e6d989d8515f",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/validate_viewer.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/validate_viewer.py",
+    "source_sha256": "e04b7d4f66648250831031df7e608a5a38017db7408a9008875af09506f1551d",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/runtime/agent_system/environments/env_package/alfworld/projection.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/source_snapshot/agent_system/environments/env_package/alfworld/projection.py",
+    "source_sha256": "ec89e005baf2a88b650f79262ead00557fe0fc17e4aee0199c4b947f1e0208f6",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/runtime/hintladder/api.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/source_snapshot/hintladder/api.py",
+    "source_sha256": "3a67981ae994a3b9cb8de1adad8a2e8adc15c893a76972983372714d55d6e02d",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/runtime/hintladder/response_format.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/source_snapshot/hintladder/response_format.py",
+    "source_sha256": "b5931c9cba6b59de69c03da1400fc9fa19f9bab58f1ff23ac7ca13eff7dfb297",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "public_hint_kl/source_snapshot/runtime/hintladder/teacher_prompt.py",
+    "source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_add20_kl_20260916/source_snapshot/hintladder/teacher_prompt.py",
+    "source_sha256": "6527aecda5bd2e7b9b5c6d0bc144e6ec2bdd02ed9568d4bdf53aa19febd73e2a",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/l1_metrics.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_frozen_base_teacher_top32_20260912/train/metrics.jsonl",
+    "source_sha256": "7c3d8f0b56d447e922fbc6588f141a30b2786b9abb7ffb1cc03d701f9d9b0a41",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/l1_frozen_teacher_audit.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_frozen_base_teacher_top32_20260912/train/frozen_teacher_audit.jsonl",
+    "source_sha256": "1fbbd8702508dda8ba781154e6d2b4aa50ad820ae70c850dc5829c8108d7eb05",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/status_snapshots/l1_PAUSED.json",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_frozen_base_teacher_top32_20260912/PAUSED.json",
+    "source_sha256": "da7cf4a32aeb43d9e3f25b136dfb9b7cfbf68731b4dc4ecd4bca753fc1622359",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/status_snapshots/l1_first_step_verified.json",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_frozen_base_teacher_top32_20260912/first_step_verified.json",
+    "source_sha256": "06eb2aefee430a44c0630def82933f63caba8fb650bd79e178f59a2bc1f7ef15",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/l3_parent_metrics.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/metrics.jsonl",
+    "source_sha256": "20f87139c4d6d472f093108f3615f224cdc2f103e6a9c81cc20a6511e777b588",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/l3_parent_frozen_teacher_audit.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/frozen_teacher_audit.jsonl",
+    "source_sha256": "ef5c942ce55b5495b1880f53d0e4f4affed5c34f01d196c3303a33ddb1b99fef",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/status_snapshots/l3_parent_ACTIVE_RUN.json",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/ACTIVE_RUN.json",
+    "source_sha256": "1b282bacb33752e0e9aefbe5eb4a902a1c211acdd8f5255fa926f88c3b753591",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/status_snapshots/l3_parent_first_step_verified.json",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/first_step_verified.json",
+    "source_sha256": "362dc006b50bedc675acf538490bb91bc96ae34aad79fa02423a1237a3dc264b",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/l3_resume50_metrics.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/resume50_20260915/train/metrics.jsonl",
+    "source_sha256": "8bfdfb4bd7547145d7e890da9cb6eef9744697be59a5cc48f46716f9292f838b",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/l3_resume50_frozen_teacher_audit.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/resume50_20260915/train/frozen_teacher_audit.jsonl",
+    "source_sha256": "2d6c57ca54868feb4b336293d57e7584af848a2877d1210d7eca791f735c4553",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/status_snapshots/l3_resume50_PAUSED.json",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/resume50_20260915/PAUSED.json",
+    "source_sha256": "a92977574c1bd4136b44cf2e4d27ef19adda83b8f4e547cdf2226550f1fce486",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/status_snapshots/l3_resume50_first_resumed_step_verified.json",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/resume50_20260915/first_resumed_step_verified.json",
+    "source_sha256": "ddcca3f513487feea627f3e8b6143d47ac60991164ccbd9c34f897ecf72fb3d3",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/config_snapshots/l1_frozen_base_teacher_top32_20260912/train_full.yaml",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/configs/experiments/l1_frozen_base_teacher_top32_20260912/train_full.yaml",
+    "source_sha256": "3771c5ece63b0bc19adf12eb0ed49099ad1326612b58ef560ba2a46288dbcda3",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/config_snapshots/l3_frozen_base_teacher_top32_20260914/train_full.yaml",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/configs/experiments/l3_frozen_base_teacher_top32_20260914/train_full.yaml",
+    "source_sha256": "afbeb677268bc5d67f9761b32e33c63ffd1e9a52f4796a920f56aaf696bd1203",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/l1_prompt.txt",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/configs/experiments/l1_online_full_20260910/l1_prompt.txt",
+    "source_sha256": "e5d4ba47d49b35644f378e122a47f8b74ddf431b95258331c772f6a3acd61a7c",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/l3_oracle_prompt.txt",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/configs/experiments/l3_frozen_base_teacher_top32_20260914/l3_prompt.txt",
+    "source_sha256": "730d70a9e496bfc36208879e427580b7c71330a07e9da1e139289df180bf147f",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/input_code_snapshots/l1_online_l1.py",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l1_frozen_base_teacher_top32_20260912/source_snapshot/hintladder/online_l1.py",
+    "source_sha256": "74ed85bd00db1b72dfd7d2f1e8214a7999c3bced15340824a73809b28253a8ca",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/input_code_snapshots/l3_online_l3.py",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/source_snapshot/hintladder/online_l3.py",
+    "source_sha256": "3d21363e33e4f833b7cbb04d7d63e8a9bbaae54824ee40c27e619a92ab9d9864",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/input_code_snapshots/l3_walkthrough_oracle.py",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/source_snapshot/hintladder/walkthrough_oracle.py",
+    "source_sha256": "7b88817322fcc0cf76b694eb9a92fa856fb065fbe29ade4671626f19052db4f7",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/traces/l3_training_step_000001.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/trajectory_samples/step_000001.jsonl",
+    "source_sha256": "3d9e2e25aed1cd835586b9d661c7d42a24fd3a06daa8a116183ef72d6e5e141b",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/traces/l3_training_step_000001.md",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/trajectory_samples/step_000001.md",
+    "source_sha256": "bb3f32aa0cefb2aba421a186c8c22bf1bb5738cef4e15d0d9c03e79c321b4d1a",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/traces/l3_training_step_000025.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/trajectory_samples/step_000025.jsonl",
+    "source_sha256": "b3e6d9268f85b04550710aa9c523ee8c731884ebbc5979e56327bf0f25b32d64",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/traces/l3_training_step_000025.md",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/trajectory_samples/step_000025.md",
+    "source_sha256": "b6582184054b6dfe5e5ddb1959bd48195317ee8784186c2a4ad6226e4b1909b6",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/traces/l3_training_step_000050.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/trajectory_samples/step_000050.jsonl",
+    "source_sha256": "9ca4eb830fa99755373973f06d3ea845760c8a6c97cfc5d142af44c10f210802",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/traces/l3_training_step_000050.md",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/runs/l3_frozen_base_teacher_top32_20260914/train/trajectory_samples/step_000050.md",
+    "source_sha256": "538f7d435f454d7ebcc0a958ede7e757d27a12bfdf65e2b9cdb2423950156f41",
+    "encoding": "byte-identical"
+  },
+  {
+    "published_path": "frozen_teacher_training/historical_moving_teacher_metrics.jsonl",
+    "source": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast/exports/key_error_traces_20260912/metrics.jsonl",
+    "source_sha256": "9ccab717940bedf44c7f650b843776b1190f366fde676a0cd9bb2ed5a6b75eb2",
+    "encoding": "byte-identical"
+  }
+]

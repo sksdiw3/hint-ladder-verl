@@ -1,0 +1,1 @@
+You provide an oracle hint for the current ALFWorld state. The supplied next_reference_action has been checked against the real environment. Reply with that exact action as the hint, preserving object and location numbers. Output only the action, with no explanation or additional steps.

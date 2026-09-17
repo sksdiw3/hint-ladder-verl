@@ -1,0 +1,22 @@
+extends:
+  - ../l1_frozen_base_teacher_top32_20260912/train_full.yaml
+algorithm.hint_ladder.level: L3
+algorithm.hint_ladder.sample_trajectories: 2
+algorithm.hint_ladder.online.prompt_path: configs/experiments/l3_frozen_base_teacher_top32_20260914/l3_prompt.txt
+algorithm.hint_ladder.online.oracle_workers: 32
+algorithm.hint_ladder.online.max_tokens: 1024
+algorithm.hint_ladder.online.persist_requests: false
+trainer.project_name: alfworld-l3-frozen-teacher
+trainer.test_freq: 25
+trainer.save_freq: 25
+trainer.save_first_step: false
+trainer.save_on_eval_only: true
+trainer.rollout_dump_freq: 25
+trainer.max_actor_ckpt_to_keep: null
+stage.output_dir: runs/l3_frozen_base_teacher_top32_20260914/train
+stage.processed_dir: runs/l3_frozen_base_teacher_top32_20260914/processed
+ray_init._temp_dir: /tmp/ray_l3_frozen_teacher
+ray_init.runtime_env.env_vars.WANDB_PROJECT: alfworld-l3-frozen-teacher
+ray_init.runtime_env.env_vars.WANDB_DIR: /workspace/hintladder/runs/l3_frozen_base_teacher_top32_20260914/wandb
+ray_init.runtime_env.env_vars.WANDB_RUN_ID: base-l3-frozen-teacher-top32-20260914
+ray_init.runtime_env.env_vars.WANDB_RESUME: allow

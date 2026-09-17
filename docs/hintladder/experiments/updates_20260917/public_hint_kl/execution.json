@@ -1,0 +1,23 @@
+{
+  "containers": {
+    "rollout": {
+      "Status": "exited",
+      "ExitCode": 0,
+      "StartedAt": "2026-09-16T06:12:07.728706529Z",
+      "FinishedAt": "2026-09-16T06:30:22.718623347Z"
+    },
+    "hints": {
+      "Status": "exited",
+      "ExitCode": 0,
+      "StartedAt": "2026-09-16T06:13:33.103615251Z",
+      "FinishedAt": "2026-09-16T06:20:31.806873216Z"
+    },
+    "score": {
+      "Status": "exited",
+      "ExitCode": 0,
+      "StartedAt": "2026-09-16T06:33:27.568516112Z",
+      "FinishedAt": "2026-09-16T06:34:22.169526399Z"
+    }
+  },
+  "gpu_after_completion": "0, 1 MiB, 0 %\n1, 1 MiB, 0 %\n2, 1 MiB, 0 %\n3, 1 MiB, 0 %\n4, 1 MiB, 0 %\n5, 1 MiB, 0 %\n6, 1 MiB, 0 %\n7, 1 MiB, 0 %\n"
+}

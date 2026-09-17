@@ -1,0 +1,24 @@
+{
+  "repo": "/mnt/disk4/zhangboyao/hint-ladder-verl-fast",
+  "git_head": "3fda027e3e87f3100c4c9b252b815c3fb4a108d3",
+  "model_directory": "/mnt/disk4/zhangboyao/models/modelscope/Qwen3-4B",
+  "model_metadata_hashes": {
+    "config.json": "8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a",
+    "model.safetensors.index.json": "6dc0981b8829fead746441f68f38f24c5ca4a3a66351f652c26c6df0efc43ab2",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+  },
+  "source_hashes": {
+    "hintladder/teacher_prompt.py": "6527aecda5bd2e7b9b5c6d0bc144e6ec2bdd02ed9568d4bdf53aa19febd73e2a",
+    "hintladder/response_format.py": "b5931c9cba6b59de69c03da1400fc9fa19f9bab58f1ff23ac7ca13eff7dfb297",
+    "hintladder/api.py": "3a67981ae994a3b9cb8de1adad8a2e8adc15c893a76972983372714d55d6e02d",
+    "agent_system/environments/env_package/alfworld/projection.py": "ec89e005baf2a88b650f79262ead00557fe0fc17e4aee0199c4b947f1e0208f6"
+  },
+  "previous10_sha256": "06ca4329c9da41c71a00048f801403c76c9e81190291fd554f1876f0b3fb43b1",
+  "full_vocab_kl_math_tests": {
+    "tests_passed": 3,
+    "command": "docker exec hintladder-l123-add20-hints-20260916 /opt/hintladder/bin/python /probe/test_kl_math.py",
+    "exit_code": 0
+  },
+  "training": false,
+  "oracle": false
+}

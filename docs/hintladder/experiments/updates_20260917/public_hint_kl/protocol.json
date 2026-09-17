@@ -1,0 +1,95 @@
+{
+  "arms": [
+    "base",
+    "base_l1",
+    "base_l2",
+    "base_l3"
+  ],
+  "episodes": 80,
+  "new_generation_episodes": 80,
+  "selection": "random.Random(20260916); 10 Seen + 10 Unseen from official full lists, excluding all previous 10 gamefiles; selected before outcomes.",
+  "selection_source": null,
+  "base_model": "/mnt/disk4/zhangboyao/models/modelscope/Qwen3-4B",
+  "checkpoint_step": 0,
+  "gpu_count": 8,
+  "env_max_steps": 50,
+  "generated_max_tokens": 1024,
+  "history_length": 2,
+  "enable_thinking": false,
+  "student_generation": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "seed": "42+sample_id*1000+turn_index"
+  },
+  "hint_model": "glm-5.3-flash",
+  "hint_generation": {
+    "temperature": 0.7,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "low",
+    "max_tokens": 1536,
+    "seed": "42+sample_id*1000+turn_index",
+    "max_attempts": 4
+  },
+  "hint_generation_scope": "Real-time at every reached state, independently within each arm.",
+  "hint_input": "Same public task, current observation, latest up to two observation/executed-action pairs and full admissible action space as Student.",
+  "levels": {
+    "L1": "Existing approved light directional prompt unchanged; flaws are not edited away.",
+    "L2": "Previously reviewed v3 partial analysis and hypotheses, no definite next action.",
+    "L3": "New definition: explicit next-action recommendation from public information, NO ORACLE. Historical oracle L3 is not this arm."
+  },
+  "oracle_supplied": false,
+  "training": false,
+  "cache": "No cross-run hint reuse; preserve every actual request and visible output.",
+  "format_error_policy": "Record malformed output; execute exactly the action produced by the existing matched_reasoning parser. No resampling or correction.",
+  "hint_error_policy": "Retry transport/incomplete responses up to four times with distinct seeds; record failures. Do not silently turn a hinted arm into a no-hint arm.",
+  "prompt_sha256": {
+    "prompt_template.txt": "4d35b898c874b388b7833f2c96447ffd36fa9d885c22ec935636690b0d763460",
+    "l1_prompt.txt": "e5d4ba47d49b35644f378e122a47f8b74ddf431b95258331c772f6a3acd61a7c",
+    "l2_prompt.txt": "258f9f4286e247be10fdcf09b1271c499dcf8b3c3c87332b863120b54378571b",
+    "l3_prompt.txt": "2a0d852fcb27fd062d01dcfde8063b7daa636edb52c34439e7e445d1b544f54c"
+  },
+  "selection_pool_counts_after_exclusion": {
+    "valid_seen": 135,
+    "valid_unseen": 129
+  },
+  "previous10_source": "/mnt/disk4/zhangboyao/alfworld-experiments/evaluations/base_l1_l2_l3_10_20260916",
+  "total_tasks_with_previous": 30,
+  "kl": {
+    "prefix_source": "All 30 no-hint Base independent trajectories: previous 10 plus additional 20; original sampled token IDs.",
+    "conditioned_models": [
+      "base",
+      "base_l1",
+      "base_l2",
+      "base_l3"
+    ],
+    "primary": "Full-vocabulary KL(q_hint || p_base), temperature=1.0, nats",
+    "secondary": [
+      "KL(p_base || q_hint)",
+      "Teacher Top32 plus aggregated remaining tail forward KL",
+      "T=0.6 before top-k/top-p filtering",
+      "Entropy/top1/Top32 overlap"
+    ],
+    "regions": [
+      "reasoning_body",
+      "reasoning_close_tag",
+      "action_body",
+      "tag_or_boundary",
+      "special",
+      "other",
+      "unclosed_reasoning_or_following_text"
+    ],
+    "weights": "Same original Qwen3-4B for all distributions, eval mode, no gradient updates.",
+    "aggregation": [
+      "token-weighted",
+      "equal task-weighted",
+      "equal turn-weighted"
+    ],
+    "hint_input": "Same task/state/recent two observation-action pairs/full action space as Base; no current sampled response/prefix or future observation supplied to GLM.",
+    "exact_state_hint_reuse": "May reuse an existing completed hint only if same level/system hash/public JSON/generation seed and API configuration; otherwise generate a new hint.",
+    "vocabulary": "All model output vocabulary entries; no top-k renormalization for primary KL."
+  },
+  "api_concurrency": "Up to 60 live rollout hints plus 64 prefix-hint requests = 124 total maximum."
+}
